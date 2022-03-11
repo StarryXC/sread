@@ -1,0 +1,700 @@
+```
+noun # n. 名词
+pronoun # pron. 代词
+verb # v. 动词
+adjective # adj. 形容词
+adverb # adv. 副词
+article # art. 冠词
+conjunction # conj. 连词
+preposition # prep. 介词
+numeral # num. 数词
+
+year # n
+month # n
+day # n adj
+hour
+minute
+
+week # n
+weekday # n
+weekend # n adj
+today # n adv
+
+Monday # n 星期几 周几
+Tuesday # n
+Wednesday # n
+Thursday # n
+Friday # n
+	Black Friday # 黑色星期五
+Saturday # n
+Sunday # n
+
+January # n
+February # n
+March # n
+April # n
+May # n
+June # n
+July # n
+August # n
+September # n
+October # n
+November # n
+December # n
+
+season # n
+Spring # n adj v
+Summer # n adj v
+Autumn # n adj v
+Winter # n adj v
+Fall # v n
+
+zoo # n
+Beijing Zoo
+park # n v
+theme park #
+Beihai Park
+
+the Great Wall
+the Summer Palace
+the Forbidden City
+Tiananmen Square
+Temple of Heaven
+
+city # n
+Beijing
+
+school # n
+hospital # n
+
+festival # n adj
+Spring Festival
+New Year
+	Happy New Year
+Christmas
+	Christmas tree
+Santa Claus
+
+traffic # 
+traffic lights
+bicycle
+taxi
+subway
+	the subway station
+bus
+	bus stop
+station
+van
+street
+
+animal # n adj
+rat
+ox
+dragon
+snake
+horse
+sheep
+rooster
+pig
+tiger
+rabbit
+monkey
+dog
+
+furniture
+sofa
+
+family
+grandpa
+grandma
+dad
+mom
+sister
+brother
+
+class
+classmate
+
+policeman
+doctor
+teacher
+engineer
+
+one # num pron adj n
+two # num n adj
+three # num n adj
+ten # num n adj
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+twenty-one
+twenty-two
+twenty-three
+twenty-four
+twenty-five
+twenty-six
+twenty-seven
+twenty-eight
+twenty-nine
+thirty
+forty
+fifty
+sixty
+hundred # n adj
+thousand # num pron
+
+fruit # n
+pineapple
+lemon
+watermelon
+kiwifruit
+potato
+tomato
+carrot
+cucumber
+eggplant
+green pepper
+
+weather # 
+sunny
+cloudy
+windy
+rainy
+snowy
+warm
+cool
+cold
+hot
+
+plus
+
+breakfast
+lunch
+supper
+
+state # n adj v
+country # n adj
+China # 
+America # 
+England # 
+Singapore # 
+Canada # 
+Britain
+
+
+
+fine
+nice
+
+the # definite article
+a # indefinite article
+an # indefinite article
+
+and # conj
+or # conj
+
+its # pron
+
+all # adj adv pron n
+
+copyright # n adj
+open # v adj n
+source # n v
+project # n v
+affiliate # v n
+	affiliates # n
+digital # n adj
+
+sports
+picnic
+sausage
+chocolate
+drawing
+painting
+singing
+reading
+dancing
+jogging
+exercising
+swimming
+roller skating
+skateboarding
+notebook
+exercise book
+shopping
+zoo
+the Great Wall
+giraffe 长颈鹿
+goose 鹅
+geese
+swan
+peacock 孔雀
+crane
+turkey
+teacups
+merry-go-round
+roller coaster
+```
+
+
+
+衣服
+
+# 身体
+
+鼻子
+
+# 服装
+
+```
+cap
+hat
+dress
+blouse
+jacket
+raincoat
+jeans
+trousers
+socks
+shoes
+big
+small
+long
+short
+tall
+fat
+thin
+new
+happy
+home
+bed
+bedroom
+computer
+living room
+armchair
+sofa
+TV
+kitchen
+table
+sandwich
+floor
+mug
+cup
+wall
+window
+picture
+clock
+get up
+brush your teeth
+wash your face
+breakfast
+maths class
+lunch
+French fries
+pizza
+dinner
+pork
+beef
+put away
+watch TV
+go to bed
+```
+
+
+
+# 称谓
+
+```
+friend friends
+boy
+girl
+student
+driver
+teacher
+farmer
+doctor
+nurse 护士
+postman
+class 3 grade 4 4年级3班
+
+
+music
+art
+PE
+subject
+science
+
+listen
+do
+sing
+play
+act 扮演
+```
+
+
+
+# 职位
+
+# 物
+
+orientation
+
+transform
+
+transition
+
+* big
+* fat
+* thin
+* pretty
+* ugly
+* tall
+* short
+* 
+* park
+* hill
+* lake
+* bridge
+* tree
+* grass
+* flower
+* bee
+* butterfly
+* bench
+* picture
+* beautiful
+* aunt
+* uncle
+* 
+* supermarket
+* book store
+* stop
+* go
+* Beijing Duck
+* Beijing Opera
+* Temple Fair
+* great
+* 
+* bell
+* present
+* card
+* Merry Christmas
+* stocking
+* 
+* dragon dance
+* paper cutting
+* lantern
+* 
+* Bill
+* Kim
+* Sandy
+* Chip
+* Pam
+* Chuck
+* Beth
+* Donny
+* Lily
+* Andy
+* Joy
+* Binbin
+* Yaoyao
+* Lucky
+* Angle
+* 
+* plant trees
+* swim
+* climb hills
+* make a snowman
+* snowman
+* fly a kite
+* kite
+* sleep
+* 
+* Xi'an
+* Harbin
+* Shenzhen
+* Shanghai
+* sunglasses
+* scarf
+* coat
+* cold
+* warm
+* hot
+* cool
+* raincoat
+* umbrella
+* jump
+* throw
+* catch
+* bounce
+* run
+* kick
+* walk
+* play pingpong
+* play football
+* jump rope
+* swing
+* jungle gym
+* seesaw
+* slide
+* get up
+* wash face
+* brush teeth
+* eat breakfast
+* go to school
+* watch TV
+* go home
+* go to bed
+* 
+* Chinese
+* music
+* math
+* art
+* English
+* PE
+* primary
+* flash
+* backpack
+* suitcase
+* computer
+* window
+* clock
+* a space shuttle
+* robot
+* telephone
+* scared
+* happy
+* hungry
+* tired
+* pencil pencils
+* pen pens
+* TV
+* sink
+* refrigerator
+* microwave
+* stove
+* desk
+* closet
+* chair
+* lamp
+* bookshelf
+* house
+* airport
+* slippers
+* socks
+* shoes
+* jeans
+* comic book
+* comic books
+* pencil case
+* pencil cases
+* jacket
+* sweatshirt
+* notebook
+* notebooks
+* ruler
+* rulers
+* crayon crayons
+* eraser erasers
+* hamburger
+* hot dog
+* sandwich
+* salad
+* strawberries
+* noodles
+* pancakes
+* French fries
+* salt
+* pepper
+* soy sauce
+* ketchup
+* donuts
+* hamster
+* lizards
+* turtle
+* kitten
+* kites
+* model cars
+* puzzles
+* puppets
+* toy store
+* bookstore
+* game center
+* pet shop
+* snakes
+* monkeys
+* frogs
+
+Virtual
+
+Mechine
+
+Runtime
+
+Environment
+
+
+
+```
+meida
+image
+video
+audio
+
+capture
+dark
+primary
+
+window
+door
+
+navigation
+
+cache
+memory
+
+
+空调
+型号
+类型
+匹数
+能效 等级 系数
+内机 外机 毛重 净重
+室内机 室外机 噪音
+功率 制冷 制热
+
+ehcache
+
+固态硬盘
+颗粒
+TLC MLC SLC
+
+porterduff
+tilemode
+clamp 拉伸
+repeat 重复
+mirror 镜像
+
+gson JsonReader
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
