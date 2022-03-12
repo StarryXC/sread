@@ -3,3 +3,15 @@
 变量定义 # let const
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

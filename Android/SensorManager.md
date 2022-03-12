@@ -5,3 +5,15 @@ SensorListener
 SensorEvent
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

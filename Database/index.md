@@ -6,6 +6,8 @@
 
 【[环境配置](MySQL 环境配置)】
 
+　　【[命令行](MySQL 命令行)】
+
 【[内置数据库](MySQL 内置数据库)】
 
 ### SQLServer
@@ -46,4 +48,4 @@
 
 ### Navicat
 
-【[]()】
+【[Navicat](Navicat)】

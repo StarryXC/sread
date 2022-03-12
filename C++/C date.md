@@ -1,0 +1,20 @@
+> Thinking
+
+```
+difftime() 两时刻的间隔
+strftime() 返回日期和时间的单个元素
+asctime() 时间文本格式
+clock() 返回自程序开始运行所经过的时间
+ctime() 返回特定格式时间
+mktime() 返回指定时间的日历格式
+time() 返回系统的当前日历时间
+localtime() 返回指向当前时间的指针
+gmtime() 返回指向当前格林威治时间的指针
+```
+
+> Memory
+
+```
+
+```
+

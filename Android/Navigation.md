@@ -16,3 +16,15 @@ Navigation
 'androidx.navigation:navigation-ui:2.3.5'
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

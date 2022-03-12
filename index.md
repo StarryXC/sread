@@ -2,9 +2,13 @@
 
 【[OC](OC/index)】【[iOS](iOS/index)】
 
+【[C#](CSharp/index)】
+
 【[Java](Java/index)】【[Android](Android/index)】
 
 【[Dart](Dart/index)】【[Flutter](Flutter/index)】
+
+【[Go](Go/index)】
 
 【[JavaScript](JavaScript/index)】
 
@@ -20,30 +24,16 @@
 
 【[数据库](Database/index)】
 
+【[操作系统](OS/index)】
+
 【[Subject](Subject/index)】
 
 
 
-【[C#](C#)】
+斗争要讲究策略讲究方式方法
 
-【[Go](Go)】
-
-【[Qt](Qt)】
+傻子太多 骗子不够用
 
 【[计算机](计算机)】
 
-【[操作系统](OS)】
-
 【[编程](编程)】
-
-【[Englishs](Englishs)】
-
-【[Chineses](Chineses)】
-
-【[大学](大学)】
-
-【[论语](论语)】
-
-【[New Concept English](New Concept English)】
-
-【[Experiencing English](Experiencing English)】

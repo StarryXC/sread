@@ -1,0 +1,13 @@
+> Thinking
+
+```
+Buffer
+Channel
+```
+
+> Memory
+
+```
+
+```
+

@@ -1,5 +1,13 @@
+> Thinking
+
 ```
 ConnectivityManager
 NetworkInfo
+```
+
+> Memory
+
+```
+
 ```
 

@@ -1,0 +1,12 @@
+> Thinking
+
+```
+vim <file>
+```
+
+> Memory
+
+```
+
+```
+

@@ -1,5 +1,13 @@
+> Thinking
+
 ```
 PowerManager
 WakeLock
+```
+
+> Memory
+
+```
+
 ```
 

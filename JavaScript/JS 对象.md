@@ -9,3 +9,15 @@ Math
 RegExp
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

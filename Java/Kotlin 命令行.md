@@ -1,0 +1,12 @@
+> Thinking
+
+```
+kotlinc
+```
+
+> Memory
+
+```
+
+```
+

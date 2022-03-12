@@ -1,5 +1,13 @@
+> Thinking
+
 ```
 Media Playback
+
+```
+
+> Memory
+
+```
 
 ```
 

@@ -2,3 +2,15 @@
 LocationManager
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

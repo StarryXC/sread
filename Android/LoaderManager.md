@@ -2,3 +2,15 @@
 LoaderManager
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

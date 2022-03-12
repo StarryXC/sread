@@ -2,3 +2,15 @@
 ViewModel
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

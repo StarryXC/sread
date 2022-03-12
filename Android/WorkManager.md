@@ -1,4 +1,12 @@
+> Thinking
+
 ```
 WorkManager
+```
+
+> Memory
+
+```
+
 ```
 

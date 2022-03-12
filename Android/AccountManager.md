@@ -1,7 +1,11 @@
+> Thinking
+
 ```
 AccountManager
 Account
 ```
+
+> Memory
 
 ```
 

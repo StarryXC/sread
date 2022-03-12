@@ -1,5 +1,13 @@
+> Thinking
+
 ```
 SmsManager
 SmsMessage
+```
+
+> Memory
+
+```
+
 ```
 

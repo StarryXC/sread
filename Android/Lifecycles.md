@@ -1,7 +1,53 @@
+> Thinking
+
 ```
-Lifecycles
-    
+LifecycleOwner # getLifecycle
+Lifecycle
+	addObserver removeObserver # LifecycleObserver
+	getCurrentState # Lifecycle.State
+Lifecycle.State
+	isAtLeast
+	INITIALIZED
+	CREATED
+	STARTED
+	RESUMED
+	DESTROYED
+Lifecycle.Event #
+	ON_ANY
+	ON_CREATE ON_DESTROY
+	ON_START ON_STOP
+	ON_RESUME ON_PAUSE
+LifecycleObserver
+	LifecycleEventObserver # onStateChanged
+	FullLifecycleObserver
+		onCreate onDestroy
+		onStart onStop
+		onResume onPause
+
+ComponentActivity
+	mLifecycleRegistry
+ReportFragment
+
+SafeIterableMap<K, V>
+SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>>
+
+-Entry<K, V> mStart
+-Entry<K, V> mEnd
+-WeakHashMap<SupportRemove<K, V>, Boolean> mIterators
+
+ListIterator<K, V> implements Iterator<Map.Entry<K, V>>, SupportRemove<K, V>
+Entry<K, V> mExpectedEnd
+Entry<K, V> mNext
+
+AscendingIterator<K, V> extends ListIterator<K, V>
+DescendingIterator<K, V> extends ListIterator<K, V>
+IteratorWithAdditions implements Iterator<Map.Entry<K, V>>, SupportRemove<K, V>
+
+SupportRemove<K, V>
+Entry<K, V> implements Map.Entry<K, V>
 ```
+
+> Memory
 
 ```
 androidx.lifecycle:lifecycle-common:2.2.0

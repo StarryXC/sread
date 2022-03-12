@@ -7,3 +7,15 @@ Navigator
 console
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

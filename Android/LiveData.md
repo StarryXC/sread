@@ -2,3 +2,15 @@
 LiveData
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

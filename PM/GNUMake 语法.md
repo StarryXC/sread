@@ -2,3 +2,15 @@
 target
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

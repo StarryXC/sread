@@ -1,3 +1,5 @@
+> Thinking
+
 ```
 DataBinding
     DataBindingUtil
@@ -7,6 +9,8 @@ DataBinding
 
 @Bindable
 ```
+
+> Memory
 
 ```
 ViewDataBinding

@@ -3,3 +3,15 @@ RenderScript
 Allocation
 ```
 
+> Thinking
+
+```
+
+```
+
+> Memory
+
+```
+
+```
+

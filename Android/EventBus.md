@@ -1,0 +1,19 @@
+> Thinking
+
+```
+EventBus
+
+```
+
+> Memory
+
+```
+https://github.com/greenrobot/EventBus | eventbus
+EventBus # default register post
+Subscribe # threadMode priority
+
+LiveEventBus.get(Event.BIBI_REFRESH)
+        .observe(this, androidx.lifecycle.Observer { refresh() })
+    LiveEventBus.get(Event.BIBI_REFRESH).post(1)
+```
+
