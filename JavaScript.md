@@ -44,27 +44,16 @@ Yarn # yarn
             install
             cache # ls clean
             config # set registry https://registry.npm.taobao.org --global //yarn是Facebook公司替代npm的工具 这里是设置国内的的镜像源。  disturl https://npm.taobao.org/dist --global
-Babel # babel
-    命令行
-        babel
-Roadhog # roadhog
-    命令行
-        roadhog
-Webpack # webpack
-    命令行
-        webpack
-Less # less
-    命令行
-        less
+            
 ```
 
 # Vue
 
 ```
-环境搭建
+
     命令行
         vue
-Nuxt
+
 ```
 
 Vue 指令
@@ -112,14 +101,6 @@ React Native
         	run-android
         	upgrade
         	start # --reset-cache 清楚缓存
-PropTypes
-Axios
-Flux
-Redux
-Next
-Umi
-DvaJS
-AntD
 ```
 
 # PropTypes
@@ -168,7 +149,7 @@ Argular 2
 
 ```
 Cordova
-    环境搭建
+    
         命令行
             cordova # -v
                 create # 创建项目
@@ -181,7 +162,4 @@ PhoneGap
                 create # 创建项目
                 serve
                 run # android 运行项目
-Week
-    环境搭建
-        命令行
 ```
