@@ -113,32 +113,6 @@ import pandas 检查是否安装成功
 conda list 查看所有工具包
 ```
 
-```
-
-```
-
-
-
-```
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Env
@@ -316,14 +290,4 @@ __cmp__ 对象比较
 
 
 ## 接口
-
-# Django
-
-# Flask
-
-# Scrapy
-
-# NumPy
-
-# PyTorch
 

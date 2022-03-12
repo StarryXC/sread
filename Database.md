@@ -1,8 +1,6 @@
 # 数据库
 
-# SQL
 
-## SQL 优化
 
 # MySQL
 
@@ -136,34 +134,6 @@ grant all on * to 'admin'@'%' with grant option;
 alter user 'admin'@'%' identified with mysql_native_password by '456';
 
 ```
-
-
-
-# SQLServer
-
-# Oracle
-
-```
-sqlplusw
-```
-
-
-
-# SQLite
-
-# Access
-
-# NoSQL
-
-# Redis
-
-# Memcached
-
-# MongoDB
-
-# DbClient
-
-# SQLyog
 
 # Navicat
 
