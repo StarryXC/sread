@@ -13,61 +13,6 @@
         数组
         对象
         函数
-JS 对象
-    Number
-    String
-    Boolean
-    Array
-    Object
-    Date
-    Math
-    RegExp
-BOM 对象
-    Window
-    Screen
-    Location
-    History
-    Navigator
-    console
-```
-
-# ECMAScript
-
-```
-语法
-    基础语法
-        注释
-        变量定义 # let const
-```
-
-# TypeScript
-
-```
-语法
-    基础语法
-        注释
-        变量定义 # var <name>:<type>
-            数据类型 # number string
-        运算符
-        流程控制
-```
-
-# jQuery
-
-```
-
-```
-
-# Ionic
-
-```
-
-```
-
-# TelerikUI
-
-```
-
 ```
 
 # Node
