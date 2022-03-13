@@ -26,10 +26,8 @@
 
 【[操作系统](OS/index)】
 
-【[Subject](Subject/index)】
-
 【[编程](Programming/index)】
 
-斗争要讲究策略讲究方式方法
+【[Subject](Subject/index)】
 
-傻子太多 骗子不够用
+【[阅读](Read/index)】
