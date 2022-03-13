@@ -46,3 +46,44 @@
 
 【[日语](日语)】
 
+【[计算机]()】
+
+　　【[计算机结构](计算机结构)】
+
+　　【[数字电子](数字电子)】
+
+　　【[网络](网络)】
+
+　　　　【[网络 Tools](网络 Tools)】
+
+【[Office]()】
+
+　　【[Word](Word)】
+
+　　【[Excel](Excel)】
+
+　　【[PowerPoint](PowerPoint)】
+
+　　【[Visio](Visio)】
+
+　　【[Access](Access)】
+
+【[Adobe](Adobe)】
+
+　　【[PhotoShop](PhotoShop)】
+
+　　【[Illustrator](Illustrator)】
+
+　　【[Premiere](Premiere)】
+
+　　【[After Effects](After Effects)】
+
+　　【[Audition](Audition)】
+
+　　【[Dreamweaver](Dreamweaver)】
+
+　　【[Flash](Flash)】
+
+【[Maya](Maya)】
+
+　　【[3dMax](3dMax)】

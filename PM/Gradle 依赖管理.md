@@ -10,6 +10,8 @@
 	google() # https://maven.aliyun.com/repository/google
 	jcenter() # https://maven.aliyun.com/repository/jcenter
 	mavenCentral()
+	mavenLocal()
+	maven { url 'https://maven.aliyun.com/repository/public' }
 
 :dependencies
 	implementation compile

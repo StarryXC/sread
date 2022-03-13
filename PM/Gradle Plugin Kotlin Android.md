@@ -13,7 +13,7 @@ org.jetbrains.kotlin
 	kotlin-stdlib-jdk7 kotlin-stdlib-jdk8
 androidx.core:core-ktx:1.2.0
 
-
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 androidx.core:core-ktx:1.0.2

@@ -1,11 +1,7 @@
-```
-LiveData
-```
-
 > Thinking
 
 ```
-
+LiveData
 ```
 
 > Memory

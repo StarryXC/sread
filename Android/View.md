@@ -9,5 +9,6 @@ View
 ```
 View
 	<findView>
+mView.iv_close.setOnClickListener { dismiss() }
 ```
 

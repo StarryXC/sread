@@ -8,7 +8,7 @@ EventBus
 > Memory
 
 ```
-https://github.com/greenrobot/EventBus | eventbus
+https://github.com/greenrobot/EventBus
 EventBus # default register post
 Subscribe # threadMode priority
 

@@ -14,5 +14,9 @@
 
 ```
 变量定义 def
+def
+
+fileText = (fileText =~ /${regex}/).replaceAll("<string name=\"${name}\">${value}</string>")
+
 ```
 

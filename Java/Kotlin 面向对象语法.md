@@ -19,7 +19,7 @@
 @Retention(AnnotationRetention.SOURCE)
 annotation class <AnnotationName>
 
-
+data class Order
 
 
 

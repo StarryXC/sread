@@ -16,6 +16,6 @@ java
 > Memory
 
 ```
-
+apply plugin: 'java'
 ```
 

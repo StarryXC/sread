@@ -25,6 +25,9 @@ string.toDouble()
 .isNullOrEmpty()
 .isEmpty()
 
+字符串
+字串传模板： "${path}"
+
 数组
 listOf
 

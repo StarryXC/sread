@@ -1,11 +1,7 @@
-```
-LocationManager
-```
-
 > Thinking
 
 ```
-
+LocationManager
 ```
 
 > Memory
