@@ -22,6 +22,20 @@ androidx.core:core-ktx:1.0.2
 > Memory
 
 ```
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
 
+android {
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'me.xx2bab.gradle:seal-manifest-precheck-plugin:1.1.0'
 ```
 

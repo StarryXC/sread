@@ -21,5 +21,12 @@ android.arch.persistence.room:migration:
 android.arch.persistence.room:runtime:
 android.arch.persistence.room:rxjava2:
 android.arch.persistence.room:testing:
+kapt 'androidx.room:room-compiler:2.2.1'
+
+
+
+
+
+
 ```
 

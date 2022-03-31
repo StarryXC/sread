@@ -2,12 +2,29 @@
 
 ```
 ARouter
+
+源码解析
+    初始化流程
+    navigation 流程
 ```
 
 > Memory
 
 ```
 https://github.com/alibaba/ARouter
+
+android {
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+}
+implementation 'com.alibaba:arouter-api:1.5.2'
+annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
+
 api compiler | AROUTER_MODULE_NAME javaCompile annotationProcessor arguments kapt arguments arg
 
 ARouter # init inject | build withString navigation

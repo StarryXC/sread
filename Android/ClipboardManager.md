@@ -1,20 +1,18 @@
 > Thinking
 
 ```
-ClipboardManager clipboard = getManager(context);
-    ClipData clip = clipboard.getPrimaryClip();
-    return hasText(context) ? clip.getItemAt(0).coerceToText(context) : null;
-    
-    getManager(context).setPrimaryClip(ClipData.newPlainText(null, text));
-
-    ClipboardManager clipboard = getManager(context);
-    ClipData clip = clipboard.getPrimaryClip();
-    return clip != null && clip.getItemCount() > 0;
+ClipboardManager
+ClipData
 ```
 
 > Memory
 
 ```
-ClipData
+ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+ClipData clipData = clipboardManager.getPrimaryClip(); clipboardManager.setPrimaryClip(ClipData.newPlainText("", ""));
+clipData.getItemCount();
+ClipData.Item item = clipData.getItemAt(0);
+item.coerceToHtmlText(context);
+item.coerceToStyledText(context);
 ```
 

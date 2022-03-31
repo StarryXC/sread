@@ -1,42 +1,45 @@
 > Thinking
 
 ```
+WifiManager
 WifiConfiguration
-wifiManager.isWifiEnabled()
-wifiManager.removeNetwork(foundNetworkID);
-      wifiManager.saveConfiguration();
-wifiManager.addNetwork(config);
-wifiManager.enableNetwork(networkId
-wifiManager.saveConfiguration();
+WifiInfo
 ```
 
 > Memory
 
 ```
-WifiManager wifiManager = (WifiManager) context
-				.getSystemService(context.WIFI_SERVICE);
-		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-		int ipAddress = wifiInfo.getIpAddress();
-		String ip = String.format("%d.%d.%d.%d", (ipAddress & 0xff),
-				(ipAddress >> 8 & 0xff), (ipAddress >> 16 & 0xff),
-				(ipAddress >> 24 & 0xff));
-		return ip;
+WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+wifiManager.setWifiEnabled(true); // 禁用启动网卡
+wifiManager.removeNetwork(1);
+WifiConfiguration wifiConfiguration = new WifiConfiguration();
+int network = wifiManager.addNetwork(wifiConfiguration);
+wifiManager.enableNetwork(1, true);
+wifiManager.saveConfiguration();
+
+switch (wifiManager.getWifiState()) { // 网卡状态
+    case WifiManager.WIFI_STATE_DISABLED:
+        break;
+}
+
+WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+int ipAddress = wifiInfo.getIpAddress();
+String ip = String.format("%d.%d.%d.%d",
+        (ipAddress & 0xff),
+        (ipAddress >> 8 & 0xff),
+        (ipAddress >> 16 & 0xff),
+        (ipAddress >> 24 & 0xff));
 
 Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
-while (en.hasMoreElements())
-{
-	NetworkInterface nif = en.nextElement();//
-	Enumeration<InetAddress> inet = nif.getInetAddresses();
-	while (inet.hasMoreElements())
-	{
-		InetAddress ip = inet.nextElement();
-		if (!ip.isLoopbackAddress()
-				&& InetAddressUtils.isIPv4Address(ip
-				.getHostAddress()))
-		{
-			return ipaddress = ip.getHostAddress();
-		}
-	}
-}	
+while (en.hasMoreElements()) {
+    NetworkInterface networkInterface = en.nextElement();
+    Enumeration<InetAddress> inetAddressEnumeration = networkInterface.getInetAddresses();
+    while (inetAddressEnumeration.hasMoreElements()) {
+        InetAddress ip = inetAddressEnumeration.nextElement();
+        if (!ip.isLoopbackAddress() && InetAddressUtils.isIPv4Address(ip.getHostAddress())) {
+            String hostAddress = ip.getHostAddress();
+        }
+    }
+}
 ```
 

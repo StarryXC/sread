@@ -1,11 +1,7 @@
-```
-LoaderManager
-```
-
 > Thinking
 
 ```
-
+LoaderManager
 ```
 
 > Memory

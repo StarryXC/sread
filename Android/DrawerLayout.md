@@ -9,6 +9,8 @@ DrawerLayout.DrawerListener # SimpleDrawerListener
 	onDrawerOpened
 	onDrawerClosed
 	onDrawerStateChanged
+
+left_drawerLayout.closeDrawer(GravityCompat.START)
 ```
 
 > Memory

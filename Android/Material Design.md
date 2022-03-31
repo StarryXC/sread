@@ -15,6 +15,7 @@ BottomNavigationView
 > Memory
 
 ```
+implementation 'com.google.android.material:material:1.3.0'
 com.google.android.material:material:1.1.0
 com.android.support:design:28.0.0
 androidx.coordinatorlayout:coordinatorlayout:1.1.0

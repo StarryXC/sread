@@ -7,6 +7,8 @@
 > Memory
 
 ```
+implementation 'androidx.core:core-ktx:1.0.2'
+
 val mSharedPreferences = context.getSharedPreferences("", Context.MODE_PRIVATE)
         mSharedPreferences.edit() {
             putBoolean("boo",false)

@@ -9,21 +9,22 @@ TabHost
 > Memory
 
 ```
-SurfaceView
-	<holder>
-	getHolder
-	
-	setFixedSize
-	addCallback # SurfaceHolder.Callback surfaceChanged surfaceDestroyed
+SurfaceHolder surfaceHolder = surfaceView.getHolder();
+surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+surfaceHolder.setFixedSize(100, 100);
+surfaceHolder.addCallback(new SurfaceHolder.Callback() {
+    @Override
+    public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) { }
+    @Override
+    public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i1, int i2) { }
+    @Override
+    public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) { }
+});
+surfaceHolder.setKeepScreenOn(true);
+Canvas canvas = surfaceHolder.lockCanvas();
+canvas = surfaceHolder.lockHardwareCanvas();
+surfaceHolder.unlockCanvasAndPost(canvas);
 
-SurfaceHolder
-	<callback>
-	setType # SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS
-	setKeepScreenOn
-	lockCanvas
-	unlockCanva
-
-TabHost
 FrameLayout tabContentView = tabHost.getTabContentView();
 LayoutInflater.from(tabActivity).inflate(R.layout.activity_main, tabContentView, true);
 TabHost.TabSpec tabSpec = tabHost.newTabSpec("tag")

@@ -9,6 +9,9 @@ EventBus
 
 ```
 https://github.com/greenrobot/EventBus
+
+implementation 'org.greenrobot:eventbus:3.3.1'
+
 EventBus # default register post
 Subscribe # threadMode priority
 

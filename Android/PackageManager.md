@@ -19,6 +19,25 @@ PackageItemInfo
 > Memory
 
 ```
+String packageName = context.getPackageName();
+PackageManager packageManager = context.getPackageManager();
+List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
+packageInfos.get(0).packageName;
+packageInfos.get(0).versionName;
+packageInfos.get(0).versionCode;
+
+// 未安装apk
+PackageInfo packageInfo = packageManager.getPackageArchiveInfo("", PackageManager.GET_META_DATA);
+
+FeatureInfo[] featureInfos = packageManager.getSystemAvailableFeatures();
+switch (featureInfos[0].name) {
+    case PackageManager.FEATURE_CAMERA_FLASH:
+}
+
+List<ResolveInfo> resInfoList = packageManager.queryIntentActivities(new Intent(), PackageManager.MATCH_DEFAULT_ONLY);
+String packageName = resInfoList.get(0).activityInfo.packageName;
+int gids[] = packageManager.getPackageGids("");
+
 PackageManager
 	PERMISSION_GRANTED
 
@@ -38,7 +57,7 @@ android.permission.INTERNET 访问网络
 android.permission.CAMERA # 访问相机
 android.permission.ACCESS_FINE_LOCATION # GPS定位 网络定位
 android.permission.ACCESS_COARSE_LOCATION # 网络定位 信号接收塔 WiFi接入点
-
+@android:style/Theme.Translucent.NoTitleBar.Fullscreen
 
 android.permission.ACCESS_WIFI_STATE 访问wifi网络信息，可用于网络定位
 android.permission.ACCESS_NETWORK_STATE 获取运营商信息
@@ -86,7 +105,12 @@ RECORD_AUDIO
 READ_EXTERNAL_STORAGE WRITE_EXTERNAL_STORAGE
 CAMERA
 RECORD_AUDIO
-
+<supports-screens
+    android:anyDensity="true"
+    android:largeScreens="true"
+    android:normalScreens="true"
+    android:resizeable="true"
+    android:smallScreens="true" />
 AndroidManifest.xml
 <application>
     android:usesCleartextTraffic="true" android 9.0 强制使用https的问题
@@ -107,7 +131,7 @@ file_paths
 <external-path>
 	path # . 目录
 	name # external_storage_root
-
+@android:style/Theme.Light.NoTitleBar.Fullscreen
 <intent-filter>
     <action android:name="android.intent.action.VIEW" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -123,6 +147,16 @@ android.hardware.camera.autofocus
 android.hardware.camera.front
 android.hardware.camera.front.autofocus
 
+<uses-feature
+    android:name="android.hardware.camera"
+    android:required="true"/>
+<uses-feature
+    android:name="android.hardware.camera.autofocus"
+    android:required="true"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 Categorys
 Intent.CATEGORY_LAUNCHER android.intent.category.LAUNCHER
 android.intent.category.DEFAULT

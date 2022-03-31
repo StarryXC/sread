@@ -13,7 +13,9 @@ xposedminversion 54
 > Memory
 
 ```
-Xposed # compileOnly api 53:sources 82 | assets/xposed_init
+// 53 82 | assets/xposed_init
+compileOnly 'de.robv.android.xposed:api:82'
+compileOnly 'de.robv.android.xposed:api:82:sources'
 
 IXposedHookLoadPackage # handleLoadPackage
 XC_LoadPackage.LoadPackageParam classLoader

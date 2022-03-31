@@ -1,40 +1,68 @@
 > Thinking
 
 ```
-:maven # gradle upload 执行方式 gradlew uploadArchives
+gradlew uploadArchives
+```
 
-uploadArchives
-	repositories.mavenDeployer
-		repository(url: uri('E:/env/repo')) # 配置本地仓库路径，项目根目录下的repository目录中
-			# repository(url: uri('libs'))
-			# repository(url: uri("${rootProject.projectDir}/"))
-			# repository(url:  'maven.repo.local' )
-		pom.groupId = "yes.ican.logmap-android" # 唯一标识（通常为模块包名，也可以任意）
-        pom.artifactId = "LogMap" # 项目名称（通常为类库模块名称，也可以任意）
-        pom.version = "1.0.0" # 版本号
-        pom.packaging = "aar" # 
-        pom.project {
-			name  'viewlibrary'
-			groupId  'secondriver'
-			artifactId  'viewlibrary'
-			version  '1.2.0'
-			packaging  'aar'
+> Memory
 
-			licenses {
-				license {
-					name  'The Apache Software License, Version 2.0'
-					url  'http://www.apache.org/licenses/LICENSE-2.0.txt'
-					distribution  'repo'
-				}
-			}
-
-			developers {
-				developer {
-					id  'secondriver'
-					name  'secondriver'
-				}
-			}
-		}
+```
+plugins {
+    id 'java'
+    id 'maven'
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+// 会将源码上传到私服
+task sourceJar (type:Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+artifacts {
+    archives sourceJar
+}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom {
+                groupId = "yes.ican.logmap-android" // 唯一标识（通常为模块包名，也可以任意）
+                artifactId = "LogMap" // 项目名称（通常为类库模块名称，也可以任意）
+                version = "1.0.0" // 版本号
+                packaging = "aar"
+                project {
+                    name  'viewlibrary'
+                    groupId  'secondriver'
+                    artifactId  'viewlibrary'
+                    version  '1.2.0'
+                    packaging  'aar'
+                    licenses {
+                        license {
+                            name  'The Apache Software License, Version 2.0'
+                            url  'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            distribution  'repo'
+                        }
+                    }
+                    developers {
+                        developer {
+                            id  'secondriver'
+                            name  'secondriver'
+                        }
+                    }
+                }
+            }
+            // url:  'maven.repo.local'
+            //
+            repository(url: uri('libs')) { // 配置本地仓库路径
+                authentication(userName: '账号', password: '密码')
+            }
+            snapshotRepository(url: uri('libs')) { // 私服快照地址
+                authentication(userName: '账号', password: '密码')
+            }
+        }
+    }
+}
 
 task uploadLocal(type: Upload) {
     // 需要把config设置成project的，要不然会报错
@@ -48,13 +76,6 @@ task uploadLocal(type: Upload) {
         }
     }
 }
-
-uploadArchives.dependsOn uploadLocal # 
-```
-
-> Memory
-
-```
-
+uploadArchives.dependsOn uploadLocal
 ```
 

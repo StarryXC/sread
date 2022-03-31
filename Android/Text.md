@@ -1,36 +1,54 @@
 > Thinking
 
 ```
-SpannableString spannableString = new SpannableString("");
-ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(0x111111);
-spannableString.setSpan(foregroundColorSpan, 1, 20, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);;
-
-SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-spannableStringBuilder.append("append");
-
-Editable
-    append insert delete replace clear
-    clearSpans
-	getFilters setFilters
-
 Layout
+    StaticLayout
+    DynamicLayout
+    BoringLayout
 
-Html.fromHtml(title)
+CharSequence
+    Spanned
+        Spannable
+            SpannableString
+            SpannableStringBuilder
+    Editable
+    GetChars
+Appendable
+
+CharacterStyle
+    ForegroundColorSpan
+    ClickableSpan
+        URLSpan
+    MetricAffectingSpan
+        StyleSpan
+
+Html
 ```
 
 > Memory
 
 ```
-StaticLayout # new StaticLayout(text, new TextView(getContext()).getPaint(), boundedWidth , Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-	getHeight
-	getLineCount
-	getLineWidth
-	getDesiredWidth
+Layout layout = new StaticLayout("", new TextView(context).getPaint(), 100 , Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+layout.getWidth(); layout.getHeight();
+layout.getPaint();
+layout.getLineCount();
+layout.getLineWidth(1);
 
-Spannable styled = new SpannableString(contents.toString());
-      styled.setSpan(new StyleSpan(Typeface.BOLD), 0, namesLength, 0);
-Spannable content = new SpannableString(newText + "\n\n");
-content.setSpan(new URLSpan(linkURL), linkStart, linkEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+Spannable spannable = new SpannableString();
+ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(0x111111);
+spannable.setSpan(foregroundColorSpan, 1, 20, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
 
+new ForegroundColorSpan(Color.BLUE)
+new StyleSpan(Typeface.BOLD)
+
+Editable editable = new SpannableStringBuilder();
+editable.insert(1, "");
+editable.delete(1, 12);
+editable.append("");
+editable.clearSpans();
+editable.replace(1, 1, "");
+editable.getFilters(); editable.setFilters(new InputFilter[1]);
+
+Html.fromHtml("", Html.FROM_HTML_MODE_COMPACT);
 ```
 

@@ -51,7 +51,7 @@ BaseInterpolator
 <scale> # singleable
 	android:fromXScale android:toXScale # 0.9 1
 	android:fromYScale android:toYScale
-	android:pivotX android:pivotY # 50%
+	android:pivotX android:pivotY # 50 绝对定位 50% 相对位置本身 50%p 相对位置父空间
 	android:duration
 <rotate> # singleable
 	android:fromDegrees android:toDegrees # 45~90
@@ -90,5 +90,19 @@ ViewPropertyAnimator # view.animate()
 	translationX # translationX 是相对自己
 	setDuration
 	start
+
+Animation animation = new AnimationSet(true);
+animation.getDuration(); animation.setDuration(1); // 动画持续时间
+animation.getFillAfter(); animation.setFillAfter(true); // 动画执行完成保持执行完成状态
+animation.getFillBefore(); animation.setFillBefore(true); // 动画执行完成保持执行之前状态
+animation.getStartOffset(); animation.setStartOffset(1); // 动画执行延迟时间
+animation.getRepeatCount(); animation.setRepeatCount(1); // 动画重复执行次数
+
+ScaleAnimation scaleAnimation = new ScaleAnimation(1, 1, 1, 1);
+
+LayoutAnimationController layoutAnimationController = new LayoutAnimationController(new AnimationSet(true));
+layoutAnimationController.setOrder(LayoutAnimationController.ORDER_NORMAL); // 空间显示顺序
+viewGroup.setLayoutAnimation(layoutAnimationController);
+
 ```
 

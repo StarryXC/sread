@@ -1,18 +1,6 @@
 > Thinking
 
 ```
-Animator # 属性动画
-	AnimatorSet
-	ValueAnimator
-		ObjectAnimator
-		TimeAnimator
-Keyframe
-PropertyValuesHolder
-
-Animator.AnimatorListener
-Animator.AnimatorPauseListener
-ValueAnimator.AnimatorUpdateListener
-
 <set>
 	android:ordering # sequentially
 <animator> # ValueAnimator
@@ -39,22 +27,68 @@ ValueAnimator.AnimatorUpdateListener
 	android:valueType
 	android:propertyName
 
-AnimatorSet
-	playTogether
-AnimatorInflater
-	loadAnimator
+
 Animator
-	addListener # Animator.AnimatorListener onAnimationStart onAnimationEnd onAnimationCancel onAnimationRepeat
-	addPauseListener # Animator.AnimatorPauseListener onAnimationPause onAnimationResume
-ValueAnimator
-	ofInt
-	ofPropertyValuesHolder
-	addUpdateListener # ValueAnimator.AnimatorUpdateListener onAnimationUpdate
+    AnimatorSet
+    ValueAnimator
+        ObjectAnimator
+        TimeAnimator
+AnimatorInflater
+
+Keyframe
+PropertyValuesHolder
 ```
 
 > Memory
 
 ```
+TypeEvaluator<Integer> evaluator = new ArgbEvaluator();
+evaluator.evaluate(0, Color.WHITE, Color.BLACK);
+
+Animator animator = AnimatorInflater.loadAnimator(this, R.animator.animator);
+animator.addListener(new Animator.AnimatorListener() {
+    @Override
+    public void onAnimationStart(Animator animator) { }
+    @Override
+    public void onAnimationEnd(Animator animator) { }
+    @Override
+    public void onAnimationCancel(Animator animator) { }
+    @Override
+    public void onAnimationRepeat(Animator animator) { }
+});
+animator.addPauseListener(new Animator.AnimatorPauseListener() {
+    @Override
+    public void onAnimationPause(Animator animator) { }
+    @Override
+    public void onAnimationResume(Animator animator) { }
+});
+animator.getDuration(); animator.setDuration(1);
+animator.getStartDelay(); animator.setStartDelay(1);
+animator.getTotalDuration();
+animator.getInterpolator(); animator.setInterpolator(new LinearInterpolator());
+animator.start(); animator.isStarted();
+animator.pause(); animator.isPaused();
+animator.cancel();
+animator.end();
+animator.resume();
+animator.isRunning();
+
+ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 2, 3);
+valueAnimator = ValueAnimator.ofFloat(1f, 2f, 3f);
+valueAnimator = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofFloat("", 1, 2, 2));
+valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    @Override
+    public void onAnimationUpdate(ValueAnimator valueAnimator) { }
+});
+valueAnimator.getAnimatedValue();
+valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+
+AnimatorSet animatorSet = new AnimatorSet();
+animatorSet.playTogether(ValueAnimator.ofInt());
+animatorSet.playSequentially(ValueAnimator.ofInt());
+animatorSet.play(ValueAnimator.ofPropertyValuesHolder());
+
 
 ```
 

@@ -4,7 +4,11 @@
 
 【[应用组件](应用组件)】
 
+　　【[Application](Application)】
+
 　　【[Activity](Activity)】
+
+　　【[Service](Service)】
 
 　　【[BroadcastReceiver](BroadcastReceiver)】
 
@@ -58,9 +62,19 @@
 
 　　　　【[SurfaceView](SurfaceView)】
 
+　　　　【[VideoView](VideoView)】
+
+　　　　【[WebView](WebView)】
+
+　　　　【[ProgressBar](ProgressBar)】
+
+　　　　【[TextSwitcher](TextSwitcher)】
+
 　　　　【[AdapterView](AdapterView)】
 
 　　　　　　【[Text](Text)】
+
+　　　　【[Pickers](Pickers)】
 
 　　【[View](View)】
 
@@ -78,9 +92,13 @@
 
 　　　　【[Property Animation](Property Animation)】
 
+　　【[Dialog](Dialog)】
+
 　　【[Menu](Menu)】
 
 　　【[Preference](Preference)】
+
+　　【[PopupWindow](PopupWindow)】
 
 【[多媒体编程](多媒体编程)】
 
@@ -132,7 +150,13 @@
 
 　　【[WifiManager](WifiManager)】
 
+　　【[StorageManager](StorageManager)】
+
 　　【[ClipboardManager](ClipboardManager)】
+
+　　【[NetworkStatsManager](NetworkStatsManager)】
+
+　　【[MediaProjectionManager](MediaProjectionManager)】
 
 【[Providers]()】
 
@@ -147,6 +171,8 @@
 　　【[sms](sms)】
 
 　　【[Browser](Browser)】
+
+　　【[DocumentsContract](DocumentsContract)】
 
 【[Intent Call](Intent Call)】
 
@@ -165,6 +191,10 @@
 【[AOSP](AOSP)】
 
 【[代码混淆](Proguard)】
+
+【[国际化](Locale)】
+
+【[共享内存](共享内存)】
 
 ### Jetpack
 
@@ -354,6 +384,8 @@
 
 【[AutoService](AutoService)】
 
+【[Guava](Guava)】
+
 【[JakeWharton]()】
 
 　　【[ButterKnife](ButterKnife)】
@@ -361,6 +393,8 @@
 　　【[ViewPagerIndicator](ViewPagerIndicator)】
 
 　　【[NineOldAndroids](NineOldAndroids)】
+
+　　【[scalpel](scalpel)】
 
 【[Square]()】
 
@@ -437,6 +471,18 @@
 　　【[Fresco](Fresco)】
 
 　　【[Litho](Litho)】
+
+【[Router]()】
+
+　　【[DeepLinkDispatch](DeepLinkDispatch)】
+
+【[ImagePicker]()】
+
+　　【[ImagePicker](ImagePicker)】
+
+【[PagerBottomTabStrip](PagerBottomTabStrip)】
+
+【[TinyPinyin](TinyPinyin)】
 
 ### 工件映射 Artifact Mappings
 
@@ -578,10 +624,8 @@ compile 'com.kyleduo.switchbutton:library:1.4.1'
 compile 'com.google.android.gms:play-services-maps:8.4.0'
 IndicatorSeekBar # https://github.com/warkiz/IndicatorSeekBar
 RoundCorners # https://github.com/KuangGang/RoundCorners
-PagerBottomTabStrip # https://github.com/tyzlmjj/PagerBottomTabStrip | pager-bottom-tab-strip
 apk-parser # net.dongliu:apk-parser:2.6.9
 TinyPinyin # https://github.com/promeG/TinyPinyin
-ImagePicker # https://github.com/jeasonlzy/ImagePicker | com.lzy.widget:imagepicker:0.6.1
 SwipeMenuListView # https://github.com/baoyongzhang/SwipeMenuListView
 FlowLayout # https://github.com/huang7855196/FlowLayout
 scrcpy

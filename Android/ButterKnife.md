@@ -13,15 +13,12 @@ Unbinder
 
 ```
 https://github.com/JakeWharton/butterknife
-butterknife compiler 10.2.3 7.0.1
-        api 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-ButterKnife
-	bind
-Unbinder
-	unbind
-ButterKnife.bind(this, view);
+// 10.2.3 7.0.1 8.8.1
+implementation 'com.jakewharton:butterknife:10.2.3'
+annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
+Unbinder unbinder = ButterKnife.bind(this, new View(this));
+unbinder.unbind();
 
 ```
 

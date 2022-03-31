@@ -9,6 +9,8 @@
 ```
 https://github.com/google/ExoPlayer
 
+implementation 'com.google.android.exoplayer:exoplayer:2.13.3'
+
 exoplayer core dash ui
 
 Timeline.Window window = new Timeline.Window();

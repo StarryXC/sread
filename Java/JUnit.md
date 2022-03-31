@@ -9,6 +9,9 @@ assertEquals
 > Memory
 
 ```
+// 4.13.2
+testImplementation 'junit:junit:4.12'
+
 Assert.assertEquals(10, 10);
 ```
 

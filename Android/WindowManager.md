@@ -40,5 +40,20 @@ WindowManager.LayoutParams
 	getColorMode setColorMode
 		TYPE_APPLICATION_OVERLAY # O WindowType
 		TYPE_SYSTEM_ALERT # WindowType
+
+Window window = getWindow();
+window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+// WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL window外可以点击,不拦截窗口外的事件
+window.setFlags(0, 0); window.addFlags(0); window.clearFlags(0);
+window.setGravity(Gravity.CENTER);
+WindowManager.LayoutParams attributes = window.getAttributes();
+attributes.width = 1;
+attributes.height = 1;
+window.setAttributes(attributes);
+
+WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+Display display = manager.getDefaultDisplay();
+display.getWidth();
+display.getWidth();
 ```
 

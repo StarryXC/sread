@@ -17,6 +17,7 @@ androidx.constraintlayout:constraintlayout:1.1.3
 androidx.constraintlayout:constraintlayout-solver:1.1.3
 com.android.support.constraint:constraint-layout:
 com.android.support.constraint:constraint-layout-solver:
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
 ConstraintLayout.LayoutParams
 	<location> <circle> <goneMargin>
