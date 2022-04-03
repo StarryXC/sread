@@ -1,12 +1,15 @@
 > Thinking
 
 ```
+Java
 DOM
 SAX
 XmlPull
 ```
 
 > Memory
+
+### Java
 
 ```
 JAXP Java API for XML Processing
@@ -37,4 +40,6 @@ XmlSerializer
 
 
 ```
+
+
 
