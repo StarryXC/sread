@@ -18,22 +18,6 @@
 
 【[常用类](常用类)】
 
-【[Providers]()】
-
-　　【[CalendarContract](CalendarContract)】
-
-　　【[MediaStore](MediaStore)】
-
-　　【[Settings](Settings)】
-
-　　【[CallLog](CallLog)】
-
-　　【[sms](sms)】
-
-　　【[Browser](Browser)】
-
-　　【[DocumentsContract](DocumentsContract)】
-
 【[Intent Call](Intent Call)】
 
 【[Hook 框架](Hook 框架)】
@@ -44,13 +28,11 @@
 
 【[系统架构](系统架构)】
 
-【[框架搭建](框架搭建)】
-
 【[AOSP](AOSP)】
 
 ### Jetpack
 
-【[Foundation 基础组件]()】
+【Foundation 基础组件】
 
 　　【[AppCompat](AppCompat)】
 
@@ -58,9 +40,9 @@
 
 　　【[Multidex](Multidex)】
 
-　　【[Test](Test)】
+　　【Test】
 
-【[Architecture 架构组件]()】
+【Architecture 架构组件】
 
 　　【Lifecycles】
 
@@ -72,61 +54,61 @@
 
 　　【DataBinding】
 
-　　【[Paging](Paging)】
+　　【Paging】
 
-　　【[Navigation](Navigation)】
+　　【Navigation】
 
 　　【WorkManager】
 
-【[Behaviour 行为组件]()】
+【Behaviour 行为组件】
 
-　　【[DownloadManager]()】
+　　【DownloadManager】
 
-　　【[Media & Playback](Media Playback)】
+　　【Media & Playback】
 
-　　【[Notifications]()】
+　　【Notifications】
 
-　　【[Permissions]()】
+　　【Permissions】
 
-　　【[Preferences]()】
+　　【Preferences】
 
-　　【[Sharing]()】
+　　【Sharing】
 
-　　【[Slices]()】
+　　【Slices】
 
-【[UI 组件](UI 组件)】
+【UI 组件】
 
-　　【[Animation & transitions]()】
+　　【Animation & transitions】
 
-　　　　【[Auto]()】
+　　　　【Auto】
 
-　　　　【[Emoji]()】
+　　　　【Emoji】
 
-　　　　【[Fragment]()】
+　　　　【Fragment】
 
-　　　　【[Layout]()】
+　　　　【Layout】
 
-　　　　【[Palette]()】
+　　　　【Palette】
 
-　　　　【[TV]()】
+　　　　【TV】
 
-　　　　【[Wear OS by Google]()】
+　　　　【Wear OS by Google】
 
-　　【[Components]()】
+　　【Components】
 
 　　　　【ViewPager2】
 
-　　　　【[LiveDataBus]()】
+　　　　【LiveDataBus】
 
-　　　　【[PagedList]()】
+　　　　【PagedList】
 
-　　　　【[CameraX]()】
+　　　　【CameraX】
 
-　　　　【[RMI]()】
+　　　　【RMI】
 
-【[Androidx]()】
+【Androidx】
 
-　　【[ConstraintLayout](ConstraintLayout)】
+　　【ConstraintLayout】
 
 　　【SwipeRefreshLayout】
 

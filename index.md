@@ -24,19 +24,23 @@
 
 【[响应式](Programming/响应式)】【[SPI](Programming/SPI)】【[拼音](Programming/拼音)】
 
-【[应用组件](Programming/应用组件)】【[应用资源](Programming/应用资源)】【[数据存储](Programming/数据存储)】【[系统广播](Programming/系统广播)】【[进程通讯](Programming/进程通讯)】【[异步处理](Programming/异步处理)】【[系统服务](Programming/系统服务)】【[代码混淆](Programming/代码混淆)】【[插件化](Programming/插件化)】
+【[应用组件](Programming/应用组件)】【[应用资源](Programming/应用资源)】【[数据存储](Programming/数据存储)】【[系统广播](Programming/系统广播)】【[进程通讯](Programming/进程通讯)】【[异步处理](Programming/异步处理)】【[系统服务](Programming/系统服务)】【[代码混淆](Programming/代码混淆)】【[插件化](Programming/插件化)】【[系统提供者](Programming/系统提供者)】
 
 【[路由](Programming/路由)】【[数据总线](Programming/数据总线)】【[扫码](Programming/扫码)】【[即时通讯](Programming/即时通讯)】【[推送](Programming/推送)】【[地图](Programming/地图)】【[分享](Programming/分享)】【[性能监控](Programming/性能监控)】【[注解处理](Programming/注解处理)】【[数据绑定](Programming/数据绑定)】
 
 【[内置数据库](Programming/内置数据库)】
 
+【[框架搭建](Programming/框架搭建)】
+
 ### GUI 编程
 
 【[手势](Programming/手势)】【[对话框](Programming/对话框)】
 
-【[文本](Programming/文本)】【[图片](Programming/图片)】【[轮波图](Programming/轮波图)】【[依赖注入](Programming/依赖注入)】【[列表](Programming/列表)】【[图表](Programming/图表)】【[对话框](Programming/对话框)】【[滚动](Programming/滚动)】【[Wheel](Programming/Wheel)】【[Pager](Programming/Pager)】【[Flexbox](Programming/Flexbox)】【[进度条](Programming/进度条)】【[Web](Programming/Web)】【[动画](Programming/动画)】【[事件处理](Programming/事件处理)】【[Drawer](Programming/Drawer)】
+【[文本](Programming/文本)】【[图片](Programming/图片)】【[轮波图](Programming/轮波图)】【[依赖注入](Programming/依赖注入)】【[列表](Programming/列表)】【[图表](Programming/图表)】【[对话框](Programming/对话框)】【[滚动](Programming/滚动)】【[Wheel](Programming/Wheel)】【[Pager](Programming/Pager)】【[Flexbox](Programming/Flexbox)】【[进度条](Programming/进度条)】【[Web](Programming/Web)】【[动画](Programming/动画)】【[事件处理](Programming/事件处理)】【[Drawer](Programming/Drawer)】【[布局管理](Programming/布局管理)】【[输入](Programming/输入)】
 
->【[操作系统](OS/index)】
+>【操作系统】
+
+【[系统安装](OS/系统安装)】【[包管理](OS/包管理)】【[服务器搭建](OS/服务器搭建)】
 
 【[Subject](Subject/index)】
 
