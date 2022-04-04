@@ -1,34 +1,6 @@
 ### Android
 
-【[UI 编程](UI 编程)】
-
-　　【[View](View)】
-
-　　　　【[ViewGroup](ViewGroup)】
-
-　　　　【[SurfaceView](SurfaceView)】
-
-　　　　【[VideoView](VideoView)】
-
-　　　　【[TextSwitcher](TextSwitcher)】
-
-　　【[View](View)】
-
-　　　　【[自定义View](自定义View)】
-
 【[常用类](常用类)】
-
-【[Intent Call](Intent Call)】
-
-【[Hook 框架](Hook 框架)】
-
-【[NDK 编程](NDK 编程)】
-
-【[RenderScript](RenderScript)】
-
-【[系统架构](系统架构)】
-
-【[AOSP](AOSP)】
 
 ### Jetpack
 
@@ -116,11 +88,11 @@
 
 　　【DrawerLayout】
 
-　　【[CardView](CardView)】
+　　【CardView】
 
 　　【ViewPager】
 
-　　【[Material Design](Material Design)】
+　　【Material Design】
 
 　　【[Compats](Compats)】
 

@@ -1,46 +1,66 @@
->依赖注入【[编程](Programming/index)】
+>【[编程](index)】
 
-【[环境搭建](Programming/环境搭建)】【[命令行]()】
+【[环境搭建](环境搭建)】【[命令行]()】
 
-【[基础语法](Programming/基础语法)】【[面向对象语法](Programming/面向对象语法)】
+【[基础语法](基础语法)】【[面向对象语法](面向对象语法)】
 
-【[预处理指令](Programming/预处理指令)】
+【[预处理指令](预处理指令)】
 
-【[标准输入输出](Programming/标准输入输出)】
+【[标准输入输出](标准输入输出)】
 
-【[运行原理](Programming/运行原理)】
+【[运行原理](运行原理)】
 
-【[随机数]()】【[字符串](Programming/字符串)】【[包装类](Programming/包装类)】【[数学计算](Programming/数学计算)】【[内存分配](Programming/内存分配)】【[日期时间](Programming/日期时间)】【[格式化]()】【[国际化](Programming/国际化)】【[定时器]()】【[UUID]()】【[Object]()】【[集合](Programming/集合)】
+【[随机数]()】【[字符串](字符串)】【[包装类](包装类)】【[数学计算](数学计算)】【[内存分配](内存分配)】【[日期时间](日期时间)】【[格式化]()】【[国际化](国际化)】【[定时器]()】【[UUID]()】【[Object]()】【[集合](集合)】
 
-【[正则表达式](Programming/正则表达式)】【[异常处理](Programming/异常处理)】【[数据加密](Programming/数据加密)】【[反射机制](Programming/反射机制)】
+【[正则表达式](正则表达式)】【[异常处理](异常处理)】【[数据加密](数据加密)】【[反射机制](反射机制)】
 
-【[并发](Programming/多线程)】【[数据库](Programming/数据库)】【[网络](Programming/网络)】【[图形界面](Programming/图形界面)】【[输入输出](Programming/输入输出)】【[单元测试](Programming/单元测试)】
+【[并发](多线程)】【[数据库](数据库)】【[网络](网络)】【[输入输出](输入输出)】【[单元测试](单元测试)】
 
-【[JSON](Programming/JSON)】【[XML](Programming/XML)】【[多媒体](Programming/多媒体)】
+【[JSON](JSON)】【[XML](XML)】【[多媒体](多媒体)】【[跨语言](跨语言)】
 
-【[架构模式](Programming/架构模式)】【[设计原则](设计原则)】【[设计模式](Programming/设计原则)】
+【[架构模式](架构模式)】【[设计原则](设计原则)】【[设计模式](设计原则)】
 
-【[数据结构与算法](Programming/数据结构与算法)】
+【[数据结构与算法](数据结构与算法)】
 
-【[响应式](Programming/响应式)】【[SPI](Programming/SPI)】【[拼音](Programming/拼音)】
+【[响应式](响应式)】【[SPI](SPI)】【[拼音](拼音)】
 
-【[应用组件](Programming/应用组件)】【[应用资源](Programming/应用资源)】【[数据存储](Programming/数据存储)】【[系统广播](Programming/系统广播)】【[进程通讯](Programming/进程通讯)】【[异步处理](Programming/异步处理)】【[系统服务](Programming/系统服务)】【[代码混淆](Programming/代码混淆)】【[插件化](Programming/插件化)】【[系统提供者](Programming/系统提供者)】
+【[应用组件](应用组件)】【[应用资源](应用资源)】【[数据存储](数据存储)】【[系统广播](系统广播)】【[进程通讯](进程通讯)】【[异步处理](异步处理)】【[系统服务](系统服务)】【[代码混淆](代码混淆)】【[插件化](插件化)】【[系统提供者](系统提供者)】【[Intent Call](Intent Call)】
 
-【[路由](Programming/路由)】【[数据总线](Programming/数据总线)】【[扫码](Programming/扫码)】【[即时通讯](Programming/即时通讯)】【[推送](Programming/推送)】【[地图](Programming/地图)】【[分享](Programming/分享)】【[性能监控](Programming/性能监控)】【[注解处理](Programming/注解处理)】【[数据绑定](Programming/数据绑定)】
+【[路由](路由)】【[数据总线](数据总线)】【[扫码](扫码)】【[即时通讯](即时通讯)】【[推送](推送)】【[地图](地图)】【[分享](分享)】【[注解处理](注解处理)】【[数据绑定](数据绑定)】
 
-【[内置数据库](Programming/内置数据库)】
+【[内置数据库](内置数据库)】
 
-【[框架搭建](Programming/框架搭建)】
+【[性能](性能)】【[性能优化](性能优化)】
+
+【[框架搭建](框架搭建)】【[系统架构](系统架构)】
 
 ### GUI 编程
 
-【[手势](Programming/手势)】【[对话框](Programming/对话框)】
+【[图形界面](图形界面)】
 
-【[文本](Programming/文本)】【[图片](Programming/图片)】【[轮波图](Programming/轮波图)】【[依赖注入](Programming/依赖注入)】【[列表](Programming/列表)】【[图表](Programming/图表)】【[对话框](Programming/对话框)】【[滚动](Programming/滚动)】【[Wheel](Programming/Wheel)】【[Pager](Programming/Pager)】【[Flexbox](Programming/Flexbox)】【[进度条](Programming/进度条)】【[Web](Programming/Web)】【[动画](Programming/动画)】【[事件处理](Programming/事件处理)】【[Drawer](Programming/Drawer)】【[布局管理](Programming/布局管理)】【[输入](Programming/输入)】
+【[手势](手势)】【[对话框](对话框)】
+
+【[文本](文本)】【[图片](图片)】【[轮波图](轮波图)】【[依赖注入](依赖注入)】【[列表](列表)】【[图表](图表)】【[对话框](对话框)】【[滚动](滚动)】【[Wheel](Wheel)】【[Pager](Pager)】【[Flexbox](Flexbox)】【[进度条](进度条)】【[Web](Web)】【[动画](动画)】【[事件处理](事件处理)】【[Drawer](Drawer)】【[布局管理](布局管理)】【[输入](输入)】
 
 >【操作系统】
 
-【[系统安装](OS/系统安装)】【[包管理](OS/包管理)】【[服务器搭建](OS/服务器搭建)】
+【[系统安装](系统安装)】【[包管理](包管理)】【[服务器搭建](服务器搭建)】
+
+### 项目管理
+
+### BS
+
+【[依赖管理](依赖管理)】
+
+### VCS
+
+【[UML](UML)】
+
+【[构建工具](../PM/index)】
+
+【[版本控制](../PM/index)】
+
+
 
 【[Subject](Subject/index)】
 
