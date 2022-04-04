@@ -58,6 +58,24 @@ jsonArray.add("");
 jsonArray.getInteger(0);
 ```
 
+### Android
+
+```
+JsonReader jsonReader = new JsonReader(new FileReader(""));
+jsonReader.beginArray();
+jsonReader.endArray();
+jsonReader.beginObject();
+jsonReader.endObject();
+
+JsonWriter jsonWriter = new JsonWriter(new FileWriter(""));
+jsonWriter.beginArray();
+jsonWriter.endObject();
+jsonWriter.beginObject();
+jsonWriter.endObject();
+```
+
+
+
 ### OC
 
 ```

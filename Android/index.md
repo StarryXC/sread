@@ -1,16 +1,12 @@
-### Android
-
-【[常用类](常用类)】
-
 ### Jetpack
 
 【Foundation 基础组件】
 
-　　【[AppCompat](AppCompat)】
+　　【AppCompat】
 
-　　【[KTX](KTX)】
+　　【KTX】
 
-　　【[Multidex](Multidex)】
+　　【Multidex】
 
 　　【Test】
 
@@ -94,23 +90,35 @@
 
 　　【Material Design】
 
-　　【[Compats](Compats)】
+　　【Compats】
 
-### Libraries
+```
+常用类
+    Log
+    TextUtils
+    BuildConfig
+    Pair    
+    BaseBundle
+        Bundle
+    SystemClock
+    Build # VERSION_CODES VERSION RELEASE系统版本号 | BOARD厂商 MODEL型号 MANUFACTURER
+    Uri
+        FileProvider
+```
 
-【[QMUI](QMUI)】
+```
+SystemClock.sleep(3000);
+Uri.EMPTY
+Build.VERSION_CODES.O
+Build.VERSION
+	SDK_INT
+int myPid = Process.myPid();
+int myUid = Process.myUid();
+int myTid = Process.myTid();
+Process.killProcess(Process.myPid());
+```
 
-【[Guava](Guava)】
 
-【[JakeWharton]()】
-
-　　【[scalpel](scalpel)】
-
-【[xUtils](xUtils)】
-
-【[Facebook]()】
-
-　　【[Litho](Litho)】
 
 ### 工件映射 Artifact Mappings
 
