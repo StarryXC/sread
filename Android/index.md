@@ -4,33 +4,15 @@
 
 　　【[View](View)】
 
-　　　　【[TextView](TextView)】
-
 　　　　【[ViewGroup](ViewGroup)】
 
 　　　　【[SurfaceView](SurfaceView)】
 
 　　　　【[VideoView](VideoView)】
 
-　　　　【[WebView](WebView)】
-
-　　　　【[ProgressBar](ProgressBar)】
-
 　　　　【[TextSwitcher](TextSwitcher)】
 
-　　　　【[AdapterView](AdapterView)】
-
-　　　　　　【[Text](Text)】
-
-　　　　【[Pickers](Pickers)】
-
 　　【[View](View)】
-
-　　　　【[滚动](滚动)】
-
-　　　　【[内嵌滚动](内嵌滚动)】
-
-　　　　【[事件处理](事件处理)】
 
 　　　　【[自定义View](自定义View)】
 
@@ -80,21 +62,21 @@
 
 【[Architecture 架构组件]()】
 
-　　【[Lifecycles](Lifecycles)】
+　　【Lifecycles】
 
-　　【[LiveData](LiveData)】
+　　【LiveData】
 
-　　【[ViewModel](ViewModel)】
+　　【ViewModel】
 
-　　【[Room](Room)】
+　　【Room】
 
-　　【[DataBinding](DataBinding)】
+　　【DataBinding】
 
 　　【[Paging](Paging)】
 
 　　【[Navigation](Navigation)】
 
-　　【[WorkManager](WorkManager)】
+　　【WorkManager】
 
 【[Behaviour 行为组件]()】
 
@@ -132,7 +114,7 @@
 
 　　【[Components]()】
 
-　　　　【[ViewPager2](ViewPager2)】
+　　　　【ViewPager2】
 
 　　　　【[LiveDataBus]()】
 
@@ -146,109 +128,35 @@
 
 　　【[ConstraintLayout](ConstraintLayout)】
 
-　　【[SwipeRefreshLayout](SwipeRefreshLayout)】
+　　【SwipeRefreshLayout】
 
-　　【[RecyclerView](RecyclerView)】
+　　【RecyclerView】
 
-　　【[DrawerLayout](DrawerLayout)】
+　　【DrawerLayout】
 
 　　【[CardView](CardView)】
 
-　　【[ViewPager](ViewPager)】
+　　【ViewPager】
 
 　　【[Material Design](Material Design)】
 
 　　【[Compats](Compats)】
 
-　　【[注解](注解)】
-
 ### Libraries
 
-【[下拉刷新]()】
-
-　　【[Ultra Pull To Refresh](Ultra Pull To Refresh)】
-
-　　【[SmartRefreshLayout](SmartRefreshLayout)】
-
-　　【[MarkMjw PullToRefresh](MarkMjw PullToRefresh)】
-
-　　【[TwinklingRefreshLayout](TwinklingRefreshLayout)】
-
-　　【[Pull To Refresh](Pull To Refresh)】
-
-　　【[BeautifulRefreshLayout](BeautifulRefreshLayout)】
-
-　　【[BGARefreshLayout](BGARefreshLayout)】
-
-　　【[XListView](XListView)】
-
-【[Chart]()】
-
-　　【[MPAndroidChart](MPAndroidChart)】
-
-　　【[KChartView](KChartView)】
-
-　　【[Android-Charts](Android-Charts)】
-
-【[Dialog]()】
-
-　　【[Material Dialogs](Material Dialogs)】
-
-【[RecyclerView]()】
-
-　　【[BaseRecyclerViewAdapterHelper](BaseRecyclerViewAdapterHelper)】
-
-　　【[MultiTypeAdapter](MultiTypeAdapter)】
-
-【[Alibaba]()】
-
-　　【[UltraViewPager](UltraViewPager)】
-
 【[QMUI](QMUI)】
-
-【[FlexboxLayout](FlexboxLayout)】
-
-【[AutoService](AutoService)】
 
 【[Guava](Guava)】
 
 【[JakeWharton]()】
 
-　　【[ViewPagerIndicator](ViewPagerIndicator)】
-
-　　【[NineOldAndroids](NineOldAndroids)】
-
 　　【[scalpel](scalpel)】
 
-【[Square]()】
-
-　　【[JavaPoet](JavaPoet)】
-
-【[ReactiveX]()】
-
-　　【[RxJava](RxJava)】
-
 【[xUtils](xUtils)】
-
-【[TextView]()】
-
-　　【[SuperTextView](SuperTextView)】
-
-【[WheelView](WheelView)】
-
-【[ObservableScrollView](ObservableScrollView)】
 
 【[Facebook]()】
 
 　　【[Litho](Litho)】
-
-【[ImagePicker]()】
-
-　　【[ImagePicker](ImagePicker)】
-
-【[PagerBottomTabStrip](PagerBottomTabStrip)】
-
-【[TinyPinyin](TinyPinyin)】
 
 ### 工件映射 Artifact Mappings
 
