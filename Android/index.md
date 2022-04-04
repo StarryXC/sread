@@ -1,62 +1,10 @@
 ### Android
 
-【[环境搭建](环境搭建)】
-
-【[应用组件](应用组件)】
-
-　　【[Application](Application)】
-
-　　【[Activity](Activity)】
-
-　　【[Service](Service)】
-
-　　【[BroadcastReceiver](BroadcastReceiver)】
-
-　　【[ContentProvider](ContentProvider)】
-
-　　【[Fragment](Fragment)】
-
-　　【[Intent](Intent)】
-
-　　【[系统广播](系统广播)】
-
-【[应用资源](应用资源)】
-
-　　【[布局资源](布局资源)】
-
-　　【[Drawable 资源](Drawable 资源)】
-
-　　【[菜单资源](菜单资源)】
-
-　　【[颜色状态列表资源](颜色状态列表资源)】
-
-　　【[Xml 资源]()】
-
-　　【[Font 资源](Font 资源)】
-
-　　【[Values 资源](Values 资源)】
-
-　　　　【[Styles 资源](Styles 资源)】
-
-【[数据存储](数据存储)】
-
-【[异步处理/线程通信](线程通信)】
-
-【[进程通讯](进程通讯)】
-
 【[UI 编程](UI 编程)】
-
-　　【[手势](手势)】
-
-　　【[AppWidgetProvider](AppWidgetProvider)】
-
-　　【[通知](NotificationManager)】
 
 　　【[View](View)】
 
 　　　　【[TextView](TextView)】
-
-　　　　【[ImageView](ImageView)】
 
 　　　　【[ViewGroup](ViewGroup)】
 
@@ -86,73 +34,7 @@
 
 　　　　【[自定义View](自定义View)】
 
-　　【[动画]()】
-
-　　　　【[View Animation](View Animation)】
-
-　　　　【[Property Animation](Property Animation)】
-
-　　【[Dialog](Dialog)】
-
-　　【[Menu](Menu)】
-
-　　【[Preference](Preference)】
-
-　　【[PopupWindow](PopupWindow)】
-
-【[多媒体编程](多媒体编程)】
-
-　　【[绘图](绘图)】
-
-　　【[相机](Camera)】
-
-　　【[音视频](音视频)】
-
 【[常用类](常用类)】
-
-【[Managers]()】
-
-　　【[BluetoothManager](BluetoothManager)】
-
-　　【[ConnectivityManager](ConnectivityManager)】
-
-　　【[AccountManager](AccountManager)】
-
-　　【[NotificationManager](NotificationManager)】
-
-　　【[LoaderManager](LoaderManager)】
-
-　　【[SmsManager](SmsManager)】
-
-　　【[Vibrator](Vibrator)】
-
-　　【[WindowManager](WindowManager)】
-
-　　【[SensorManager](SensorManager)】
-
-　　【[PackageManager](PackageManager)】
-
-　　【[PowerManager](PowerManager)】
-
-　　【[ActivityManager](ActivityManager)】
-
-　　【[InputMethodManager](InputMethodManager)】
-
-　　【[TelephonyManager](TelephonyManager)】
-
-　　【[AlarmManager](AlarmManager)】
-
-　　【[LocationManager](LocationManager)】
-
-　　【[WifiManager](WifiManager)】
-
-　　【[StorageManager](StorageManager)】
-
-　　【[ClipboardManager](ClipboardManager)】
-
-　　【[NetworkStatsManager](NetworkStatsManager)】
-
-　　【[MediaProjectionManager](MediaProjectionManager)】
 
 【[Providers]()】
 
@@ -172,8 +54,6 @@
 
 【[Intent Call](Intent Call)】
 
-【[插件化编程](插件化编程)】
-
 【[Hook 框架](Hook 框架)】
 
 【[NDK 编程](NDK 编程)】
@@ -185,12 +65,6 @@
 【[框架搭建](框架搭建)】
 
 【[AOSP](AOSP)】
-
-【[代码混淆](Proguard)】
-
-【[国际化](Locale)】
-
-【[共享内存](共享内存)】
 
 ### Jetpack
 
@@ -288,30 +162,6 @@
 
 　　【[注解](注解)】
 
-### 三方集成
-
-　　【[友盟](友盟)】
-
-　　【[极光](极光)】
-
-　　【[Bugly](Bugly)】
-
-　　【[个推](个推)】
-
-　　【[ShareSDK](ShareSDK)】
-
-　　【[高德地图](高德地图)】
-
-　　【[百度地图](百度地图)】
-
-　　【[环信](环信)】
-
-　　【[ViewPager](ViewPager)】
-
-　　【[ViewPager](ViewPager)】
-
-　　【[ViewPager](ViewPager)】
-
 ### Libraries
 
 【[下拉刷新]()】
@@ -332,10 +182,6 @@
 
 　　【[XListView](XListView)】
 
-【[Image Loader]()】
-
-　　【[Universal Image Loader](Universal Image Loader)】
-
 【[Chart]()】
 
 　　【[MPAndroidChart](MPAndroidChart)】
@@ -354,37 +200,19 @@
 
 　　【[MultiTypeAdapter](MultiTypeAdapter)】
 
-【[轮波图]()】
-
-　　【[Banner](Banner)】
-
-　　【[ConvenientBanner](ConvenientBanner)】
-
-　　【[ViewFlow](ViewFlow)】
-
 【[Alibaba]()】
-
-　　【[ARouter](ARouter)】
 
 　　【[UltraViewPager](UltraViewPager)】
 
 【[QMUI](QMUI)】
 
-【[Tinker](Tinker)】
-
-【[MMKV](MMKV)】
-
 【[FlexboxLayout](FlexboxLayout)】
-
-【[ExoPlayer](ExoPlayer)】
 
 【[AutoService](AutoService)】
 
 【[Guava](Guava)】
 
 【[JakeWharton]()】
-
-　　【[ButterKnife](ButterKnife)】
 
 　　【[ViewPagerIndicator](ViewPagerIndicator)】
 
@@ -394,43 +222,13 @@
 
 【[Square]()】
 
-　　【[OkHttp](OkHttp)】
-
-　　【[Okio](Okio)】
-
-　　【[Retrofit](Retrofit)】
-
-　　【[Picasso](Picasso)】
-
-　　【[LeakCanary](LeakCanary)】
-
 　　【[JavaPoet](JavaPoet)】
-
-　　【[Dagger](Dagger)】
 
 【[ReactiveX]()】
 
 　　【[RxJava](RxJava)】
 
-【[Glide](Glide)】
-
-【[Realm](Realm)】
-
-【[GreenRobot]()】
-
-　　【[GreenDAO](GreenDAO)】
-
-　　【[EventBus](EventBus)】
-
-【[Zxing](Zxing)】
-
-【[ASimpleCache](ASimpleCache)】
-
 【[xUtils](xUtils)】
-
-【[ImageView]()】
-
-　　【[CircleImageView](CircleImageView)】
 
 【[TextView]()】
 
@@ -440,37 +238,9 @@
 
 【[ObservableScrollView](ObservableScrollView)】
 
-【[Player]()】
-
-　　【[GiraffePlayer](GiraffePlayer)】
-
-　　【[Vitamio](Vitamio)】
-
-　　【[UniversalVideoView](UniversalVideoView)】
-
-【[Bilibili]()】
-
-　　【[ijkplayer](ijkplayer)】
-
-　　【[DanmakuFlameMaster](DanmakuFlameMaster)】
-
-【[PLDroid]()】
-
-　　【[PLDroidPlayer](PLDroidPlayer)】
-
-　　【[PLDroidShortVideo](PLDroidShortVideo)】
-
-　　【[PLDroidCameraStreaming](PLDroidCameraStreaming)】
-
 【[Facebook]()】
 
-　　【[Fresco](Fresco)】
-
 　　【[Litho](Litho)】
-
-【[Router]()】
-
-　　【[DeepLinkDispatch](DeepLinkDispatch)】
 
 【[ImagePicker]()】
 
