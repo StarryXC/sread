@@ -13,17 +13,19 @@ Fastjson
 
 ```
 org.json
-JSONObject jsonObject = new JSONObject();
-jsonObject.put("", ""); jsonObject.putOpt("", "");
-jsonObject.getString(""); jsonObject.opt("");
-jsonObject.keys(); jsonObject.names();
-jsonObject.length();
-jsonObject.has("");
-jsonObject.isNull("");
-
-JSONObject topLevel = (JSONObject) new JSONTokener(contents.toString()).nextValue();
-      JSONArray items = topLevel.optJSONArray("items");
-authorsArray.isNull(0)
+JSONObject
+    put
+    getString
+    opt
+    keys
+    names
+    length
+    has
+    isNull
+JSONArray
+    isNull
+JSONTokener
+    nextValue
 
 Gson https://github.com/google/gson
 implementation 'com.google.code.gson:gson:2.8.9'
