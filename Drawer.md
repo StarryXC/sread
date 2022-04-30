@@ -9,19 +9,25 @@
 #### DrawerLayout
 
 ```
+implementation 'androidx.drawerlayout:drawerlayout:'
+implementation 'com.android.support:drawerlayout:'
+
+ViewGroup
+    DrawerLayout
+
+DrawerLayout.SimpleDrawerListener <-- DrawerLayout.DrawerListener
+
 DrawerLayout
-	addDrawerListener # DrawerLayout.DrawerListener
+    addDrawerListener DrawerLayout.DrawerListener
+        onDrawerSlide
+        onDrawerOpened
+        onDrawerClosed
+        onDrawerStateChanged
+    removeDrawerListener
+    closeDrawer
+        GravityCompat.START
+    closeDrawers
 
-DrawerLayout.DrawerListener # SimpleDrawerListener
-	onDrawerSlide
-	onDrawerOpened
-	onDrawerClosed
-	onDrawerStateChanged
-
-left_drawerLayout.closeDrawer(GravityCompat.START)
-
-androidx.drawerlayout:drawerlayout:
-com.android.support:drawerlayout:
 ```
 
 ### CSS

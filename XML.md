@@ -11,54 +11,39 @@ XmlPull
 
 ### Java
 
+#### JAXP
+
 ```
 JAXP Java API for XML Processing
-DOM
-DocumentBuilderFactory
-DocumentBuilder
 
 Node
     Document
     Element
+
+DocumentBuilderFactory
+DocumentBuilder
 NodeList
 
 TransformerFactory
 Transformer
-DOMSource
-StreamResult
+DOMSource <-- Source
+StreamResult <-- Result
 
-Source
-    DOMSource
-
-Result
-    StreamResult
-
-SAX
 SAXParserFactory
 SAXParser
-DefaultHandler
 
-ErrorHandler
-    DefaultHandler
+DefaultHandler <-- EntityResolver DTDHandler ContentHandler ErrorHandler
 
-ContentHandler
-    DefaultHandler
+```
 
-DTDHandler
-    DefaultHandler
+#### XmlPull
 
-EntityResolver
-    DefaultHandler
+```
+占用内存资源少
 
- # 占用内存资源少
 XmlPullParserFactory
 XmlPullParser
 XmlSerializer
 
-
-
-
 ```
-
-
 

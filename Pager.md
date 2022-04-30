@@ -6,7 +6,54 @@
 
 > Memory
 
+### Android
+
+#### ViewPager
+
 ```
+ViewGroup
+    ViewPager
+
+PagerAdapter
+    FragmentPagerAdapter
+    FragmentStatePagerAdapter
+
+ViewPager
+    setOffscreenPageLimit
+    getOffscreenPageLimit
+    setAdapter
+    getAdapter
+    setCurrentItem
+    getCurrentItem
+    setOnPageChangeListener OnPageChangeListener
+        onPageScrolled
+        onPageSelected
+        onPageScrollStateChanged
+    addOnPageChangeListener
+    removeOnPageChangeListener
+
+PagerAdapter
+    getCount
+    startUpdate
+    instantiateItem
+    destroyItem
+    setPrimaryItem
+    finishUpdate
+    isViewFromObject
+    saveState
+    restoreState
+    getItemPosition
+    notifyDataSetChanged
+    registerDataSetObserver
+    unregisterDataSetObserver
+    setViewPagerObserver
+    getPageTitle
+    getPageWidth
+
+FragmentPagerAdapter
+    makeFragmentName
+    getItem
+    getItemId
 
 ```
 

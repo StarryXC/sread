@@ -10,13 +10,11 @@
 
 ```
 Object
-
-Object
-    getClass
     equals
     hashCode
     toString
-    notify
+    getClass
     wait
+    notify
 ```
 
