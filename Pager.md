@@ -55,6 +55,7 @@ FragmentPagerAdapter
     getItem
     getItemId
 
+自定义View: 禁止滑动切换
 ```
 
 #### UltraViewPager
