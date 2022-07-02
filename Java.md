@@ -1197,6 +1197,49 @@ request
 
 # Kotlin
 
+变量定义
+
+```
+var val
+类型转换
+1.toBigDecimal()
+string.toDouble()
+
+空判断
+.isNullOrEmpty()
+.isEmpty()
+```
+
+## 数组
+
+```
+listOf
+```
+
+## 方法
+
+```
+fun
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
 ## 类
 
 ```
@@ -1209,7 +1252,7 @@ val side: String
 ## String
 
 ```
-
+字串传模板： "${path}"
 ```
 
 ## 集合框架
@@ -1226,8 +1269,14 @@ f.isNotEmpty()
 rise.split("|").toList()
 ```
 
-```
+## 高阶函数
 
+```
+forEach
+forEachIndexed
+filter
+let
+para?.let{}
 ```
 
 ```
@@ -1236,9 +1285,32 @@ rise.split("|").toList()
 
 # Groovy
 
+## 变量定义
+
+```
+def
+```
+
+## 方法
+
+```
+默认参数
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
 ## String
 
 ```
+fileText = (fileText =~ /${regex}/).replaceAll("<string name=\"${name}\">${value}</string>")
 
 ```
 
@@ -1249,8 +1321,12 @@ BigInteger = 30g
 BigDecimal = 3.5g
 ```
 
-```
+# Scala
 
+## 变量定义
+
+```
+val var
 ```
 
 ```
@@ -1742,48 +1818,6 @@ https://github.com/square/javapoet
 ```
 
 
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
 
 ```
 

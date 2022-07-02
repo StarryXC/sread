@@ -1,15 +1,180 @@
-# HTML
+# Web
+
+## SVG
 
 ```
-文本标签
+
+```
+
+## ProtoBuf
+
+```
+
+```
+
+## Makdown
+
+```
+#n # 标题
+```
+
+## YAML
+
+```
+
+```
+
+## JSON
+
+```
+
+```
+
+# XML
+
+```
+<elements>
+    <intElement></intElement>
+    <booleanElement></booleanElement>
+    <stringElement></stringElement>
+    <doubleElement></doubleElement>
+    <longElement></longElement>
+    <arrayElement>
+        <item></item>
+        <item></item>
+        <item></item>
+    </arrayElement>
+</elements>
+
+约束
+    DTD
+    Schema
+```
+
+## DTD
+
+```
+
+```
+
+## Schema
+
+```
+
+```
+
+## XPath
+
+```
+
+```
+
+```
+
+```
+
+
+
+# HTML
+
+## 标签类型
+
+```
+<tag /> # 单标签
+<tag></tag> # 多标签
+```
+
+## 注释
+
+```
+<!-- -->
+```
+
+```
+HTML
+　　全局属性
+　　表格标签
+　　列表标签
+　　图像标签
+　　框架标签
+　　结构标签
+　　文本标签
+　　样式标签
+　　格式化标签
+　　超链接标签
+　　布局标签
+　　表单标签
+　　多媒体标签
+```
+
+## 结构标签
+
+```
+
+<html> # 文档根标签
+<head> # 头部
+<title> # 文档标题
+<body> # 
+<base> # 默认超链接设置
+<meta> # 元数据
+description 文档描述
+keywords 页面关键词
+author 作者
+
+content-type 文档类型
+expires 过期时间
+refresh 刷新
+set-cookie Cookie 设置
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<meta>
+    http-equiv="keywords" content="keyword1,keyword2,keyword3"
+    http-equiv="description" content="this is my page"
+    http-equiv="content-type" content="text/html; charset=UTF-8"
+    http-equiv="pragma" content="no-cache"
+    http-equiv="cache-control" content="no-cache"
+    http-equiv="expires" content="0"
+
+body
+    align 文本对齐方式
+    bgcolor 背景颜色
+    color 文本颜色
+    bg="#ffffff"
+    text="black"
+    leftmargin="160"
+    topmargin="200"
+    background="logo.gif"
+
+```
+
+## 全局属性
+
+```
+id
+class
+style
+
+<span>
+    id="divId"
+    class="divClass"
+    style="background-color: navy; color: orange;"
+```
+
+## 文本标签
+
+```
+
     段落 <p>
     标题 <hn>
     换行 <br>
     水平线 <hr>
 ```
 
+## 样式标签
+
 ```
-样式标签
+
     字体加粗 <b>
     大号字 <big>
     小号字 <small>
@@ -29,8 +194,10 @@
     下划线 <u>
 ```
 
+## 格式化标签
+
 ```
-格式化标签
+
     斜体 <i>
     加粗 <b>
     强调 <em>
@@ -289,11 +456,116 @@ stroage
 
 # CSS
 
+## 注释
+
+```
+
+```
+
+## 选择器
+
+```
+<selector> {
+	attr:value;
+}
+```
+
+## 选择器类型
+
+```
+<tag> # 元素选择器
+#<id> # id 选择器
+.<class> # 类选择器
+<tag>.<class>
+* # 通用选择器 通配符选择器
+<tag>, <tag>, <tag> # 分组选择器
+<tag>[<attr>]  # 属性选择器
+	=
+	$=
+	|=
+	~=
+	^=
+	*=
+<tag> <tag> # 后代选择器 包含选择器
+<tag> > <tag> # 子元素选择器
+<tag> + <tag> # 相邻兄弟选择器
+            div {
+                background-color: green;
+                color: red;
+                font-size: 30px;
+            }
+            .divClass { }
+            #divId { }
+            span b {}
+            div,span b {}
+            a:LINK {}
+            a:HOVER {}
+            a:ACTIVE {}
+            a:VISITED {}
+            p:FIRST-LETTER {}
+            input:FOCUS {}
+
+```
+
+## 样式表类型
+
+```
+内联样式 <element>
+    style="key:value;key:value"
+内部样式表 <style>
+    type="text/css"
+外部样式表 浏览器默认样式 <link>
+    rel="stylesheet"
+    type="text/css"
+    href
+```
+
+## 背景属性
+
+```
+background # 简写属性
+background-color # 背景颜色
+background-image # 背景图像
+background-position # 背景图像位置
+background-repeat # 背景图像重复方式
+background-attachment # 背景图像附加方
+```
+
+## 轮廓属性
+
+```
+outline # 简写属性
+outline-color # 轮廓颜色
+outline-style # 轮廓样式
+outline-width # 轮廓宽度
+```
+
+```
+　　表格属性
+　　列表属性
+　　链接四种状态
+　　背景属性
+　　轮廓属性
+　　字体属性
+　　文本属性
+　　尺寸属性
+　　定位属性
+　　float
+```
+
+```
+
+```
+
+
+
 ## Flex
 
 ```
 
 ```
+
+## 文本属性
 
 ```
 文本属性
@@ -310,6 +582,8 @@ stroage
     文本空白处理方式 white-space
     字间 word-spacing
 ```
+
+## 字体属性
 
 ```
 字体属性
@@ -349,6 +623,59 @@ stroage
 
 # JavaScript
 
+## 变量定义
+
+```
+var
+```
+
+## 变量类型
+
+```
+本地变量
+全局变量
+```
+
+## JS 对象
+
+```
+Number
+String
+Boolean
+Array
+Object
+Date
+Math
+RegExp
+```
+
+## BOM 对象
+
+```
+Window
+Screen
+Location
+History
+Navigator
+console
+```
+
+```
+
+```
+
+# ECMAScript
+
+## 注释
+
+```
+
+```
+
+## 变量定义
+
+```
+let const
 ```
 
 ```
@@ -360,6 +687,40 @@ stroage
 ```
 
 ```
+
+```
+
+```
+
+```
+
+# TypeScript
+
+## 注释
+
+```
+
+```
+
+## 变量定义
+
+```
+var <name>:<type>
+```
+
+## 数据类型
+
+```
+number string
+```
+
+## 运算符
+
+```
+
+```
+
+## 流程控制
 
 ```
 
@@ -387,158 +748,41 @@ stroage
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+## 指令
 
 ```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
+自定义指令
 ```
 
-```
+## 修饰符
 
 ```
 
 ```
 
-```
+## 循环
 
 ```
 
 ```
 
-```
+## 条件判断
 
 ```
 
 ```
 
-```
+# React
 
-```
+## JSX
 
 ```
-
+注释
+元素数组
+样式
+表达式
+class 属性
+for 属性
 ```
 
 ```
@@ -549,9 +793,7 @@ stroage
 
 ```
 
-```
 
-```
 
 ```
 
