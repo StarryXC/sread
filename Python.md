@@ -1,4 +1,14 @@
-# TCP/IP
+# Python
+
+## 异常处理
+
+```
+try except else
+try finally
+raise
+```
+
+## 数据库
 
 ```
 
@@ -28,9 +38,7 @@
 
 ```
 
-```
-
-```
+# 爬虫
 
 ```
 
