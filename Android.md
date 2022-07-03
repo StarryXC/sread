@@ -1,8 +1,105 @@
-[TOC]
-
-
-
 # Android
+
+## 环境搭建
+
+```
+环境搭建
+	项目结构
+	安卓模拟器
+环境变量
+ANDROID_SDK_HOME
+ANDROID_HONE
+PATH
+
+
+命令行
+adb
+	install uninstall
+	devices
+	tcpip connect
+	shell
+	reboot
+aapt
+dex
+getprop
+pm
+
+发展史
+	行为变更
+	版本api对应关系
+
+Android Studio 工具 # Logcat | -Dfile.encoding=UTF-8 | 快捷键
+
+BlueStacks Genymotion https://cloud.genymotion.com/
+
+prop
+ro.product.cpu.abi
+
+pm list instrumentation 运行测试后，执行adb指令
+
+project
+    module
+        src
+            main
+                assets
+                java
+                jni
+                AndroidManifest.xml
+        build.gradle
+        proguard-rules.pro
+
+```
+
+
+
+## AOSP
+
+```
+Android 源码目录结构
+
+https://source.android.google.cn/
+AndroidXRef就是其中一款备受青睐的源码在线阅读网站【网址：http://androidxref.com/】
+需要VPN，即需要FQ
+Android SDK Search 使用方法】
+
+sudo apt-get install git git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev 
+sudo apt-get install lib32ncurses5-dev x11proto-core-dev libx11-dev 
+sudo apt-get install lib32z-dev libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown 
+sudo apt-get install libxml2-utils xsltproc gcc-multilib lib32readline5-dev
+sudo apt-get install git
+
+编译
+source build/envsetup.sh
+编译安卓源码
+make (也可以使用 make -j4 四线程编译)
+运行模拟器
+lunch sdk-eng
+emulator
+emulator -kernel ./kernel/goldfish-android-goldfish-3.4/arch/arm/boot/zImage 指定内核启动模拟器
+编译SDK
+make -j4 sdk
+
+命令查看内核版本
+adb shell
+cd proc
+cat version
+
+source build/envsetup.sh
+mmm development/tools/idegen/ 编译idegen模块 mmm命令会把system.img等文件删除
+out/host/linux-x86/frameworks/目录下生成了idegen.jar文件
+
+development/tools/idegen/idegen.sh 根目录下生成
+android.iml和android.ipr这两个文件，这两个文件是Android Studio的工程配置文件
+make snod 重新生成镜像
+
+源码地址 Android社区
+https://www.androidos.net.cn/sourcecode
+https://www.androidos.net.cn/android/9.0.0_r8/tree
+
+
+```
+
+
 
 ## Json
 
@@ -1539,8 +1636,547 @@ SwipeRefreshLayout
 	canChildScrollUp
 ```
 
+## 系统架构
+
+```
+系统架构
+    应用程序层
+    应用程序框架层
+    运行时库层
+    Linux内核层
+
+架构原理
+    系统启动过程
+    Activity 启动过程
+    Service 启动过程
+
+HAL Hardware Abstract Layer 硬件抽象层
 ```
 
+
+
+# 广播接收器
+
+```
+系统广播
+Intent.ACTION_BOOT_COMPLETED
+Intent.ACTION_SCREEN_ON
+```
+
+## 来/去电广播
+
+```
+TelephonyManager.ACTION_PHONE_STATE_CHANGED
+Manifest.permission.READ_PHONE_STATE
+通话状态
+去电
+Intent.ACTION_NEW_OUTGOING_CALL 去电
+Manifest.permission.PROCESS_OUTGOING_CALLS
+String phoneNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+
+```
+
+## 电量变化广播
+
+```
+Intent.ACTION_BATTERY_CHANGED
+request
+response
+int level = intent.getIntExtra("level",0);//电池剩余容量
+int scale = intent.getIntExtra("scale",100);//电池总量
+int cap = level * 100 / scale;//电池电量
+
+```
+
+## 短信接收广播
+
+```
+action 接收短信
+if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.DONUT) {
+    Object[] pduses = (Object[])intent.getExtras().get("pdus");
+    for(Object pdus : pduses){
+        byte[] pdusmessage = (byte[]) pdus;
+        SmsMessage sms = SmsMessage.createFromPdu(pdusmessage);
+        String mobile = sms.getOriginatingAddress();
+        String content = sms.getMessageBody();
+        long timestampMillis = sms.getTimestampMillis();
+    }
+}
+```
+
+## 网络状态变化
+
+```
+网络
+监听网络变化
+获取网络状态
+
+android.permission.INTERNET
+android.intent.action.MAIN
+android.intent.category.LAUNCHER
+android.intent.action.USER_PRESENT
+android.intent.action.BOOT_COMPLETED
+android.intent.action.PACKAGE_REMOVED
+android.net.conn.CONNECTIVITY_CHANGE
+android.intent.action.PACKAGE_REMOVED
+android.intent.action.BOOT_COMPLETED
+```
+
+# 内容提供者
+
+```
+
+
+系统提供者
+CalendarContract
+
+```
+
+## CalendarContract
+
+```
+CalendarContract.Events
+_ID
+TITLE
+CONTENT_URI
+DESCRIPTION
+EVENT_LOCATION
+EXTRA_EVENT_BEGIN_TIME long
+EXTRA_EVENT_ALL_DAY boolean
+
+ContactsContract.Contacts
+_ID
+DISPLAY_NAME
+CONTENT_URI
+CONTENT_FILTER_URI
+
+ContactsContract.Data
+CONTACT_ID
+MIMETYPE
+DISPLAY_NAME
+CONTENT_URI
+
+ContactsContract.CommonDataKinds.Phone
+CONTENT_ITEM_TYPE
+NUMBER
+
+ContactsContract.PhoneLookup
+CONTENT_FILTER_URI
+
+ContactsContract.Intents
+SHOW_OR_CREATE_CONTACT
+
+ContactsContract.Intents.Insert
+COMPANY
+POSTAL
+
+ContactsContract.CommonDataKinds.Phone.CONTENT_URI # URI
+ContactsContract.CommonDataKinds.Phone.NUMBER # String 手机号
+ContactsContract.PhoneLookup.DISPLAY_NAME # String 姓名
+
+
+ContactsContract.Contacts.DISPLAY_NAME
+ContactsContract.Contacts.HAS_PHONE_NUMBER
+
+ContactsContract.CommonDataKinds.Phone.CONTENT_URI
+ContactsContract.CommonDataKinds.Phone.CONTACT_ID
+ContactsContract.CommonDataKinds.Phone.NUMBER getString
+ContactsContract.CommonDataKinds.Phone.TYPE getInt
+
+ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_URI
+ContactsContract.CommonDataKinds.StructuredPostal.CONTACT_ID
+ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS
+ContactsContract.Intents.Insert.POSTAL putString
+
+ContactsContract.CommonDataKinds.Email.CONTENT_URI
+ContactsContract.CommonDataKinds.Email.CONTACT_ID
+ContactsContract.CommonDataKinds.Email.DATA
+
+```
+
+## MediaStore
+
+```
+MediaStore.Images.Media.DATA,
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.DATE_ADDED,
+                MediaStore.Images.Media._ID
+
+
+MediaStore.Audio.AudioColumns
+ALBUM string 缩略图
+TITLE string 标题
+
+MediaStore.Audio.Media
+EXTERNAL_CONTENT_URI
+
+
+ContentValues values = new ContentValues();
+values.put(MediaStore.Images.Media.TITLE, "");
+values.put(MediaStore.Images.Media.DISPLAY_NAME, "name.jpeg");
+values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+// 创建一条图片uri,用于保存拍照后的照片
+Uri uri = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+// MediaStore.Images.Media.INTERNAL_CONTENT_URI
+// MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI
+Uri imageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+ContentResolver mContentResolver = context.getContentResolver();
+Cursor cursor = mContentResolver.query(imageUri, null,MediaStore.Images.Media.MIME_TYPE + "=? or " + MediaStore.Images.Media.MIME_TYPE + "=?",new String[] { "image/jpeg", "image/png" }, MediaStore.Images.Media.DATE_MODIFIED);
+String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+
+```
+
+## Settings
+
+```
+
+```
+
+## CallLog
+
+```
+Uri: CallLog.Calls.CONTENT_URI 通话记录 Manifest.permission.READ_CALL_LOG
+CallLog.Calls.NUMBER
+CallLog.Calls.DATE
+CallLog.Calls.TYPE
+CallLog.Calls.DURATION
+
+CallLog.Calls.CONTENT_URI # 查询通话记录的URI
+CallLog.Calls.CACHED_NAME # String 姓名：通话记录的联系人
+CallLog.Calls.NUMBER # String 号码：通话记录的电话号码
+CallLog.Calls.TYPE # Int 通话类型：1.呼入; 2.呼出; 3.未接
+CallLog.Calls.DATE # Long 通话时间 拨打时间：通话记录的日期
+CallLog.Calls.DURATION # Int 通话时长 值为多少秒
+CallLog.Calls.DEFAULT_SORT_ORDER # 按照时间逆序排列，最近打的最先显示
+```
+
+## sms
+
+```
+content://sms/
+	_id # Int
+	thread_id # Int
+	address # String
+	person # String
+	date # Long
+	protocol # Int
+	read # Int
+	status # Int
+	type # Int
+	body # String
+	service_center # String
+ContentResolver
+	query # selection "date > '" + uploadTime + "'" sortOrder date desc
+```
+
+## Browser
+
+```
+content://browser/bookmarks ndroid.provider.Browser.BOOKMARKS_URI:
+title Browser.BookmarkColumns.TITLE
+url Browser.BookmarkColumns.URL
+Intent intent = new Intent();
+    intent.addFlags(Intents.FLAG_NEW_DOC);
+    intent.putExtra("title", titleURL[0]); // Browser.BookmarkColumns.TITLE
+    intent.putExtra("url", titleURL[1]); // Browser.BookmarkColumns.URL
+    setResult(RESULT_OK, intent);
+```
+
+## DocumentsContract
+
+```
+public static final String GOOGLE_PHOTOS_URI = "com.google.android.apps.photos.content";
+public static final String MEDIA_DOCUMENT_URI = "com.android.providers.media.documents";
+public static final String DOWNLOADS_DOCUMENT_URI = "com.android.providers.downloads.documents";
+public static final String EXTERNALSTORAGE_DOCUMENT_URI = "com.android.externalstorage.documents";
+
+// 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
+@TargetApi(Build.VERSION_CODES.KITKAT)
+public static String getImageAbsolutePath19(Context context, Uri imageUri) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, imageUri)) {
+        if (EXTERNALSTORAGE_DOCUMENT_URI.equals(imageUri.getAuthority())) {
+            String docId = DocumentsContract.getDocumentId(imageUri);
+            String[] split = docId.split(":"); // 0 type 1 path
+            String type = split[0];
+            if ("primary".equalsIgnoreCase(type)) {
+                return Environment.getExternalStorageDirectory() + "/" + split[1];
+            }
+        } else if (DOWNLOADS_DOCUMENT_URI.equals(imageUri.getAuthority())) {
+            String id = DocumentsContract.getDocumentId(imageUri);
+            Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+            return getDataColumn(context, contentUri, null, null);
+        } else if (MEDIA_DOCUMENT_URI.equals(imageUri.getAuthority())) {
+            String docId = DocumentsContract.getDocumentId(imageUri);
+            String[] split = docId.split(":");
+            String type = split[0];
+            Uri contentUri = null;
+            if ("image".equals(type)) {
+                contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            } else if ("video".equals(type)) {
+                contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+            } else if ("audio".equals(type)) {
+                contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            }
+            String selection = MediaStore.Images.Media._ID + "=?";
+            String[] selectionArgs = new String[] { split[1] };
+            return getDataColumn(context, contentUri, selection, selectionArgs);
+        }
+    }
+    // MediaStore (and general)
+    if ("content".equalsIgnoreCase(imageUri.getScheme())) {
+        // Return the remote address
+        if (GOOGLE_PHOTOS_URI.equals(imageUri.getAuthority()))
+            return imageUri.getLastPathSegment();
+        return getDataColumn(context, imageUri, null, null);
+    }
+    // File
+    else if ("file".equalsIgnoreCase(imageUri.getScheme())) {
+        return imageUri.getPath();
+    }
+    return null;
+}
+
+private static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
+    Cursor cursor = null;
+    String column = MediaStore.Images.Media.DATA;
+    String[] projection = { column };
+    try {
+        cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            int index = cursor.getColumnIndexOrThrow(column);
+            return cursor.getString(index);
+        }
+    } finally {
+        if (cursor != null)
+            cursor.close();
+    }
+    return null;
+}
+
+
+public static String getPath(final Context context, final Uri uri) {
+
+        final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.;
+
+        // DocumentProvider
+        if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
+            // ExternalStorageProvider
+            if (isExternalStorageDocument(uri)) {
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                final String type = split[0];
+
+                if ("primary".equalsIgnoreCase(type)) {
+                    return Environment.getExternalStorageDirectory() + "/" + split[1];
+                }
+
+                // TODO handle non-primary volumes
+            }
+            // DownloadsProvider
+            else if (isDownloadsDocument(uri)) {
+                final String id = DocumentsContract.getDocumentId(uri);
+                final Uri contentUri = ContentUris.withAppendedId(
+                        Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+
+                return getDataColumn(context, contentUri, null, null);
+            }
+            // MediaProvider
+            else if (isMediaDocument(uri)) {
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                final String type = split[0];
+
+                Uri contentUri = null;
+                if ("image".equals(type)) {
+                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                } else if ("video".equals(type)) {
+                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                } else if ("audio".equals(type)) {
+                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                }
+
+                final String selection = "_id=?";
+                final String[] selectionArgs = new String[]{
+                        split[1]
+                };
+
+                return getDataColumn(context, contentUri, selection, selectionArgs);
+            }
+        }
+        // MediaStore (and general)
+        else if ("content".equalsIgnoreCase(uri.getScheme())) {
+            return getDataColumn(context, uri, null, null);
+        }
+        // File
+        else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            return uri.getPath();
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the value of the data column for this Uri. This is useful for
+     * MediaStore Uris, and other file-based ContentProviders.
+     *
+     * @param context       The context.
+     * @param uri           The Uri to query.
+     * @param selection     (Optional) Filter used in the query.
+     * @param selectionArgs (Optional) Selection arguments used in the query.
+     * @return The value of the _data column, which is typically a file path.
+     */
+    public static String getDataColumn(Context context, Uri uri, String selection,
+                                       String[] selectionArgs) {
+
+        Cursor cursor = null;
+        final String column = "_data";
+        final String[] projection = {
+                column
+        };
+
+        try {
+            cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,
+                    null);
+            if (cursor != null && cursor.moveToFirst()) {
+                final int column_index = cursor.getColumnIndexOrThrow(column);
+                return cursor.getString(column_index);
+            }
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+        return null;
+    }
+
+
+    /**
+     * @param uri The Uri to check.
+     * @return Whether the Uri authority is ExternalStorageProvider.
+     */
+    public static boolean isExternalStorageDocument(Uri uri) {
+        return "com.android.externalstorage.documents".equals(uri.getAuthority());
+    }
+
+    /**
+     * @param uri The Uri to check.
+     * @return Whether the Uri authority is DownloadsProvider.
+     */
+    public static boolean isDownloadsDocument(Uri uri) {
+        return "com.android.providers.downloads.documents".equals(uri.getAuthority());
+    }
+
+    /**
+     * @param uri The Uri to check.
+     * @return Whether the Uri authority is MediaProvider.
+     */
+    public static boolean isMediaDocument(Uri uri) {
+        return "com.android.providers.media.documents".equals(uri.getAuthority());
+    }
+
+
+
+
+
+
+
+
+
+```
+
+## 滚动
+
+```
+滚动
+内嵌滚动
+
+Scroller
+OverScroller
+ViewConfiguration
+ViewConfigurationCompat
+VelocityTracker
+
+Scroller
+    startScroll
+    getCurrX
+    getCurrY
+    computeScrollOffset
+    abortAnimation
+    forceFinished
+
+OverScroller
+    startScroll
+
+VelocityTracker
+    obtain
+    addMovement
+    getXVelocity
+    getYVelocity
+    computeCurrentVelocity
+    recycle
+
+ViewConfiguration
+    get
+    getTouchSlop
+    getMinimumFlingVelocity
+
+FrameLayout
+    HorizontalScrollView
+    ScrollView
+    NestedScrollView
+
+NestedScrollingParentHelper
+
+NestedScrollingParent
+    NestedScrollingParent2
+        NestedScrollingParent3
+NestedScrollingChild
+    NestedScrollingChild2
+        NestedScrollingChild3
+ScrollingView
+
+NestedScrollingParent3
+NestedScrollingChild3
+ScrollingView
+    NestedScrollView
+
+View
+    onScrollChanged
+    scrollTo
+    scrollBy
+
+ScrollView
+    setFillViewport android:fillViewport
+    android:scrollbars none
+
+NestedScrollingChild # 内嵌滚动 setNestedScrollingEnabled(true)
+	setNestedScrollingEnabled isNestedScrollingEnabled
+	startNestedScroll
+	stopNestedScroll
+	hasNestedScrollingParent
+	dispatchNestedScroll dispatchNestedPreScroll # consumed
+	dispatchNestedFling dispatchNestedPreFling # consumed
+NestedScrollingParent
+
+NestedScrollingParentHelper
+	onStartNestedScroll # nestedScrollAxes
+	onNestedScrollAccepted
+	onStopNestedScroll
+	onNestedScroll
+	onNestedPreScroll # consumed[1] = dy;
+	onNestedFling onNestedPreFling # 
+	getNestedScrollAxes
+
+
+
+
+
+```
+
+## ObservableScrollView
+
+```
+https://github.com/ksoichiro/Android-ObservableScrollView
 ```
 
 
@@ -1770,7 +2406,371 @@ IProvider # init
 https://github.com/airbnb/DeepLinkDispatch
 ```
 
+# 图形界面
+
+
+
 ```
+GUI/UI
+
+```
+
+
+
+### Android   
+
+```
+View <-- Drawable.Callback KeyEvent.Callback AccessibilityEventSource
+    AnalogClock
+    ViewGroup
+        FrameLayout
+            TabHost
+                FragmentTabHost
+        LinearLayout
+            RadioGroup
+            SearchView
+            TabWidget
+            ZoomControls
+        GridLayout
+        AbsoluteLayout
+        RelativeLayout
+            DialerFilter
+            TwoLineListItem
+        AdapterView
+    TextView
+    ImageView
+    ProgressBar
+    SurfaceView
+
+View
+    setId android:id
+    getId
+    
+    getTop
+    
+    setBackgroundResource
+    
+    setPadding
+    setPaddingRelative
+    getPaddingLeft android:paddingLeft
+    getPaddingRight android:paddingRight
+    getPaddingTop
+    getPaddingBottom
+    getPaddingStart
+    getPaddingEnd
+    
+    callOnClick
+    performClick
+    setOnClickListener OnClickListener
+        onClick
+    performLongClick
+    setOnLongClickListener OnLongClickListener
+        onLongClick
+    setOnKeyListener OnKeyListener
+        onKey
+    setOnTouchListener OnTouchListener
+        onTouch
+
+    requestLayout
+    invalidate
+    postInvalidate
+    
+    post
+    
+    setSelected
+    isSelected
+    
+    requestFocus
+    
+    measure
+    onMeasure
+    setMeasuredDimension
+    getMeasuredWidth
+    getMeasuredHeight
+    layout
+    onLayout
+    getWidth
+    getHeight
+    
+    findViewById
+    
+    onKeyDown
+    
+    getSystemUiVisibility
+    setSystemUiVisibility
+        systemuivisibility |= View.SYSTEM_UI_FLAG
+        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                | View.SYSTEM_UI_FLAG_IMMERSIVE
+    setVisibility
+        INVISIBLE
+        VISIBLE
+    getViewTreeObserver
+    
+    setBackgroundColor
+    setLayerType
+        View.LAYER_TYPE_SOFTWARE
+    getParent
+    
+View.MeasureSpec
+    makeMeasureSpec
+        EXACTLY
+    getMode
+    getSize
+
+ViewCompat
+    setOverScrollMode
+        OVER_SCROLL_ALWAYS
+    getOverScrollMode
+
+ViewGroup
+    getChildAt
+    removeView
+
+ViewTreeObserver
+    addOnPreDrawListener OnPreDrawListener
+        onPreDraw
+    removeOnPreDrawListener
+
+自定义View: 宽度 高度 相同 SquareView
+        setMeasuredDimension(getDefaultSize(0, widthMeasureSpec),
+                getDefaultSize(0, heightMeasureSpec));
+
+        int childWidthSize = getMeasuredWidth();
+        // 高度和宽度一样
+        heightMeasureSpec = widthMeasureSpec = MeasureSpec.makeMeasureSpec(
+                childWidthSize, MeasureSpec.EXACTLY);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+自定义View
+tools:text="Taro"
+```
+
+#### TabHost
+
+```
+FrameLayout tabContentView = tabHost.getTabContentView();
+LayoutInflater.from(tabActivity).inflate(R.layout.activity_main, tabContentView, true);
+TabHost.TabSpec tabSpec = tabHost.newTabSpec("tag")
+        .setIndicator("label")
+        .setContent(R.id.layout);
+tabHost.addTab(tabSpec);
+tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+    @Override
+    public void onTabChanged(String tabId) {
+        if (tabId.equals("tag")) {
+        }
+    }
+});
+```
+
+
+
+#### ViewAnimator
+
+```
+FrameLayout
+    ViewAnimator
+        ViewFlipper
+        ViewSwitcher
+            TextSwitcher
+            ImageSwitcher
+
+```
+
+#### SurfaceView
+
+```
+View
+    SurfaceView
+    TextureView
+
+SurfaceView
+    getHolder
+
+SurfaceHolder
+    setType
+        SURFACE_TYPE_PUSH_BUFFERS
+    setFixedSize
+    addCallback Callback
+        surfaceCreated
+        surfaceChanged
+        surfaceDestroyed
+    setKeepScreenOn
+    lockCanvas
+    lockHardwareCanvas
+    unlockCanvasAndPost
+
+TextureView
+    getSurfaceTexture
+
+
+
+
+
+
+
+
+
+```
+
+#### GLSurfaceView
+
+```
+SurfaceView
+    GLSurfaceView <-- SurfaceHolder.Callback2
+
+```
+
+#### VideoView
+
+```
+SurfaceView
+    VideoView <-- MediaController.MediaPlayerControl SubtitleController.Anchor
+FrameLayout
+    MediaController
+
+```
+
+#### CardView
+
+```
+implementation 'androidx.cardview:cardview:1.0.0'
+implementation 'com.android.support:cardview-v7:'
+
+FrameLayout
+    CardView
+
+CardView
+    setRadius app:cardCornerRadius
+    getRadius
+    app:cardUseCompatPadding
+    app:contentPadding
+    app:cardBackgroundColor
+
+```
+
+#### Toast
+
+```
+Toast
+    makeText
+    show
+    LENGTH_SHORT
+
+```
+
+#### m     Material Design
+
+```
+implementation 'com.google.android.material:material:1.3.0'
+implementation 'com.android.support:design:28.0.0'
+implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+implementation 'com.android.support:coordinatorlayout:'
+
+ExpandableWidget
+    ExpandableTransformationWidget
+
+ViewGroup
+    CoordinatorLayout <-- NestedScrollingParent2 NestedScrollingParent3
+    LinearLayout
+        AppBarLayout <-- CoordinatorLayout.AttachedBehavior
+    FrameLayout
+        CollapsingToolbarLayout
+        ScrimInsetsFrameLayout
+            NavigationView
+        BottomNavigationView
+    ImageView
+        ImageButton
+            VisibilityAwareImageButton
+                FloatingActionButton <-- TintableBackgroundView TintableImageSourceView ExpandableTransformationWidget Shapeable CoordinatorLayout.AttachedBehavior
+
+CoordinatorLayout.Behavior
+    ViewOffsetBehavior
+        HeaderBehavior
+            AppBarLayout.BaseBehavior
+                AppBarLayout.Behavior
+
+ViewGroup.MarginLayoutParams
+    CoordinatorLayout.LayoutParams
+    LinearLayout.LayoutParams
+        AppBarLayout.LayoutParams
+    FrameLayout.LayoutParams
+        CollapsingToolbarLayout.LayoutParams
+
+CoordinatorLayout.LayoutParams
+    setAnchorId
+    getAnchorId
+    setBehavior app:layout_behavior
+        @string/appbar_scrolling_view_behavior
+	getBehavior
+
+CoordinatorLayout.Behavior
+	getTag setTag
+	onAttachedToLayoutParams onDetachedFromLayoutParams
+	onInterceptTouchEvent onTouchEvent
+	getScrimColor getScrimOpacity
+	onSaveInstanceState onRestoreInstanceState
+	onMeasureChild onLayoutChild
+	layoutDependsOn
+	onDependentViewChanged onDependentViewRemoved
+	onNestedScrollAccepted
+	onNestedScroll onNestedPreScroll
+	onNestedFling onNestedPreFling
+	onStartNestedScroll onStopNestedScroll
+
+AppBarLayout
+	getTotalScrollRange
+	android:theme="@style/AppTheme.AppBarOverlay"
+
+AppBarLayout.LayoutParams
+	setScrollFlags
+	getScrollFlags
+	setScrollInterpolator
+	getScrollInterpolator
+
+AppBarLayout.Behavior
+	setTopAndBottomOffset
+
+FloatingActionButton
+    setOnClickListener
+    app:srcCompat="@android:drawable/ic_dialog_email"
+
+NavigationView
+    setNavigationItemSelectedListener OnNavigationItemSelectedListener
+        onNavigationItemSelected
+    getMenu
+    inflateMenu
+
+BottomNavigationView
+    setOnNavigationItemSelectedListener OnNavigationItemSelectedListener
+        onNavigationItemSelected
+    setOnNavigationItemReselectedListener OnNavigationItemReselectedListener
+        onNavigationItemReselected
+    getMenu
+    inflateMenu app:menu menu 资源
+
+BaseTransientBottomBar
+    Snackbar
+
+Snackbar
+    make
+        LENGTH_LONG
+    setAction
+    show
+
+Toolbar
+    android:elevation
+    android:minHeight
+        ?android:attr/actionBarSize
+    android:popupTheme
+        @android:style/ThemeOverlay.Material.Light
+        @style/AppTheme.PopupOverlay
+    android:theme
+        @android:style/ThemeOverlay.Material.Dark.ActionBar
 
 ```
 
@@ -2124,6 +3124,20 @@ onBindViewHolder
 compile 'com.jiechic.library:xUtils:2.6.14'
 
 ViewUtils
+ViewUtils
+
+https://github.com/wyouflf/xUtils
+com.jiechic.library:xUtils:2.6.14
+
+ViewUtils # inject
+@ViewInject
+@OnClick
+
+DbManager # 
+Column
+
+xUtils3 https://github.com/wyouflf/xUtils3
+
 ```
 
 # WheelView
@@ -2861,18 +3875,6 @@ https://github.com/LidongWen/MultiTypeAdapter
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
 
 
 # 代码混淆
@@ -3509,9 +4511,966 @@ public static final int *;
 
 ```
 
-```
+# NDK
 
 ```
+NDK 编程 jni
+    Android.mk
+    Application.mk
+
+Android.mk
+Application.mk
+
+ifndef USE_FREETYPE
+USE_FREETYPE := 2.4.2
+endif
+
+ifeq ($(USE_FREETYPE),2.4.2)
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_ARM_MODE := arm
+
+LOCAL_SRC_FILES:= \
+	src/base/ftbbox.c \
+	src/psnames/psnames.c \
+	src/pshinter/pshinter.c
+
+LOCAL_C_INCLUDES += \
+	$(LOCAL_PATH)/builds \
+	$(LOCAL_PATH)/include
+
+LOCAL_CFLAGS += -W -Wall
+LOCAL_CFLAGS += -fPIC -DPIC
+LOCAL_CFLAGS += "-DDARWIN_NO_CARBON"
+LOCAL_CFLAGS += "-DFT2_BUILD_LIBRARY"
+LOCAL_CFLAGS += "-DTT_CONFIG_OPTION_BYTECODE_INTERPRETER"
+LOCAL_CFLAGS += -O2
+
+LOCAL_MODULE:= libft2
+
+include $(BUILD_STATIC_LIBRARY)
+endif
+
+include $(CLEAR_VARS)
+LOCAL_C_INCLUDES += \
+	$(LOCAL_PATH)/builds \
+	$(LOCAL_PATH)/include
+LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
+LOCAL_MODULE := dxtx
+LOCAL_STATIC_LIBRARIES := libft2
+# for logging
+LOCAL_LDLIBS    += -llog
+# for native windows
+LOCAL_LDLIBS    += -landroid
+
+LOCAL_CFLAGS    += -UNDEBUG
+include $(BUILD_SHARED_LIBRARY)
+
+
+
+task ndkBuild(type: Exec) {
+	def ndkDir = project.plugins.findPlugin('com.android.library').sdkHandler.getNdkFolder()
+	commandLine "$ndkDir/ndk-build.cmd", '-C', 'src/main/jni',
+			"NDK_OUT=$buildDir/ndk/obj",
+			"NDK_APP_DST_DIR=$buildDir/ndk/libs/\$(TARGET_ARCH_ABI)"
+}
+
+task copyExeFile(type: Copy) {
+	from fileTree(dir: file(buildDir.absolutePath + '/ndk/libs'), include: '**/*')
+	into file('src/main/assets/')
+}
+
+
+```
+
+## Android.mk
+
+```
+
+APP_ABI := all
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES:= VideoConvert.cpp
+
+LOCAL_MODULE:= asdf
+
+#LOCAL_CFLAGS += -std=c99
+#LOCAL_C_INCLUDES :=
+#LOCAL_STATIC_LIBRARIES :=
+#LOCAL_SHARED_LIBRARIES :=
+
+include $(BUILD_SHARED_LIBRARY)
+
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := freetype2-prebuilt
+LOCAL_SRC_FILES := ../obj/local/$(TARGET_ARCH_ABI)/libfreetype2-static.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+CLEAR_VARS
+BUILD_EXECUTABLE
+BUILD_SHARED_LIBRARY
+BUILD_STATIC_LIBRARY
+PREBUILT_SHARED_LIBRARY
+PREBUILT_STATIC_LIBRARY
+
+TARGET_ARCH
+TARGET_PLATFORM
+TARGET_ARCH_ABI
+TARGET_ABI
+
+LOCAL_PATH
+LOCAL_MODULE
+LOCAL_MODULE_FILENAME
+LOCAL_SRC_FILES
+LOCAL_CPP_EXTENSION
+LOCAL_CPP_FEATURES
+LOCAL_C_INCLUDES
+LOCAL_CFLAGS
+LOCAL_CPPFLAGS
+LOCAL_STATIC_LIBRARIES
+LOCAL_SHARED_LIBRARIES
+LOCAL_WHOLE_STATIC_LIBRARIES
+LOCAL_LDLIBS
+LOCAL_LDFLAGS
+LOCAL_ALLOW_UNDEFINED_SYMBOLS
+LOCAL_ARM_MODE
+LOCAL_ARM_NEON
+LOCAL_DISABLE_FORMAT_STRING_CHECKS
+LOCAL_EXPORT_CFLAGS
+LOCAL_EXPORT_CPPFLAGS
+LOCAL_EXPORT_C_INCLUDES
+LOCAL_EXPORT_LDFLAGS
+LOCAL_EXPORT_LDLIBS
+LOCAL_SHORT_COMMANDS
+LOCAL_THIN_ARCHIVE
+LOCAL_FILTER_ASM
+my-dir
+all-subdir-makefiles
+this-makefile
+parent-makefile
+grand-parent-makefile
+import-module
+
+Application.mk
+# Android OS 放弃GCC转向了 Clang 编译器,NDK 将移除GCC
+#   APP_STL  := gnustl_static 改为 APP_STL := c++_static
+#   删除NDK_TOOLCHAIN or NDK_TOOLCHAIN_VERSION
+#对于cmake编译
+#   删除 ANDROID_TOOLCHAIN
+#对于独立的toolchains
+#   用clang/clang++ binaries 代替 gcc/g++
+
+APP_PLATFORM := android-16
+APP_ALLOW_MISSING_DEPS=true
+
+APP_ABI := all,armeabi,armeabi-v7a,arm64-v8a
+#APP_ABI:=armeabi arm64-v8a x86_64 x86 armeabi-v7a
+#NDK_TOOLCHAIN_VERSION:=clang3.5
+#APP_STL:=gnustl_static
+APP_STL:=c++_static
+#APP_OPTIM：= debuge
+
+
+APP_ABI
+
+APP_ASFLAGS
+APP_ASMFLAGS
+APP_BUILD_SCRIPT
+APP_CFLAGS
+APP_CLANG_TIDY
+APP_CLANG_TIDY_FLAGS
+APP_CONLYFLAGS
+APP_CPPFLAGS
+APP_CXXFLAGS
+APP_DEBUG
+APP_LDFLAGS
+APP_MANIFEST
+APP_MODULES
+APP_OPTIM
+APP_PLATFORM
+APP_PROJECT_PATH
+APP_SHORT_COMMANDS
+APP_STL
+APP_STRIP_MODE
+APP_THIN_ARCHIVE
+APP_WRAP_SH
+
+ ## hello world JNI
+// extern "C" 标识后面的用C编译 ,这里的意思是这个函数用C编译,C++为了函数重载会把参数带上,而c没有函数重载
+// JNICALL表示调用约定，相当于C++的stdcall，说明调用的是本地方法
+// JNIEXPORT表示函数的链接方式，当程序执行的时候从本地库文件中找函数
+// 中间的jstring就是返回类型,是c++中对应java中String的类型
+// JNIEnv 是对java环境的引用,并且提供了一些类型转换方法
+// jobject 是调用这个函数的java对象.没发现如何使用
+extern "C" JNIEXPORT jstring JNICALL Java_com_happy_fei_helloworldjni_MainActivity_stringFromJNI(
+        JNIEnv *env,
+        jobject /* this */) {
+    std::string hello = "Hello from C++";
+    return env->NewStringUTF(hello.c_str());
+}
+	
+extern "C" 告诉编译器后面的按照C的风格编译.我测试下如果函数前不加extern "C"会报错
+​```
+java.lang.UnsatisfiedLinkError: No implementation found for java.lang.String com.happy.fei.helloworldjni.MainActivity.helloWorld(java.lang.String, java.lang.String) (tried Java_com_happy_fei_helloworldjni_MainActivity_helloWorld and Java_com_happy_fei_helloworldjni_MainActivity_helloWorld__Ljava_lang_String_2Ljava_lang_String_2)
+​```
+错误的信息是没有找到helloWorld函数也没有找到helloWorld(String,String)函数.
+问题:什么时候可以不使用extern "C". 我这个文件是CPP啊,不过留待以后熟练了发现吧.现在还不太溜
+
+###### 稍微难一点
+
+```
+
+# 多媒体
+
+## 绘图
+
+```
+Canvas
+    getWidth
+    getHeight
+    矩形 drawRect
+    圆角矩形 drawRoundRect
+    drawBitmap
+    drawText
+    drawPosText
+    圆形 drawCircle
+    drawBitmapMesh
+    drawPath
+    drawTextOnPath
+    点 drawPoint
+    多个点 drawPoints
+    直线 drawLine
+    多条直线 drawLines
+    椭圆 drawOval
+        椭圆是根据矩形生成的，以矩形的长为椭圆的X轴，矩形的宽为椭圆的Y轴，建立的椭圆图形
+    弧 drawArc
+        弧是椭圆的一部分，而椭圆是根据矩形来生成的，所以弧当然也是根据矩形来生成的
+    drawRegion
+    clipPath
+        Region.Op.DIFFERENCE
+    concat
+    画布平移 translate
+        画布坐标 屏幕左上角 x向左 y向下
+    画布旋转 rotate
+        围绕坐标原点旋转
+    缩放 scale
+    扭曲 skew
+        倾斜角度的tan值
+        (1.732f,0);//X轴倾斜60度，Y轴不变
+    save
+    restore
+    setDrawFilter
+        PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG)
+    getDrawFilter
+
+Paint
+    ANTI_ALIAS_FLAG
+    画笔颜色 setColor
+    getColor
+    文字大小 setTextSize
+    getTextSize
+    setTypeface
+        Typeface.create("System", Typeface.BOLD)
+    getTypeface
+    setStyle
+        填充 Style.FILL
+        描边 Style.STROKE
+        填充且描边 Style.FILL_AND_STROKE
+    getStyle
+    setAlpha
+    getAlpha
+    setShader
+        Shader.TileMode.CLAMP
+    getShader
+    字体 setTypeface
+    measureText
+    getTextBounds
+    getTextWidths
+    setXfermode
+        PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+    喵边宽度 setStrokeWidth
+    getStrokeWidth
+    抗锯齿 影响绘制速度 setAntiAlias
+    isAntiAlias
+    文字对齐方式 setTextAlign
+        Align.CENTER
+        Align.LEFT
+        Align.RIGHT
+    文字加粗 setFakeBoldText
+    下划线 setUnderlineText
+    字体水平倾斜度，普通斜体字是-0.25 setTextSkewX
+        字体水平倾斜度，普通斜体字是-0.25，可见往右斜
+        水平倾斜度设置为：0.25，往左斜
+    删除线效果 setStrikeThruText
+    只会将水平方向拉伸，高度不会变 setTextScaleX
+    getFontMetrics Paint.FontMetrics
+        五线普 基线 baseLineY
+        ascent = baseLineY + fm.ascent
+        descent = baseLineY + fm.descent
+        top = baseLineY + fm.top
+        bottom = baseLineY + fm.bottom
+    画text所占的区域 getFontMetricsInt Paint.FontMetricsInt
+        top = baseLineY + fm.top;
+        bottom = baseLineY + fm.bottom;
+        width = (int)paint.measureText(text);
+        Rect(baseLineX,top,baseLineX+width,bottom);
+    最小矩形 getTextBounds
+        top = baseLineY + minRect.top
+        bottom = baseLineY + minRect.bottom
+        drawRect(minRect,paint);
+    画文字
+        drawText(text, baseLineX, baseLineY, paint);
+    阴影 setShadowLayer
+
+Matrix
+    MSCALE_X
+    setRotate
+    preRotate
+    postRotate
+    setTranslate
+    preTranslate
+    postTranslate
+    setScale
+    preScale
+    postScale
+    setSkew
+    preSkew
+    postSkew
+    setConcat
+    preConcat
+    postConcat
+    setPolyToPoly
+
+Drawable
+    DrawableContainer <-- Drawable.Callback
+        AnimationDrawable <-- Runnable Animatable
+        StateListDrawable
+            AnimatedStateListDrawable
+        LevelListDrawable
+    BitmapDrawable
+    NinePatchDrawable
+    ColorDrawable
+    DrawableWrapper <-- Drawable.Callback
+        ClipDrawable
+        InsetDrawable
+        RotateDrawable
+        ScaleDrawable
+    GradientDrawable
+    LayerDrawable <-- Drawable.Callback
+        RippleDrawable
+        TransitionDrawable <-- Drawable.Callback
+    ShapeDrawable
+        PaintDrawable
+    PictureDrawable
+    VectorDrawable
+
+Drawable
+    setColorFilter
+    getColorFilter
+    setBounds
+    getBounds
+    getIntrinsicWidth
+    getIntrinsicHeight
+    draw
+
+Shader
+    BitmapShader
+    LinearGradient
+    SweepGradient
+    RadialGradient
+    ComposeShader
+
+DrawFilter
+    毛边过滤 PaintFlagsDrawFilter
+
+Xfermode
+	PorterDuffXfermode
+
+Typeface
+    create
+    createFromAsset
+    createFromFile
+    defaultFromStyle
+
+
+ColorMatrix
+
+ColorFilter
+    PorterDuffColorFilter
+        PorterDuff.Mode.SRC_IN
+    BlendModeColorFilter
+    ColorMatrixColorFilter
+    LightingColorFilter
+
+Icon <-- Parcelable
+    createWithResource
+
+Gravity
+    NO_GRAVITY
+    CENTER
+    FILL
+    CLIP
+    RELATIVE
+    LEFT
+    RIGHT
+    TOP
+    BOTTOM
+    START
+    END
+
+Point
+    set
+    offset
+
+Rect
+    width
+    height
+    centerX
+    centerY
+    flattenToString
+    offset
+    offsetTo
+
+RectF
+
+区域 Region
+    setPath
+    op
+        Region.Op.XOR 交集
+
+RegionIterator
+    RegionIterator(Region)
+    next(Rect)
+
+
+Path
+    moveTo
+    lineTo
+    close
+    addCircle
+        逆向绘制 Path.Direction.CCW
+    addOval
+
+Color
+    WHITE
+    BLACK
+    TRANSPARENT
+    parse
+    valueOf
+    rgb
+    parseColor
+
+Bitmap
+    createBitmap
+    compress
+        CompressFormat.PNG
+        CompressFormat.JPEG
+
+BitmapFactory
+    decodeByteArray
+    decodeFile
+
+BitmapFactory.Options
+    inJustDecodeBounds
+    inSampleSize
+    outMimeType
+    outWidth
+    outHeight
+    outConfig
+        Bitmap.Config.ALPHA_8
+
+BitmapRegionDecoder
+    newInstance
+    decodeRegion
+
+```
+
+## 相机
+
+```
+Manifest.permission.CAMERA
+Camera
+    open
+    release
+    getParameters
+    setParameters
+    预览 setPreviewDisplay
+    setOneShotPreviewCallback
+    setPreviewCallback PreviewCallback
+        onPreviewFrame
+    开启预览 startPreview
+    停止预览 stopPreview
+    autoFocus AutoFocusCallback
+        onAutoFocus
+    cancelAutoFocus
+    setAutoFocusMoveCallback AutoFocusMoveCallback
+        onAutoFocusMoving
+    照相 takePicture
+        ShutterCallback onShutter
+        PictureCallback onPictureTaken
+    setDisplayOrientation
+        90 竖直
+    lock
+    unlock
+    摄像头数目 getNumberOfCameras
+    getCameraInfo
+
+Camera.Parameters
+    预览尺寸 预览像素 getSupportedPreviewSizes Camera.Size
+        width
+        height
+    getSupportedPictureSizes
+    照片的大小 setPictureSize
+    getPictureSize
+    预览帧率 getSupportedPreviewFpsRange
+    getSupportedPreviewFpsRange
+    颜色格式 getSupportedPreviewFormats
+    setPreviewFpsRange
+    getPreviewFpsRange
+    预览照片的大小 setPreviewSize
+    getPreviewSize
+    帧率 每秒几帧 setPreviewFrameRate
+    getPreviewFrameRate
+    照片的输出格式 setPictureFormat
+        PixelFormat.JPEG
+    getPictureFormat
+    setPreviewFormat
+        ImageFormat.NV21
+        ImageFormat.YV12
+    getPreviewFormat
+    聚焦 setFocusMode
+        Parameters.FOCUS_MODE_CONTINUOUS_VIDEO
+    setFlashMode
+        Parameters.FLASH_MODE_AUTO
+        打开 Parameters.FLASH_MODE_TORCH
+        关闭 Parameters.FLASH_MODE_OFF
+    getFlashMode
+    白平衡 setWhiteBalance
+        Parameters.WHITE_BALANCE_AUTO
+    getWhiteBalance
+    闪光灯 setSceneMode
+        Parameters.SCENE_MODE_AUTO
+    getSceneMode
+    set
+        照片质量 ("jpeg-quality", 85)
+    reset
+    flatten
+    unflatten
+    setRotation
+
+Camera.CameraInfo
+    CAMERA_FACING_FRONT
+    CAMERA_FACING_BACK
+    facing
+    orientation
+
+判断手机是否存在摄像头
+PackageManager
+    hasSystemFeature
+        PackageManager.FEATURE_CAMERA
+
+Camera2 LOLLIPOP
+CameraManager Context.CAMERA_SERVICE
+    getCameraIdList
+    getConcurrentCameraIds
+    getCameraCharacteristics
+    getCameraExtensionCharacteristics
+    openCamera CameraDevice.StateCallback
+        onOpened
+        onDisconnected
+        onError
+
+CameraCharacteristics
+    get
+        CameraCharacteristics.LENS_FACING
+        CameraMetadata.LENS_FACING_BACK
+        CameraMetadata.LENS_FACING_FRONT
+        CameraMetadata.LENS_FACING_EXTERNAL
+
+CameraDevice
+    close
+
+```
+
+## 音视频
+
+```
+MediaPlayer
+    setDataSource
+        uri
+    setAudioStreamType
+        AudioManager.STREAM_MUSIC
+        AudioManager.STREAM_ALARM
+    setOnCompletionListener OnCompletionListener
+        onCompletion
+    setOnErrorListener OnErrorListener
+        onError
+            MediaPlayer.MEDIA_ERROR_SERVER_DIED
+    setOnPreparedListener OnPreparedListener
+        onPrepared
+    setOnInfoListener OnInfoListener
+        onInfo
+    setOnBufferingUpdateListener OnBufferingUpdateListener
+        onBufferingUpdate
+    seekTo
+    setOnSeekCompleteListener OnSeekCompleteListener
+        onSeekComplete
+    setOnVideoSizeChangedListener OnVideoSizeChangedListener
+        onVideoSizeChanged
+    setVolume
+    setDisplay
+    setSurface
+    prepare
+    prepareAsync
+    start
+    stop
+    release
+    reset
+    isPlaying
+    setLooping
+    isLooping
+    mediaPlayer.setDataSource(file.getFileDescriptor(),
+						file.getStartOffset(), file.getLength());
+    setVolume(BEEP_VOLUME, BEEP_VOLUME);
+
+AudioRecord
+    getMinBufferSize
+        (44100,
+        AudioFormat.CHANNEL_IN_MONO,
+        AudioFormat.ENCODING_PCM_16BIT);
+    AudioRecord(
+        MediaRecorder.AudioSource.MIC,
+        44100,
+        AudioFormat.CHANNEL_IN_MONO, //单声道
+        AudioFormat.ENCODING_PCM_16BIT,
+        minBufferSize);
+    getState
+        STATE_INITIALIZED
+        STATE_UNINITIALIZED
+    getRecordingState
+        RECORDSTATE_RECORDING
+    startRecording
+    stop
+    read
+        ERROR_INVALID_OPERATION
+        ERROR_BAD_VALUE
+    release
+
+AudioTrack
+    getMinBufferSize(
+        44100,
+        AudioFormat.CHANNEL_IN_MONO,
+        AudioFormat.ENCODING_PCM_16BIT);
+    AudioTrack(
+        AudioManager.STREAM_MUSIC,
+        44100,
+        AudioFormat.CHANNEL_OUT_MONO, //单声道
+        AudioFormat.ENCODING_PCM_16BIT,
+        minBufferSize,
+        AudioTrack.MODE_STREAM);
+    play
+    getState
+        STATE_INITIALIZED
+    release
+    getPlayState
+        PLAYSTATE_PLAYING
+        PLAYSTATE_PAUSED
+    stop
+    pause
+    write
+
+AudioManager Context.AUDIO_SERVICE
+    铃声模式 getRingerMode
+        RINGER_MODE_NORMAL
+        静音 RINGER_MODE_SILENT
+    getStreamVolume
+        STREAM_ALARM
+    setStreamVolume
+        STREAM_MUSIC
+        STREAM_ALARM
+        STREAM_RING
+        STREAM_NOTIFICATION
+        STREAM_SYSTEM
+        STREAM_VOICE_CALL
+        STREAM_DTMF
+        mode NORMAL speakerphoneOn
+    getStreamVolume
+    getStreamMinVolume
+    getStreamMaxVolume
+
+Activity
+    设置activity音量控制键控制的音频流 setVolumeControlStream
+        AudioManager.STREAM_MUSIC
+
+MediaRecorder
+    getMaxAmplitude
+    setCamera
+    setPreviewDisplay
+    setVideoSource
+        VideoSource.CAMERA
+    setVideoEncoder
+        VideoEncoder.H264
+    setVideoFrameRate
+        25
+    setVideoSize
+    setAudioSource
+        AudioSource.DEFAULT
+        麦克风 AudioSource.MIC
+    setAudioEncoder
+        AudioEncoder.AAC
+        AudioEncoder.AMR_NB
+    setAudioChannels
+        1 MONO
+    setAudioSamplingRate
+        8000 8000Hz
+    setAudioEncodingBitRate
+        64
+    setOutputFile
+    setOutputFormat
+        OutputFormat.MPEG_4
+        OutputFormat.AMR_NB
+    setMaxDuration
+        30000
+    setMaxFileSize
+    setOrientationHint
+        90
+    reset
+    prepare
+    release
+    start
+    stop
+    setOnErrorListener OnErrorListener
+        onError
+    setOnInfoListener OnInfoListener
+        onInfo
+
+SoundPool
+    setOnLoadCompleteListener OnLoadCompleteListener
+        onLoadComplete
+    load
+    unload
+    play
+    pause
+    resume
+    stop
+    release
+
+SoundPool.Builder
+    build
+
+RingtoneManager
+    getDefaultUri
+        闹钟 TYPE_ALARM
+        通知 TYPE_NOTIFICATION
+    铃声 getRingtone(uri)
+
+铃声 Ringtone
+    播放 play
+    停止 stop
+    isPlaying
+
+MediaMetadataRetriever
+    setDataSource
+    getFrameAtTime
+
+
+======
+RemoteViews <-- Parcelable Filter
+
+自定义 View
+ 绘制流程 onFinishInflate systemUI
+
+View
+    View 滚动
+    View 内嵌滚动
+    View 事件分发
+
+ViewTreeObserver
+
+Dialog # 自定义 ondestroy
+PopupWindow # 自定义
+Menu
+Toast
+通知 NotificationCompat.Builder
+动画
+InputEvent # DPAD_CENTER 确认键
+
+View
+    位置 状态 深色模式 执行动画
+
+事件分发 touch
+
+```
+
+## 录屏
+
+```
+
+MediaProjectionManager
+MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
+Intent intent = mediaProjectionManager.createScreenCaptureIntent();
+startActivityForResult(intent, 100);
+
+MediaProjection mediaProjection = mediaProjectionManager.getMediaProjection(resultCode, data);
+MediaCodec mediaCodec = MediaCodec.createEncoderByType("video/avc");
+MediaFormat mediaFormat = MediaFormat.createVideoFormat("video/avc", 720, 1280);
+mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
+mediaFormat.setInteger(MediaFormat.KEY_BIT_RATE, 400_000);
+mediaFormat.setInteger(MediaFormat.KEY_FRAME_RATE, 15);
+mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 2);
+mediaCodec.configure(mediaFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
+Surface surface = mediaCodec.createInputSurface();
+VirtualDisplay virtualDisplay = mediaProjection.createVirtualDisplay(
+        "screen-codec",
+        720, 1280, 1,
+        DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC,surface, null, null);
+
+mediaCodec.start();
+MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+long time = System.currentTimeMillis();
+
+long startTime = bufferInfo.presentationTimeUs / 1000;
+OutputStream outputStream = new FileOutputStream("");
+int index = mediaCodec.dequeueOutputBuffer(bufferInfo, 100_000);// 微妙
+if (index >= 0) {
+    if (System.currentTimeMillis() - time >= 2000) { // 2s 关键帧
+        Bundle bundle = new Bundle();
+        bundle.putInt(MediaCodec.PARAMETER_KEY_REQUEST_SYNC_FRAME, 0);
+        mediaCodec.setParameters(bundle);
+        time = System.currentTimeMillis();
+    }
+    ByteBuffer byteBuffer = mediaCodec.getOutputBuffer(index);
+    byte[] outData = new byte[bufferInfo.size];
+    byteBuffer.get(outData);
+    long duration = bufferInfo.presentationTimeUs / 1000 - startTime;
+    outputStream.write(outData);
+    outputStream.write('\n');
+    mediaCodec.releaseOutputBuffer(index, false);
+}
+
+```
+
+## GiraffePlayer
+
+```
+https://github.com/tcking/GiraffePlayer
+```
+
+## Vitamio
+
+```
+https://github.com/yixia/VitamioBundle
+https://github.com/yixia/VitamioBundleStudio
+http://www.vitamio.org/
+```
+
+## UniversalVideoView
+
+```
+https://github.com/linsea/UniversalVideoView
+```
+
+## ijkplayer
+
+```
+https://github.com/bilibili/ijkplayer
+```
+
+## DanmakuFlameMaster
+
+```
+https://github.com/bilibili/DanmakuFlameMaster
+```
+
+## PLDroidPlayer
+
+```
+https://github.com/pili-engineering/PLDroidPlayer
+```
+
+## PLDroidShortVideo
+
+```
+https://github.com/pili-engineering/PLDroidShortVideo
+```
+
+## PLDroidCameraStreaming
+
+```
+https://github.com/pili-engineering/PLDroidMediaStreaming
+```
+
+## ExoPlayer
+
+```
+https://github.com/google/ExoPlayer
+
+implementation 'com.google.android.exoplayer:exoplayer:2.13.3'
+
+exoplayer core dash ui
+
+Timeline.Window window = new Timeline.Window();
+SimpleExoPlayerView simpleExoPlayerView = null;
+
+BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+TrackSelection.Factory videoTrackSelectionFactory =
+        new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+TrackSelector trackSelector =
+        new DefaultTrackSelector(videoTrackSelectionFactory);
+LoadControl loadControl = new DefaultLoadControl();
+SimpleExoPlayer player =
+        ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
+simpleExoPlayerView.setPlayer(player);
+player.setPlayWhenReady(true);
+
+DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, bandwidthMeter
+        , new DefaultHttpDataSourceFactory(Util.getUserAgent(this, "yourApplicationName"), bandwidthMeter));
+ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+MediaSource videoSource = new ExtractorMediaSource(Uri.parse(VIDEO_URL),
+        dataSourceFactory, extractorsFactory, mainHandler, null);
+MediaSource videoSource2 = new ExtractorMediaSource(Uri.parse(VIDEO_URL_DEFAULT),
+        dataSourceFactory, extractorsFactory, mainHandler, null);
+//组合几个视频
+ConcatenatingMediaSource concatenatingMediaSource = new ConcatenatingMediaSource(videoSource,videoSource2);
+//不停循环
+LoopingMediaSource loopingSource = new LoopingMediaSource(concatenatingMediaSource);
+player.prepare(loopingSource);
+
+//
+DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+// Produces DataSource instances through which media data is loaded.
+DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this, bandwidthMeter
+        , new DefaultHttpDataSourceFactory(Util.getUserAgent(this, "yourApplicationName"), bandwidthMeter));
+// Produces Extractor instances for parsing the media data.
+ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+// This is the MediaSource representing the media to be played.
+MediaSource videoSource = new ExtractorMediaSource(Uri.parse(url),
+        dataSourceFactory, extractorsFactory, mainHandler, null);
+
+//不停循环
+LoopingMediaSource loopingSource = new LoopingMediaSource(videoSource);
+SurfaceView sv = (SurfaceView) findViewById(R.id.sv);
+player.setVideoSurfaceView(sv);
+player.setPlayWhenReady(true);
+player.prepare(loopingSource);
+
+//
+int playerWindow = player.getCurrentWindowIndex();
+playerPosition = C.TIME_UNSET;
+Timeline timeline = player.getCurrentTimeline();
+if (!timeline.isEmpty() && timeline.getWindow(playerWindow, window).isSeekable) {
+    playerPosition = player.getCurrentPosition();
+}
+player.release();
+player = null;
+```
+
+
 
 # Jetpack
 
@@ -3670,9 +5629,66 @@ Process.killProcess(Process.myPid());
 
 ```
 
-```
+## Multidex
 
 ```
+MultiDexApplication
+MultiDex
+
+// 1.0.3
+implementation 'com.android.support:multidex:1.0.2'
+```
+
+## KTX
+
+```
+implementation 'androidx.core:core-ktx:1.0.2'
+
+val mSharedPreferences = context.getSharedPreferences("", Context.MODE_PRIVATE)
+        mSharedPreferences.edit() {
+            putBoolean("boo",false)
+        }
+
+        val mView: View = View(context)
+        mView.doOnLayout {
+        }
+        mView.setOnClickListener({v -> })
+        mView.setOnClickListener {  }
+
+        val string = "baidu.com"
+//        string.javaClass.simpleName
+        val uri = string.toUri()
+
+        val mIntent = Intent(context, MyAppCompatActivity::class.java)
+        context.startActivity(mIntent)
+
+
+//        var stackTrace : Array<StackTraceElement>  = Thread.currentThread().stackTrace
+//        var stackTraceElement : StackTraceElement = stackTrace[3]
+```
+
+## AppCompat
+
+```
+Android
+ContextCompat
+ActivityCompat
+
+ContextCompat
+    ActivityCompat
+implementation 'androidx.appcompat:appcompat:1.2.0'
+
+ContextCompat
+	getColor
+	checkSelfPermission
+ActivityCompat
+	requestPermissions
+ContextCompat.getColor(
+ContextCompat.getDrawable(
+
+```
+
+
 
 # 分享
 
@@ -4329,6 +6345,26 @@ unbinder.unbind();
 ```
 https://github.com/square/dagger
 ```
+
+# Litho
+
+```
+Android UI 框架
+https://github.com/facebook/litho
+```
+
+# QMUI
+
+```
+Android UI 框架
+https://qmuiteam.com/android
+implementation 'com.qmuiteam:qmui:1.2.0'
+implementation 'com.qmuiteam:arch:0.3.1'
+
+QMUIRadiusImageView
+```
+
+
 
 # 工件映射 Artifact Mappings
 

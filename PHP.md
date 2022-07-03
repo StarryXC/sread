@@ -1,5 +1,45 @@
 # PHP
 
+
+
+```
+apt install php7.4-cli
+
+apt install php
+apt install libapache2-mod-php
+apt install php7.0-mysql
+apt install phpmyadmin
+
+服务操作
+service apache2 restart
+service mysql restart
+service php7.0-fpm restart
+
+apache2.conf
+末尾添加
+include /etc/phpmyadmin/apache.conf
+
+AddType applicatin/x-httpd-php .php .html .htm
+
+AddDefaultCharset UTF-8
+
+访问 http://localhost/phpmyadmin/
+
+php
+php -v
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
 ## 注释
 
 ```
@@ -59,13 +99,19 @@ do while # do while
 
 ```
 
-```
+## 类
 
 ```
 
 ```
 
+## 接口
+
 ```
+
+```
+
+## 超级全局变量
 
 ```
 
@@ -83,17 +129,7 @@ do while # do while
 
 ```
 
-```
 
-```
-
-```
-
-```
-
-```
-
-```
 
 ```
 

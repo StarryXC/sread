@@ -1,14 +1,49 @@
 # iOS
 
+## 环境搭建
+
+```
+Apple SDK
+Xcode
+```
+
+## CocoaPods
+
+```
+CocoaPods
+https://cocoapods.org/
+pod
+pod install
+```
+
+## Homebrew
+
+```
+Homebrew
+https://github.com/Homebrew/install/
+brew
+brew install
+```
+
+```
+
+```
+
+
+
 ## 布局管理
 
 ```
 
 ```
 
+## 手势
+
 ```
 
 ```
+
+## 动画
 
 ```
 
@@ -26,8 +61,10 @@
 并发编程
 ```
 
-```
+## 视图
 
+```
+UIButton
 ```
 
 ## 通知
@@ -36,21 +73,7 @@
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+## 绘图
 
 ```
 

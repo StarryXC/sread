@@ -1,17 +1,43 @@
 # Java
 
+## 命令行
+
+```
+发展史
+    平台分支
+    JDK 5.0 特性
+
+javac
+java
+jar
+javap
+javah
+javadoc
+```
+
+
+
 ## 变量定义
 
 ```
 
 ```
 
+## 流程控制
+
+```
+swith
+int, byte, char, short
+枚举 字符串
+```
+
+
+
 ## 异常处理
 
 ```
-Throwable <-- Serializable
+Throwable
     Exception
-        RuntimeException
     Error
 
 异常处理语句
@@ -35,6 +61,117 @@ String
 StringTokenizer
 
 大小写转换
+```
+
+## 枚举
+
+```
+枚举类的声明
+
+构造方法 属性 抽象方法
+Enum # values ordinal name valueOf
+
+
+属性 字段
+方法
+构造函数 私有的
+抽象方法
+
+实现接口
+继承抽象类
+
+每一个枚举值代表枚举类的一个实例对象。
+
+若枚举类只有一个枚举值，则可以当作单态设计模式使用。
+```
+
+## 类
+
+```
+类的成员
+    类的属性
+    类的方法
+    构造方法
+    访问类成员
+
+    类定义
+        类的声明
+        类的成员
+        类成员默认初始化值:零值
+    对象创建 创建对象 类的实例化
+        类初始化
+            代码块种类
+        匿名对象 只使用一次的对象
+        instanceof
+        new
+    属性访问器
+    构造方法:调用 重载 默认 返回值
+    类的封装
+        访问修饰符
+        构造方法私有化 单例模式
+        外部不能直接操作类的属性
+        访问控制权限
+    abstract
+    strictfp
+    static
+    final 编译器优化属性内联
+        不可变类
+    内部类
+        静态内部类
+        匿名内部类
+    继承
+        this
+        super
+        方法覆写
+    多态
+    代码块
+```
+
+## 接口
+
+```
+默认函数
+```
+
+## 包
+
+```
+    静态导入
+    导包
+```
+
+## 泛型
+
+```
+类 变量 方法 | ? extends
+
+```
+
+## 对象操作
+
+```
+    对象比较
+    对象拷贝 对象克隆
+    对象哈希值 哈希函数
+    字符串表示
+```
+
+## 多态
+
+```
+    方法多态性
+    继承多态 对象多态性
+```
+
+## 4种代码块
+
+```
+普通代码块 写在一个方法之中的语句块
+构造块 写在类中的一个语句块
+	优先于构造方法执行，执行多次
+静态块 写在类中使用static声明的语句块
+	优先于构造块与构造方法执行，用于初始化静态属性，只执行一次
+同步代码块 多线程
 ```
 
 
@@ -232,6 +369,7 @@ Types
 字符型 Character	<-- Comparable Serializable
 布尔型 Boolean		<-- Comparable Serializable
 
+自动装箱/拆箱
 ```
 
 ## 大数值
@@ -289,6 +427,8 @@ Assert.assertEquals(10, 10);
 ## 反射机制
 
 ```
+Class 代表字节码
+
 AnnotatedElement
     GenericDeclaration
 
@@ -338,9 +478,12 @@ Method
     invoke
     getReturnType
     getParameterTypes
+无参、有参、多参(带数组和基本数据类型)、静态、私有
+类的 无参、有参、私有 构造函数
 
 Field
     set
+私有变量、静态变量、公共变量
 
 Member
     getName
@@ -356,6 +499,34 @@ Array
     get
     set
 ```
+
+## 内省(Introspector)
+
+```
+java.beans 操作Java属性的Api
+
+通过 PropertyDescriptor 类操作Bean的属性
+通过Introspector类获得Bean对象的 BeanInfo
+通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ）
+通过属性描述器就可以获取某个属性对应的 getter/setter 方法
+通过反射机制来调用这些方法
+
+PropertyDescriptor
+Introspector
+BeanInfo
+
+```
+
+## beanutils工具包 内省
+
+```
+commons-beanutils.jar,commons-logging.jar
+BeanUtils
+	setProperty
+	getProperty
+```
+
+
 
 ## 并发编程
 
@@ -826,6 +997,53 @@ System
 Runtime
 ```
 
+## Scanner
+
+```
+
+```
+
+## UUID
+
+```
+
+```
+
+## Runtime
+
+```
+Runtime runtime = Runtime.getRuntime();
+runtime.maxMemory();
+runtime.freeMemory();
+runtime.totalMemory();
+runtime.exec("");
+```
+
+
+
+## 对象克隆
+
+```
+被克隆的类需实现Cloneable接口并覆盖Object的clone()方法
+```
+
+## 多媒体
+
+```
+ImageIO
+ImageReader
+ImageWriter
+
+ImageTranscoder
+    ImageWriter
+
+
+
+ImageIO
+    read
+    write
+```
+
 
 
 # 网络
@@ -1080,16 +1298,327 @@ Retrofit retrofit = new Retrofit.Builder()
         .build();
 ```
 
+# IO
+
+## BIO
+
 ```
+字节流 InputStream <-- Closeable
+    文件流 FileInputStream
+    过滤流 FilterInputStream
+        缓存流 BufferedInputStream
+        数据流 DataInputStream <-- DataInput
+        PushbackInputStream
+    内存流 ByteArrayInputStream
+    合并流 SequenceInputStream
+    对象流 ObjectInputStream <-- ObjectInput ObjectStreamConstants
+
+字节流 OutputStream <-- Closeable Flushable
+    文件流 FileOutputStream
+    过滤流 FilterOutputStream
+        缓存流 BufferedOutputStream
+        数据流 DataOutputStream <-- DataOutput
+        打印流 PrintStream <-- Appendable Closeable
+    内存流 ByteArrayOutputStream
+    对象流 ObjectOutputStream <-- ObjectOutput ObjectStreamConstants
+
+Closeable
+Flushable
+
+Reader <-- Readable Closeable
+    BufferedReader
+        LineNumberReader
+    CharArrayReader
+    InputStreamReader
+        FileReader
+    FilterReader
+        PushbackReader
+    PipedReader
+    StringReader
+
+Writer <-- Appendable Closeable Flushable
+    BufferedWriter
+    CharArrayWriter
+    OutputStreamWriter
+        FileWriter
+    FilterWriter
+    PipedWriter
+    PrintWriter
+    StringWriter
 
 ```
 
+## 格式化输出
+
 ```
+格式化说明符
+%i %d int 有符号10进制整数
+%4d %04d 指定位数输出
+
+%ld %lld 长整型
+
+%o unsigned int 无符号8进制整数
+
+%u unsigned int 无符号10进制整型
+%lu
+
+%x unsigned int 无符号16进制 小写 不输出前缀
+%X unsigned int 无符号16进制 大写
+%#x 无符号16进制 小写 输出前缀
+%#X 无符号16进制 大写
+
+%c 字符 char
+
+%8s 字符串 char * 数组 char[] 以'\0'结尾
+%6.9s 不小于6 不大于9字符串 char *
+%S wchar_t *p = "tongtong" 字符串 wchar_t *
+
+%f 单精度浮点数 6位四舍五入 double
+%5.4f 单精度浮点数 6位四舍五入
+
+%lf 双进度浮点数 同 f
+
+%e %E 科学计数法 double
+
+%g %G 有效位数 默认位数 double
+
+%.4g 有效位数 指定位数
+
+%p &pi // float pi
+十六进制输出指针 void *
+
+转义字符
+转义字符 转义序列码
+转义序列	含义
+\\			\
+\'			'
+\"			"
+\?			?
+\a			警报铃声
+\b			退格键
+\f			换页符
+\n			换行符
+\r			回车
+\t			水平制表符
+\v			垂直制表符
+\ooo		一到三位的八进制数
+\xhhhh		一个或多个数字的十六进制数
+
+
+
+
 
 ```
 
+## 序列化
+
+```
+ObjectOutputStream
+	writeObject
+
+ObjectInputStream
+	readObject
 ```
 
+## 文件
+
+```
+File
+	getFreeSpace
+	getTotalSpace
+	getUsableSpace
+	createTempFile
+FileDescriptor
+```
+
+## NIO
+
+```
+Buffer
+    ByteBuffer <-- Comparable
+        MappedByteBuffer
+            DirectByteBuffer <-- DirectBuffer
+        HeapByteBuffer
+    ShortBuffer <-- Comparable
+        HeapShortBuffer
+    IntBuffer <-- Comparable
+        HeapIntBuffer
+    LongBuffer <-- Comparable
+        HeapLongBuffer
+    FloatBuffer <-- Comparable
+        HeapFloatBuffer
+    DoubleBuffer <-- Comparable
+        HeapDoubleBuffer
+    CharBuffer <-- Comparable Appendable CharSequence Readable
+        HeapCharBuffer
+
+Closeable
+    Channel
+        InterruptibleChannel
+        ReadableByteChannel
+            ScatteringByteChannel
+        WritableByteChannel
+            ByteChannel <-- ReadableByteChannel
+                SeekableByteChannel
+            GatheringByteChannel
+
+AbstractInterruptibleChannel <-- Channel InterruptibleChannel
+    FileChannel <-- SeekableByteChannel GatheringByteChannel ScatteringByteChannel
+    DatagramChannel
+    SocketChannel
+```
+
+## Commons IO
+
+```
+org.apache.commons:commons-io:1.3.2
+
+```
+
+## Okio
+
+```
+https://square.github.io/okio/
+
+implementation 'com.squareup.okio:okio:2.1.0'
+```
+
+# JNI
+
+
+
+```
+本地方法 native
+System
+    加载本地库 loadLibrary
+
+#include "jni.h"
+extern "C"
+JNIEXPORT jstring JNICALL
+(JNIEnv *env){
+	std::string cpp_str = "Hello from C++";
+	const char* c_str = cpp_str.c_str();
+	jstring j_str = env->NewStringUTF(c_str);
+	cpp_str = env->GetStringUTFChars(j_str, NULL);
+	std::string result = cpp_str + cpp_str ;
+	env->NewStringUTF(result.c_str());
+	env->ReleaseStringUTFChars(fullPath_, fullPath);
+	const char* cinfo = env->GetStringUTFChars(info,NULL);
+}
+```
+
+```
+类型映射
+jbyte jbyteArray # byte 有符号 8位
+jshort jshortArray # short 有符号 16位
+jint jintArray # int 有符号 32位
+jlong jlongArray # long 有符号 64位
+jfloat jfloatArray # float 32位
+jdouble jdoubleArray # double 64位
+jchar jcharArray # char 无符号 16位
+jboolean jbooleanArray # boolean 无符号 8位
+jobject jobjectArray
+jclass # java.lang.Class
+jstring # java.lang.String
+jarray
+void # void
+```
+
+```
+方法签名
+boolean   Z
+byte      B
+char      C
+short     S
+int       I
+long      J
+float     F
+double    D
+java.lang.Object  Ljava/lang/Object;
+type[]    [type
+method()  ()ret-type
+```
+
+## jni.h
+
+```
+GetEnv
+    GetVersion
+
+    DefineClass
+    FindClass
+
+    FromReflectedMethod
+    FromReflectedField
+    ToReflectedMethod
+
+    GetSuperclass
+    IsAssignableFrom
+
+    ToReflectedField
+
+    Throw ThrowNew
+    ExceptionOccurred ExceptionDescribe ExceptionClear FatalError
+    ExceptionCheck
+
+    PushLocalFrame PopLocalFrame
+
+    NewGlobalRef DeleteGlobalRef
+    NewLocalRef DeleteLocalRef
+    NewWeakGlobalRef DeleteWeakGlobalRef
+    IsSameObject
+    EnsureLocalCapacity
+
+    AllocObject
+    NewObject NewObjectV NewObjectA
+
+    GetObjectClass
+    IsInstanceOf
+
+    GetMethodID
+    CallObjectMethod CallObjectMethodV CallObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+    CallNonvirtualObjectMethod CallNonvirtualObjectMethodV CallNonvirtualObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+
+    GetFieldID
+    GetObjectField SetObjectField # Byte Short Int Long Float Double Char Boolean
+
+    GetStaticMethodID
+    CallStaticObjectMethod CallStaticObjectMethodV CallStaticObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+
+    GetStaticFieldID
+    GetStaticObjectField SetStaticObjectField # Byte Short Int Long Float Double Char Boolean
+
+    NewString NewStringUTF
+    GetStringLength GetStringUTFLength
+    GetStringChars GetStringUTFChars
+    GetStringRegion GetStringUTFRegion
+    ReleaseStringChars ReleaseStringUTFChars
+
+    GetArrayLength
+    NewObjectArray # Byte Short Int Long Float Double Char Boolean
+    GetObjectArrayElement
+    SetObjectArrayElement
+
+    GetIntArrayElements # Byte Short Int Long Float Double Char Boolean
+    ReleaseIntArrayElements # Byte Short Int Long Float Double Char Boolean
+    GetIntArrayRegion SetIntArrayRegion # Byte Short Int Long Float Double Char Boolean
+
+    RegisterNatives UnregisterNatives
+
+    MonitorEnter MonitorExit
+
+    GetStringCritical ReleaseStringCritical
+    GetPrimitiveArrayCritical ReleasePrimitiveArrayCritical
+
+    NewDirectByteBuffer
+    GetDirectBufferAddress
+    GetDirectBufferCapacity
+
+    GetObjectRefType
+    DestroyJavaVM GetJavaVM
+
+	AttachCurrentThread DetachCurrentThread
+    AttachCurrentThreadAsDaemon
 ```
 
 
@@ -1126,14 +1655,27 @@ page
 ## Servlet
 
 ```
+Servlet GenericServlet
+ServletConfig
+ServletRequest
+ServletResponse
+setContentType getContentType # text/html;charset=UTF-8
+
+HttpServletResponse
+setHeader # Location /day05/wxy.html 设置重定向 设置 302
+sendRedirect 重定向
+
+HttpSession
+RequestDispatcher
+
 javax.servlet
 Servlet
 ServletConfig
 ServletContext
 RequestDispatcher
 GenericServlet
-ServletRequest
-ServletResponse
+
+
 ServletInputStream
 ServletOutputStream
 
@@ -1197,7 +1739,7 @@ request
 
 # Kotlin
 
-变量定义
+## 变量定义
 
 ```
 var val
@@ -1222,8 +1764,10 @@ listOf
 fun
 ```
 
-```
+## 命令行
 
+```
+kotlinc
 ```
 
 ```
@@ -1244,10 +1788,47 @@ fun
 
 ```
 data class
+data class Order
 继承
 val side: String
 
+对象创建 # object
+    延迟初始化 # lateinit by lazy
+    构造函数 # init
+    访问控制 # 默认 private
+
+半生对象 # companion
+对象表达式
 ```
+
+## 注解
+
+```
+@JvmField
+
+注解
+@Retention(AnnotationRetention.SOURCE)
+annotation class <AnnotationName>
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
 
 ## String
 
@@ -1297,6 +1878,35 @@ def
 默认参数
 ```
 
+## 命令行
+
+```
+groovyc
+```
+
+## 类
+
+```
+访问控制
+访问控制 默认 public
+```
+
+## 接口
+
+```
+
+```
+
+## 包
+
+```
+
+```
+
+```
+
+```
+
 ```
 
 ```
@@ -1321,6 +1931,21 @@ BigInteger = 30g
 BigDecimal = 3.5g
 ```
 
+## File
+
+```
+file.text
+file.write(fileText,"UTF-8")
+```
+
+```
+
+```
+
+```
+
+```
+
 # Scala
 
 ## 变量定义
@@ -1336,6 +1961,16 @@ val var
 # Hibernate
 
 ```
+implementation fileTree(dir: 'libs', include: ['*.jar'])
+implementation 'org.hibernate:hibernate-core:5.4.11.Final'
+// implementation 'org.hibernate:hibernate-annotations:3.5.6-Final'
+
+implementation 'org.javassist:javassist:3.24.0-GA'
+implementation 'org.slf4j:slf4j-log4j12:1.4.1'
+implementation 'org.slf4j:slf4j-api:1.4.1'
+implementation 'mysql:mysql-connector-java:5.1.10'
+implementation 'log4j:log4j:1.2.13'
+
 Configuration
 AnnotationConfiguration
 SessionFactory
@@ -1608,6 +2243,16 @@ observable.subscribe(s -> { }); observable.subscribe(new Consumer<String>() {
 
 ```
 
+# Guava
+
+```
+Google 工具库
+
+implementation 'com.google.guava:guava:24.1-jre'
+```
+
+
+
 # 爬虫
 
 ## Jsoup
@@ -1776,6 +2421,9 @@ ClassPathXmlApplicationContext
 ## 注解
 
 ```
+    元注解
+    内置注解
+
 public class YicAnnotation {
     private final static int GET=0;
     private final static int POST=1;
@@ -1785,6 +2433,11 @@ public class YicAnnotation {
     @Retention(RetentionPolicy.SOURCE)
     public @interface ReqType{}
 }
+
+元注解
+@Target # ElementType FIELD METHOD CONSTRUCTOR PARAMETER LOCAL_VARIABLE ANNOTATION_TYPE PACKAGE
+@Retention # RetentionPolicy SOURCE CLASS RUNTIME
+
 ```
 
 ## JavaPoet
@@ -1793,119 +2446,37 @@ public class YicAnnotation {
 https://github.com/square/javapoet
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+# Mina
 
 ```
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+# Netty
 
 ```
 
 ```
 
-```
+# Hadoop
 
 ```
 
 ```
 
-```
+# Hive
 
 ```
 
 ```
 
-```
+# Spark
 
 ```
 
 ```
 
-```
+# XNIO
 
 ```
 
@@ -1913,19 +2484,214 @@ https://github.com/square/javapoet
 
 ```
 
-```
+ 
+注释
+标识符 关键字 保留字
+变量
+    常量 字面量
+    变量类型 全局变量 局部变量
+    数据类型 类型转换
+        数值型 字符型 布尔型
+        枚举 结构体 共用体 指针
+    变量存储类型
+运算符 操作数 优先级 结合性
+    算术运算符 按位运算符 逻辑运算符
+    比较/关系运算符 赋值运算符 条件运算符
+    指针运算符 成员访问 取地址 类型判定 级联
+    描述法：名称 作用 运算结果类型
+表达式 语句
+流程控制
+    分支流程 循环流程 跳转流程
+    描述法：书写形式种类 几种书写形式
+数组
+方法 函数
+    可变参数函数 参数类型/参数传递方式
+    匿名函数
+    Lambda
+    可选参数 必选参数
+    命名参数 索引参数
 
-```
+注释
+单行注释 可以嵌套
+多行注释 不能嵌套
+文档注释 生成开发者文档
+对程序说明
+调试程序
 
-```
+标识符
+字母 区分大小写
+数字
+下划线 _
+美元符号 $
+不能以数字开头
+长度无限制
+自定义的名字
 
-```
+关键字
+关键字 编程语言内定具备特殊含义的标识符
 
-```
+命名规范
+见名知意 有意义的名字
+关键字、保留字不能用于自定义的标识符
+类名和接口名单词的首字母大写，其他单词小写
+变量名与方法名首单词全部小写，其他单词首字母大写，其他小写
+包名全部单词小写
+常量全部单词大写，单词与单词之间使用下划线分隔
 
-```
+变量
+变量声明 & 变量初始化
+<type> <name>; # 定义变量
+<type> <name> = <value>; # 定义变量并赋值
+<type> <name1>, <name2>; # 同时定义多个变量
+<type> <name1>, <name2> = <value2>; # 同时定义多个变量并赋值
 
-```
+数据类型
+1字节8位
+2字节16位
+4字节32位
+8字节64位
+基本数据类型
+引用数据类型
+
+位数表示范围取值
+存储空间 (位数) 取值范围 (有符号) 取值范围 (无符号)
+1Byte = 8bit
+	-128 ~ 127			0 ~ 255
+2Byte = 16bit
+	-32,768 ~ 32,767	0 ~ 65,535
+4Byte = 32bit
+	-2,147,483,648 ~ 2,147,483,647
+	0 ~ 4,294,967,295
+8Byte = 64bit
+
+逻辑运算
+与 同真为真
+或 同假为假
+异或 相同false 相异true
+
+位操作 对数的二进制进行的操作
+位运算是直接多操作数的二进制的每一个二进制位（bit）都进行布尔运算 更面向底层的操作
+
+单目运算符 一元运算符
+双目运算符 二元运算符
+三目运算符 三元运算符
+
+表达式
+表达式 符合一定语法规则的运算符和操作数的序列
+表达式的值 运算的结果
+表达式的类型 运算结果的类型
+表达式的运算顺序
+1. 首先按运算符优先级从高到底进行运算
+2. 优先级相同，按运算符约定的结合方向进行运算
+
+循环语句 满足条件时反复执行特定代码
+循环类型
+	无限循环 死循环
+	有限循环
+循环语句四个组成部分
+初始化部分
+循环条件部分
+循环体部分
+循环部分
+
+数组
+:<数组：特性>
+    <数组声明>
+    <数组初始化>
+    <数组访问>
+    <数组操作>
+        <遍历>
+        <拷贝>
+多个相同数据类型的组合，实现一组数据统一管理
+一位数组 二维数组 多维数组
+数组声明 数组定义
+
+数组初始化
+	静态初始化
+	动态初始化
+
+数组小标 从0开始
+数组下标从0开始，最大值为 length -1
+数组内存分析 栈内存 堆内存
+
+数组的特点：
+	1. 数组只能存储同一种 数据类型的数据。
+	2. 数组是会给存储到数组中 的元素分配一个索引值的，索引值从0开始，最大的索引值是length-1；
+	3. 数组一旦初始化，长度固定。
+	4. 数组中的元素与元素之间的内存地址是连续的。
+
+方法 函数
+可重复调用的代码段
+返回值类型
+函数名
+形式参数
+实际参数
+返回值
+
+2、函数的重载存在的原因：为了增强方法的阅读性，优化了程序设计。
+数组遍历 一位数组 二维数组
+数组排序
+	选择排序 内循环一次，最值出现在头角标位置
+	冒泡排序 内循环一次，最值出现在尾角标位置
+	二分法 折半查找 适合有序数组 
+获取数组最大值 最小值
+1、定义函数可以将功能代码进行封装
+2、便于对该功能进行复用
+3、函数只有被调用才会被执行
+4、函数的出现提高了代码的复用性
+5、对于函数没有具体返回值的情况，返回值类型用关键字void表示，那么该函数中的return语句如果在最后一行可以省略不写。
+
+```
+
+
+
+```
+程序设计
+面向对象三大特性
+
+类：指代对象 功能 核心方法(重载方法 参数作用)
+
+程序设计
+结构化程序设计
+	程序结构
+		顺序结构 按顺序执行
+		选择结构 按选择条件执行
+		循环结构
+			当型 判断是否符合条件执行
+			直到型 先执行在判断是否符合条件再执行
+面向对象程序设计
+	一切皆对象，一切的操作都有对象
+面向对象设计 类的设计
+	类与对象的关系 # 类是对象的模版 对象是类的具体实现
+	类 # 对一类事物的描述 共性描述
+	对象/实例 # 该类事物的每个个体 个性体现
+	特征 # 继承 封装 多态
+面向过程程序设计
+
+
+面向对象三大特性
+封装性 类成员和方法对外部的可见性
+	只能通过定制好的方法访问数据
+	方便加入控制逻辑
+	限制对属性的不合理操作
+	便于修改，增强代码安全和可维护性
+继承性 扩展类的功能
+多态性 方法重载 对象多态性
+2.3封装的好处
+	1：隐藏了类的具体实现
+	2：操作简单
+	3：提高对象数据的安全性
+
+
+3.4构造代码块
+给所有的对象进行统一的初始化 
+对象一建立就运行并且优先于构造函数
+1：构造代码块和构造函数的区别，构造代码块是给所有对象进行统一初始化， 构造函数给对应的对象初始化。
+    2：构造代码块的作用：它的作用就是将所有构造方法中公共的信息进行抽取
+
+this只能在非静态中（没有static修饰的）函数使用
+可以解决构造函数中对象属性和函数形参的同名问题
+"==" 用于引用类型变量时，比较的是内存地址。判断两个 对象是否为同一个对象
 
 ```
 
