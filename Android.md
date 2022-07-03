@@ -4,25 +4,8 @@
 
 ```
 环境搭建
-	项目结构
-	安卓模拟器
 环境变量
-ANDROID_SDK_HOME
-ANDROID_HONE
-PATH
-
-
-命令行
-adb
-	install uninstall
-	devices
-	tcpip connect
-	shell
-	reboot
-aapt
-dex
-getprop
-pm
+项目结构
 
 发展史
 	行为变更
@@ -32,10 +15,7 @@ Android Studio 工具 # Logcat | -Dfile.encoding=UTF-8 | 快捷键
 
 BlueStacks Genymotion https://cloud.genymotion.com/
 
-prop
-ro.product.cpu.abi
 
-pm list instrumentation 运行测试后，执行adb指令
 
 project
     module
@@ -48,6 +28,27 @@ project
         build.gradle
         proguard-rules.pro
 
+```
+
+## 命令行
+
+```
+adb install
+adb uninstall
+adb devices
+adb tcpip
+adb connect
+adb shell
+adb reboot
+
+aapt
+dex
+getprop
+pm
+prop
+ro.product.cpu.abi
+
+pm list instrumentation 运行测试后，执行adb指令
 ```
 
 
@@ -95,8 +96,6 @@ make snod 重新生成镜像
 源码地址 Android社区
 https://www.androidos.net.cn/sourcecode
 https://www.androidos.net.cn/android/9.0.0_r8/tree
-
-
 ```
 
 
@@ -131,13 +130,6 @@ PagerAdapter
 进度条
 ProgressBar
 <SeekBar
-            android:id="@+id/seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:indeterminateDrawable="@drawable/uvv_star_play_progress_seek"
@@ -177,8 +169,6 @@ LoaderManager
     initLoader LoaderCallbacks
         onCreateLoader
         onLoadFinished
-        
-
 
 if (id == LOADER_ALL) {
                 CursorLoader cursorLoader = new CursorLoader(getActivity(),
