@@ -1,12 +1,21 @@
 # Java
 
+## 发展史
+
+```
+平台分支
+JDK 5.0 特性
+```
+
+## 环境搭建
+
+```
+
+```
+
 ## 命令行
 
 ```
-发展史
-    平台分支
-    JDK 5.0 特性
-
 javac
 java
 jar
@@ -15,13 +24,126 @@ javah
 javadoc
 ```
 
+## 基础语法
 
+```
+
+```
+
+## 面向对象语法
+
+```
+
+```
+
+## 异常处理
+
+```
+异常处理语句
+try catch finally
+try with resources
+
+Throwable
+Error
+Exception
+RuntimeException
+
+自定义异常
+```
+
+## 数据加密
+
+```
+
+```
+
+## 定时器
+
+```
+
+```
+
+
+
+## 反射机制
+
+```
+
+```
+
+
+
+## 常用类
+
+```
+
+```
+
+## GUI
+
+```
+
+```
+
+## 网络
+
+```
+
+```
+
+## 数据库
+
+```
+
+```
+
+## 输入输出
+
+```
+
+```
+
+## 并发
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
+## Json
+
+```
+
+```
+
+## XML
+
+```
+
+```
+
+# 基础语法
 
 ## 变量定义
 
 ```
 
 ```
+
+
 
 ## 流程控制
 
@@ -31,59 +153,17 @@ int, byte, char, short
 枚举 字符串
 ```
 
-
-
-## 异常处理
-
-```
-Throwable
-    Exception
-    Error
-
-异常处理语句
-    try { } catch () { } finally { }
-
-自定义异常
-```
-
 ## 方法
 
 ```
 
 ```
 
-## String
-
-```
-StringBuilder
-StringBuffer
-String
-StringTokenizer
-
-大小写转换
-```
-
-## 枚举
-
-```
-枚举类的声明
-
-构造方法 属性 抽象方法
-Enum # values ordinal name valueOf
 
 
-属性 字段
-方法
-构造函数 私有的
-抽象方法
 
-实现接口
-继承抽象类
 
-每一个枚举值代表枚举类的一个实例对象。
-
-若枚举类只有一个枚举值，则可以当作单态设计模式使用。
-```
+# 面向对象语法
 
 ## 类
 
@@ -136,9 +216,271 @@ Enum # values ordinal name valueOf
 ## 包
 
 ```
-    静态导入
-    导包
+静态导入
+导包
 ```
+
+
+
+## 枚举
+
+```
+枚举类的声明
+
+构造方法 属性 抽象方法
+Enum # values ordinal name valueOf
+
+
+属性 字段
+方法
+构造函数 私有的
+抽象方法
+
+实现接口
+继承抽象类
+
+每一个枚举值代表枚举类的一个实例对象。
+
+若枚举类只有一个枚举值，则可以当作单态设计模式使用。
+```
+
+```
+
+```
+
+```
+
+```
+
+
+
+# 常用类
+
+## Object
+
+```
+
+```
+
+## 包装类
+
+```
+数字 Number		<-- Serializable
+    字节型 Byte	<-- Comparable
+    短整型 Short	<-- Comparable
+    整型 Integer	<-- Comparable
+    长整型 Long	<-- Comparable
+    单精度 Float	<-- Comparable
+    双精度 Double	<-- Comparable
+字符型 Character	<-- Comparable Serializable
+布尔型 Boolean		<-- Comparable Serializable
+
+自动装箱/拆箱
+```
+
+## 字符串
+
+```
+String
+StringBuilder
+StringBuffer
+
+StringTokenizer
+
+大小写转换
+```
+
+# 反射机制
+
+```
+Class 代表字节码
+
+AnnotatedElement
+    GenericDeclaration
+
+类 Class <-- Serializable GenericDeclaration Type AnnotatedElement
+
+AccessibleObject <-- AnnotatedElement
+    Executable <-- Member GenericDeclaration
+        构造方法 Constructor
+        方法 Method
+    属性 Field <-- Member
+
+Class
+    forName
+    loadClass
+    方法 getMethod
+    getDeclaredMethod
+    getMethods
+    getDeclaredMethods
+    属性 getField
+    getDeclaredField
+    getFields
+    getDeclaredFields
+    构造方法 getConstructor
+    注解 getAnnotation
+    getDeclaredAnnotation
+    getAnnotations
+    getDeclaredAnnotations
+    名称 getName
+    getSimpleName
+    getCanonicalName
+    是否枚举 isEnum
+    是否实例 isInstance
+    URL getResource
+    流 getResourceAsStream
+    getClassLoader
+    newInstance
+
+AccessibleObject
+    setAccessible
+
+Executable
+    getName
+
+Constructor
+
+Method
+    invoke
+    getReturnType
+    getParameterTypes
+无参、有参、多参(带数组和基本数据类型)、静态、私有
+类的 无参、有参、私有 构造函数
+
+Field
+    set
+私有变量、静态变量、公共变量
+
+Member
+    getName
+    getModifiers
+    isSynthetic
+    getType
+
+AnnotatedElement
+    getAnnotations
+
+Array
+    getLength
+    get
+    set
+```
+
+## 内省机制
+
+```
+内省 Introspector
+java.beans 操作Java属性的Api
+
+通过 PropertyDescriptor 类操作Bean的属性
+通过Introspector类获得Bean对象的 BeanInfo
+通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ）
+通过属性描述器就可以获取某个属性对应的 getter/setter 方法
+通过反射机制来调用这些方法
+
+PropertyDescriptor
+Introspector
+BeanInfo
+
+```
+
+## beanutils工具包
+
+```
+内省
+commons-beanutils.jar,commons-logging.jar
+BeanUtils
+	setProperty
+	getProperty
+```
+
+
+
+# Json
+
+## org.json
+
+```
+JSONObject
+JSONArray
+JSONTokener
+```
+
+## Gson
+
+```
+https://github.com/google/gson
+implementation 'com.google.code.gson:gson:2.8.9'
+
+Gson
+TypeToken
+@SerializedName
+```
+
+## Fastjson
+
+```
+https://github.com/alibaba/fastjson
+implementation 'com.alibaba:fastjson:1.2.12'
+
+JSON
+JSONObject
+JSONArray
+```
+
+# XML
+
+```
+JAXP Java API for XML Processing
+```
+
+## DOM
+
+```
+DocumentBuilderFactory
+DocumentBuilder
+NodeList
+
+TransformerFactory
+Transformer
+DOMSource <-- Source
+StreamResult <-- Result
+
+Node
+    Document
+    Element
+```
+
+## SAX
+
+```
+SAXParserFactory
+SAXParser
+
+DefaultHandler <-- EntityResolver DTDHandler ContentHandler ErrorHandler
+```
+
+## XmlPull
+
+```
+占用内存资源少
+
+XmlPullParserFactory
+XmlPullParser
+XmlSerializer
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 泛型
 
@@ -174,41 +516,6 @@ Enum # values ordinal name valueOf
 同步代码块 多线程
 ```
 
-
-
-## Object
-
-```
-
-```
-
-## Json
-
-```
-org.json
-JSONObject
-JSONArray
-JSONTokener
-
-Gson
-https://github.com/google/gson
-implementation 'com.google.code.gson:gson:2.8.9'
-import com.google.gson.annotations.SerializedName
-// 2.8.0
-implementation 'com.google.code.gson:gson:2.8.5'
-
-Gson
-TypeToken
-@SerializedName
-
-Fastjson
-https://github.com/alibaba/fastjson
-implementation 'com.alibaba:fastjson:1.2.12'
-JSON
-JSONObject
-JSONArray
-```
-
 ## SPI
 
 ```
@@ -220,44 +527,6 @@ ServiceLoader
 
 ```
 auto-common auto-service
-```
-
-## JAXP
-
-```
-JAXP Java API for XML Processing
-DOM
-SAX
-
-Node
-    Document
-    Element
-
-DocumentBuilderFactory
-DocumentBuilder
-NodeList
-
-TransformerFactory
-Transformer
-DOMSource <-- Source
-StreamResult <-- Result
-
-SAXParserFactory
-SAXParser
-
-DefaultHandler <-- EntityResolver DTDHandler ContentHandler ErrorHandler
-
-```
-
-## XmlPull
-
-```
-占用内存资源少
-
-XmlPullParserFactory
-XmlPullParser
-XmlSerializer
-
 ```
 
 ## 数据加密
@@ -356,22 +625,6 @@ Types
 
 ```
 
-## 包装类
-
-```
-数字 Number		<-- Serializable
-    字节型 Byte	<-- Comparable
-    短整型 Short	<-- Comparable
-    整型 Integer	<-- Comparable
-    长整型 Long	<-- Comparable
-    单精度 Float	<-- Comparable
-    双精度 Double	<-- Comparable
-字符型 Character	<-- Comparable Serializable
-布尔型 Boolean		<-- Comparable Serializable
-
-自动装箱/拆箱
-```
-
 ## 大数值
 
 ```
@@ -416,114 +669,6 @@ assertEquals
 testImplementation 'junit:junit:4.12'
 
 Assert.assertEquals(10, 10);
-```
-
-## 定时器
-
-```
-
-```
-
-## 反射机制
-
-```
-Class 代表字节码
-
-AnnotatedElement
-    GenericDeclaration
-
-类 Class <-- Serializable GenericDeclaration Type AnnotatedElement
-
-AccessibleObject <-- AnnotatedElement
-    Executable <-- Member GenericDeclaration
-        构造方法 Constructor
-        方法 Method
-    属性 Field <-- Member
-
-Class
-    forName
-    loadClass
-    方法 getMethod
-    getDeclaredMethod
-    getMethods
-    getDeclaredMethods
-    属性 getField
-    getDeclaredField
-    getFields
-    getDeclaredFields
-    构造方法 getConstructor
-    注解 getAnnotation
-    getDeclaredAnnotation
-    getAnnotations
-    getDeclaredAnnotations
-    名称 getName
-    getSimpleName
-    getCanonicalName
-    是否枚举 isEnum
-    是否实例 isInstance
-    URL getResource
-    流 getResourceAsStream
-    getClassLoader
-    newInstance
-
-AccessibleObject
-    setAccessible
-
-Executable
-    getName
-
-Constructor
-
-Method
-    invoke
-    getReturnType
-    getParameterTypes
-无参、有参、多参(带数组和基本数据类型)、静态、私有
-类的 无参、有参、私有 构造函数
-
-Field
-    set
-私有变量、静态变量、公共变量
-
-Member
-    getName
-    getModifiers
-    isSynthetic
-    getType
-
-AnnotatedElement
-    getAnnotations
-
-Array
-    getLength
-    get
-    set
-```
-
-## 内省(Introspector)
-
-```
-java.beans 操作Java属性的Api
-
-通过 PropertyDescriptor 类操作Bean的属性
-通过Introspector类获得Bean对象的 BeanInfo
-通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ）
-通过属性描述器就可以获取某个属性对应的 getter/setter 方法
-通过反射机制来调用这些方法
-
-PropertyDescriptor
-Introspector
-BeanInfo
-
-```
-
-## beanutils工具包 内省
-
-```
-commons-beanutils.jar,commons-logging.jar
-BeanUtils
-	setProperty
-	getProperty
 ```
 
 
