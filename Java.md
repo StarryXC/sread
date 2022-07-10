@@ -1,3 +1,5 @@
+[TOC]
+
 # Java
 
 ## 发展史
@@ -49,484 +51,6 @@ Exception
 RuntimeException
 
 自定义异常
-```
-
-## 数据加密
-
-```
-
-```
-
-## 定时器
-
-```
-
-```
-
-
-
-## 反射机制
-
-```
-
-```
-
-
-
-## 常用类
-
-```
-
-```
-
-## GUI
-
-```
-
-```
-
-## 网络
-
-```
-
-```
-
-## 数据库
-
-```
-
-```
-
-## 输入输出
-
-```
-
-```
-
-## 并发
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-## Json
-
-```
-
-```
-
-## XML
-
-```
-
-```
-
-# 基础语法
-
-## 变量定义
-
-```
-
-```
-
-
-
-## 流程控制
-
-```
-swith
-int, byte, char, short
-枚举 字符串
-```
-
-## 方法
-
-```
-
-```
-
-
-
-
-
-# 面向对象语法
-
-## 类
-
-```
-类的成员
-    类的属性
-    类的方法
-    构造方法
-    访问类成员
-
-    类定义
-        类的声明
-        类的成员
-        类成员默认初始化值:零值
-    对象创建 创建对象 类的实例化
-        类初始化
-            代码块种类
-        匿名对象 只使用一次的对象
-        instanceof
-        new
-    属性访问器
-    构造方法:调用 重载 默认 返回值
-    类的封装
-        访问修饰符
-        构造方法私有化 单例模式
-        外部不能直接操作类的属性
-        访问控制权限
-    abstract
-    strictfp
-    static
-    final 编译器优化属性内联
-        不可变类
-    内部类
-        静态内部类
-        匿名内部类
-    继承
-        this
-        super
-        方法覆写
-    多态
-    代码块
-```
-
-## 接口
-
-```
-默认函数
-```
-
-## 包
-
-```
-静态导入
-导包
-```
-
-
-
-## 枚举
-
-```
-枚举类的声明
-
-构造方法 属性 抽象方法
-Enum # values ordinal name valueOf
-
-
-属性 字段
-方法
-构造函数 私有的
-抽象方法
-
-实现接口
-继承抽象类
-
-每一个枚举值代表枚举类的一个实例对象。
-
-若枚举类只有一个枚举值，则可以当作单态设计模式使用。
-```
-
-```
-
-```
-
-```
-
-```
-
-
-
-# 常用类
-
-## Object
-
-```
-
-```
-
-## 包装类
-
-```
-数字 Number		<-- Serializable
-    字节型 Byte	<-- Comparable
-    短整型 Short	<-- Comparable
-    整型 Integer	<-- Comparable
-    长整型 Long	<-- Comparable
-    单精度 Float	<-- Comparable
-    双精度 Double	<-- Comparable
-字符型 Character	<-- Comparable Serializable
-布尔型 Boolean		<-- Comparable Serializable
-
-自动装箱/拆箱
-```
-
-## 字符串
-
-```
-String
-StringBuilder
-StringBuffer
-
-StringTokenizer
-
-大小写转换
-```
-
-# 反射机制
-
-```
-Class 代表字节码
-
-AnnotatedElement
-    GenericDeclaration
-
-类 Class <-- Serializable GenericDeclaration Type AnnotatedElement
-
-AccessibleObject <-- AnnotatedElement
-    Executable <-- Member GenericDeclaration
-        构造方法 Constructor
-        方法 Method
-    属性 Field <-- Member
-
-Class
-    forName
-    loadClass
-    方法 getMethod
-    getDeclaredMethod
-    getMethods
-    getDeclaredMethods
-    属性 getField
-    getDeclaredField
-    getFields
-    getDeclaredFields
-    构造方法 getConstructor
-    注解 getAnnotation
-    getDeclaredAnnotation
-    getAnnotations
-    getDeclaredAnnotations
-    名称 getName
-    getSimpleName
-    getCanonicalName
-    是否枚举 isEnum
-    是否实例 isInstance
-    URL getResource
-    流 getResourceAsStream
-    getClassLoader
-    newInstance
-
-AccessibleObject
-    setAccessible
-
-Executable
-    getName
-
-Constructor
-
-Method
-    invoke
-    getReturnType
-    getParameterTypes
-无参、有参、多参(带数组和基本数据类型)、静态、私有
-类的 无参、有参、私有 构造函数
-
-Field
-    set
-私有变量、静态变量、公共变量
-
-Member
-    getName
-    getModifiers
-    isSynthetic
-    getType
-
-AnnotatedElement
-    getAnnotations
-
-Array
-    getLength
-    get
-    set
-```
-
-## 内省机制
-
-```
-内省 Introspector
-java.beans 操作Java属性的Api
-
-通过 PropertyDescriptor 类操作Bean的属性
-通过Introspector类获得Bean对象的 BeanInfo
-通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ）
-通过属性描述器就可以获取某个属性对应的 getter/setter 方法
-通过反射机制来调用这些方法
-
-PropertyDescriptor
-Introspector
-BeanInfo
-
-```
-
-## beanutils工具包
-
-```
-内省
-commons-beanutils.jar,commons-logging.jar
-BeanUtils
-	setProperty
-	getProperty
-```
-
-
-
-# Json
-
-## org.json
-
-```
-JSONObject
-JSONArray
-JSONTokener
-```
-
-## Gson
-
-```
-https://github.com/google/gson
-implementation 'com.google.code.gson:gson:2.8.9'
-
-Gson
-TypeToken
-@SerializedName
-```
-
-## Fastjson
-
-```
-https://github.com/alibaba/fastjson
-implementation 'com.alibaba:fastjson:1.2.12'
-
-JSON
-JSONObject
-JSONArray
-```
-
-# XML
-
-```
-JAXP Java API for XML Processing
-```
-
-## DOM
-
-```
-DocumentBuilderFactory
-DocumentBuilder
-NodeList
-
-TransformerFactory
-Transformer
-DOMSource <-- Source
-StreamResult <-- Result
-
-Node
-    Document
-    Element
-```
-
-## SAX
-
-```
-SAXParserFactory
-SAXParser
-
-DefaultHandler <-- EntityResolver DTDHandler ContentHandler ErrorHandler
-```
-
-## XmlPull
-
-```
-占用内存资源少
-
-XmlPullParserFactory
-XmlPullParser
-XmlSerializer
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 泛型
-
-```
-类 变量 方法 | ? extends
-
-```
-
-## 对象操作
-
-```
-    对象比较
-    对象拷贝 对象克隆
-    对象哈希值 哈希函数
-    字符串表示
-```
-
-## 多态
-
-```
-    方法多态性
-    继承多态 对象多态性
-```
-
-## 4种代码块
-
-```
-普通代码块 写在一个方法之中的语句块
-构造块 写在类中的一个语句块
-	优先于构造方法执行，执行多次
-静态块 写在类中使用static声明的语句块
-	优先于构造块与构造方法执行，用于初始化静态属性，只执行一次
-同步代码块 多线程
-```
-
-## SPI
-
-```
-ServiceLoader
-
-```
-
-## AutoService
-
-```
-auto-common auto-service
 ```
 
 ## 数据加密
@@ -599,29 +123,17 @@ Base64
 
 ```
 
-## JDBC
+## 定时器
 
 ```
-数据库
 
-Url
-    mysql com.mysql.jdbc.Driver
-    jdbc:mysql://localhost:3306/jdbc root
-
-DriverManager
-    注册驱动 registerDriver
-驱动 Driver
-Wrapper
-    Connection <-- AutoCloseable
-    ResultSet <-- AutoCloseable
-    ResultSetMetaData
-        RowSetMetaData
-Clob
-Blob
-Types
+```
 
 
 
+## 反射机制
+
+```
 
 ```
 
@@ -654,180 +166,6 @@ Math
 
 ```
 
-
-
-## JUnit
-
-```
-UT 单元测试
-
-junit
-@Test
-assertEquals
-
-// 4.13.2
-testImplementation 'junit:junit:4.12'
-
-Assert.assertEquals(10, 10);
-```
-
-
-
-## 并发编程
-
-```
-synchronized # 线程同步 锁膨胀
-synchronized
-volatile # 共享变量内存可见性
-
-线程池
-锁
-
-J.C.U
-并发类
-安全容器
-
-Object
-    wait
-    notify
-    notifyAll
-
-Thread <-- Runnable
-ThreadGroup <-- Thread.UncaughtExceptionHandler
-StackTraceElement <-- Serializable
-
-Thread
-    getContextClassLoader
-
-StackTraceElement
-    getClassName
-    getMethodName
-    getLineNumber
-    getFileName
-
-Exchanger
-CyclicBarrier
-CountDownLatch
-    countDown
-    await
-    getCount
-Semaphore <-- Serializable
-Condition
-    await
-    signal
-
-
-AbstractQueue <-- Queue
-    ArrayBlockingQueue <-- BlockingQueue Serializable
-    LinkedBlockingDeque <-- BlockingDeque Serializable
-    LinkedBlockingQueue <-- BlockingQueue Serializable
-    LinkedTransferQueue <-- TransferQueue Serializable
-    PriorityBlockingQueue <-- BlockingQueue Serializable
-    SynchronousQueue <-- BlockingQueue Serializable
-
-Queue
-    BlockingQueue
-        TransferQueue
-        BlockingDeque
-Deque
-    BlockingDeque
-
-BlockingQueue
-    add
-    put
-    offer
-    remove
-    poll
-    take
-    peek
-
-
-
-AbstractQueue
-    ConcurrentLinkedQueue <-- Queue Serializable
-AbstractCollection
-    ConcurrentLinkedDeque <-- Deque Serializable
-AbstractSet
-    ConcurrentSkipListSet <-- NavigableSet Cloneable Serializable
-    CopyOnWriteArraySet <-- Serializable
-CopyOnWriteArrayList <-- List RandomAccess Cloneable Serializable
-
-List
-    iterator
-    subList
-
-CopyOnWriteArrayList
-    底层实现 Object[] array
-    迭代器 COWIterator
-    子列表 COWSubList
-
-CopyOnWriteArraySet
-    底层实现 CopyOnWriteArrayList al
-
-ArrayBlockingQueue
-    底层实现 Object[] items
-    迭代器 Itr
-
-ConcurrentLinkedQueue
-    底层实现 Node
-        值 item
-        下个节点 next
-    迭代器 Itr
-
-ConcurrentLinkedDeque
-    底层实现 Node
-        值 item
-        上个节点 prev
-        下个节点 next
-    迭代器 AbstractItr
-        Itr
-        DescendingItr
-
-AbstractMap
-    ConcurrentHashMap <-- ConcurrentMap Serializable
-    ConcurrentSkipListMap <-- ConcurrentNavigableMap Cloneable Serializable
-
-Map
-    ConcurrentMap
-        ConcurrentNavigableMap(NavigableMap)
-
-Map
-    keySet
-    entrySet
-
-ConcurrentHashMap
-    底层实现 Node[]
-        hash
-        key
-        val
-        next
-    key集合 KeySetView
-    entry 集合 EntrySetView
-    值集合 ValuesView
-
-线程控制
-	创建
-	休眠
-线程池
-线程交替执行
-	
-线程交换数据
-	
-线程串行执行
-
-线程通讯
-
-线程本地变量
-原子操作
-锁
-读写锁
-死锁
-
-线程同步
-共享数据
-
-```
-
 ## 格式化
 
 ```
@@ -850,6 +188,122 @@ DateFormat
     getDateInstance
     getDateTimeInstance
     setLenient
+
+```
+
+## 日期时间
+
+```
+Date
+Calendar
+
+Serializable
+    Date
+    Calendar
+
+Comparable
+    Date
+    Calendar
+
+Cloneable
+    Date
+    Calendar
+
+
+Calendar
+    getInstance
+    setTime
+    getTime
+
+Date
+    getTime
+
+Time
+    Time()
+    setToNow
+
+```
+
+## 正则表达式
+
+```
+正则语法
+Pattern
+<正则表达式> # 数字 字母 [] {} w
+    ^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$ # 匹配email
+    [\u0391-\uFFE5]+$ # 汉字
+
+Pattern <-- Serializable
+Matcher <-- MatchResult
+
+Pattern
+    compile
+    matcher
+
+Matcher
+    find
+    start
+    end
+    group
+
+
+```
+
+## 国际化
+
+```
+ResourceBundle
+```
+
+## 运行原理
+
+```
+内存管理/内存模型/垃圾回收机制
+
+运行机制
+跨平台原理
+
+垃圾回收机制
+
+对象引用类型
+    Reference
+
+垃圾回收 GC
+不再有任何指向的空间为垃圾空间
+
+JMM 内存模型
+数组定义
+数组名称 栈内存
+数组对象 堆内存 一组连续内存
+对象 对象名称栈内存 对象属性堆内存
+全局代码区 所有的方法
+全局数据区 存放static类型属性
+
+WeakReference
+	<get>
+
+Reference
+```
+
+## 类加载
+
+```
+类加载器
+类加载器
+类加载机制
+类加载器类型
+类加载机制
+
+ClassLoader
+    getSystemClassLoader
+    getParent
+```
+
+
+
+## 常用类
+
+```
 
 ```
 
@@ -980,6 +434,201 @@ observable.addObserver(new Observer() {
 
 ```
 
+## GUI
+
+```
+
+```
+
+## 网络
+
+```
+
+```
+
+## JDBC
+
+```
+数据库
+
+Url
+    mysql com.mysql.jdbc.Driver
+    jdbc:mysql://localhost:3306/jdbc root
+
+DriverManager
+    注册驱动 registerDriver
+驱动 Driver
+Wrapper
+    Connection <-- AutoCloseable
+    ResultSet <-- AutoCloseable
+    ResultSetMetaData
+        RowSetMetaData
+Clob
+Blob
+Types
+
+
+
+
+```
+
+## IO
+
+```
+
+```
+
+## 并发
+
+```
+
+```
+
+
+
+## Json
+
+```
+
+```
+
+## XML
+
+```
+
+```
+
+## JNI
+
+```
+本地方法 native
+System
+    加载本地库 loadLibrary
+
+#include "jni.h"
+extern "C"
+JNIEXPORT jstring JNICALL
+(JNIEnv *env){
+	std::string cpp_str = "Hello from C++";
+	const char* c_str = cpp_str.c_str();
+	jstring j_str = env->NewStringUTF(c_str);
+	cpp_str = env->GetStringUTFChars(j_str, NULL);
+	std::string result = cpp_str + cpp_str ;
+	env->NewStringUTF(result.c_str());
+	env->ReleaseStringUTFChars(fullPath_, fullPath);
+	const char* cinfo = env->GetStringUTFChars(info,NULL);
+}
+
+类型映射
+jbyte jbyteArray # byte 有符号 8位
+jshort jshortArray # short 有符号 16位
+jint jintArray # int 有符号 32位
+jlong jlongArray # long 有符号 64位
+jfloat jfloatArray # float 32位
+jdouble jdoubleArray # double 64位
+jchar jcharArray # char 无符号 16位
+jboolean jbooleanArray # boolean 无符号 8位
+jobject jobjectArray
+jclass # java.lang.Class
+jstring # java.lang.String
+jarray
+void # void
+
+方法签名
+boolean   Z
+byte      B
+char      C
+short     S
+int       I
+long      J
+float     F
+double    D
+java.lang.Object  Ljava/lang/Object;
+type[]    [type
+method()  ()ret-type
+
+jni.h
+GetEnv
+    GetVersion
+
+    DefineClass
+    FindClass
+
+    FromReflectedMethod
+    FromReflectedField
+    ToReflectedMethod
+
+    GetSuperclass
+    IsAssignableFrom
+
+    ToReflectedField
+
+    Throw ThrowNew
+    ExceptionOccurred ExceptionDescribe ExceptionClear FatalError
+    ExceptionCheck
+
+    PushLocalFrame PopLocalFrame
+
+    NewGlobalRef DeleteGlobalRef
+    NewLocalRef DeleteLocalRef
+    NewWeakGlobalRef DeleteWeakGlobalRef
+    IsSameObject
+    EnsureLocalCapacity
+
+    AllocObject
+    NewObject NewObjectV NewObjectA
+
+    GetObjectClass
+    IsInstanceOf
+
+    GetMethodID
+    CallObjectMethod CallObjectMethodV CallObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+    CallNonvirtualObjectMethod CallNonvirtualObjectMethodV CallNonvirtualObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+
+    GetFieldID
+    GetObjectField SetObjectField # Byte Short Int Long Float Double Char Boolean
+
+    GetStaticMethodID
+    CallStaticObjectMethod CallStaticObjectMethodV CallStaticObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
+
+    GetStaticFieldID
+    GetStaticObjectField SetStaticObjectField # Byte Short Int Long Float Double Char Boolean
+
+    NewString NewStringUTF
+    GetStringLength GetStringUTFLength
+    GetStringChars GetStringUTFChars
+    GetStringRegion GetStringUTFRegion
+    ReleaseStringChars ReleaseStringUTFChars
+
+    GetArrayLength
+    NewObjectArray # Byte Short Int Long Float Double Char Boolean
+    GetObjectArrayElement
+    SetObjectArrayElement
+
+    GetIntArrayElements # Byte Short Int Long Float Double Char Boolean
+    ReleaseIntArrayElements # Byte Short Int Long Float Double Char Boolean
+    GetIntArrayRegion SetIntArrayRegion # Byte Short Int Long Float Double Char Boolean
+
+    RegisterNatives UnregisterNatives
+
+    MonitorEnter MonitorExit
+
+    GetStringCritical ReleaseStringCritical
+    GetPrimitiveArrayCritical ReleasePrimitiveArrayCritical
+
+    NewDirectByteBuffer
+    GetDirectBufferAddress
+    GetDirectBufferCapacity
+
+    GetObjectRefType
+    DestroyJavaVM GetJavaVM
+
+	AttachCurrentThread DetachCurrentThread
+    AttachCurrentThreadAsDaemon
+```
+
+
+
 ## JNDI
 
 ```
@@ -992,129 +641,356 @@ observable.addObserver(new Observer() {
 
 ```
 
+## SPI
+
+```
+
+```
+
+## 多媒体
+
+```
+ImageIO
+ImageReader
+ImageWriter
+
+ImageTranscoder
+    ImageWriter
+
+
+
+ImageIO
+    read
+    write
+```
+
+
+
 ## 日志
 
 ```
 
 ```
 
-## 日期时间
+
+
+## 单元测试
 
 ```
-Date
-Calendar
+JUnit
+UT 单元测试
 
-Serializable
-    Date
-    Calendar
+junit
+@Test
+assertEquals
 
-Comparable
-    Date
-    Calendar
+// 4.13.2
+testImplementation 'junit:junit:4.12'
 
-Cloneable
-    Date
-    Calendar
-
-
-Calendar
-    getInstance
-    setTime
-    getTime
-
-Date
-    getTime
-
-Time
-    Time()
-    setToNow
-
+Assert.assertEquals(10, 10);
 ```
 
-## Random
-
-```
-Random
-```
-
-## 正则表达式
-
-```
-正则语法
-Pattern
-<正则表达式> # 数字 字母 [] {} w
-    ^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$ # 匹配email
-    [\u0391-\uFFE5]+$ # 汉字
-
-Pattern <-- Serializable
-Matcher <-- MatchResult
-
-Pattern
-    compile
-    matcher
-
-Matcher
-    find
-    start
-    end
-    group
 
 
-```
+# 基础语法
 
-## 国际化
-
-```
-ResourceBundle
-```
-
-## 类加载
+## 变量定义
 
 ```
 
 ```
 
-## 运行原理
+
+
+## 流程控制
 
 ```
-内存管理/内存模型/垃圾回收机制
-
-运行机制
-跨平台原理
-
-垃圾回收机制
-
-对象引用类型
-    Reference
-
-垃圾回收 GC
-不再有任何指向的空间为垃圾空间
-
-JMM 内存模型
-数组定义
-数组名称 栈内存
-数组对象 堆内存 一组连续内存
-对象 对象名称栈内存 对象属性堆内存
-全局代码区 所有的方法
-全局数据区 存放static类型属性
-
-WeakReference
-	<get>
-
-Reference
+swith
+int, byte, char, short
+枚举 字符串
 ```
 
-## 类加载器
+## 方法
 
 ```
-类加载器
-类加载机制
-类加载器类型
-类加载机制
 
-ClassLoader
-    getSystemClassLoader
-    getParent
+```
+
+
+
+# 面向对象语法
+
+## 类
+
+```
+类的成员
+    类的属性
+    类的方法
+    构造方法
+    访问类成员
+
+    类定义
+        类的声明
+        类的成员
+        类成员默认初始化值:零值
+    对象创建 创建对象 类的实例化
+        类初始化
+            代码块种类
+        匿名对象 只使用一次的对象
+        instanceof
+        new
+    属性访问器
+    构造方法:调用 重载 默认 返回值
+    类的封装
+        访问修饰符
+        构造方法私有化 单例模式
+        外部不能直接操作类的属性
+        访问控制权限
+    abstract
+    strictfp
+    static
+    final 编译器优化属性内联
+        不可变类
+    内部类
+        静态内部类
+        匿名内部类
+    继承
+        this
+        super
+        方法覆写
+    多态
+    代码块
+```
+
+## 接口
+
+```
+默认函数
+```
+
+## 包
+
+```
+静态导入
+导包
+```
+
+
+
+## 枚举
+
+```
+枚举类的声明
+
+构造方法 属性 抽象方法
+Enum # values ordinal name valueOf
+
+
+属性 字段
+方法
+构造函数 私有的
+抽象方法
+
+实现接口
+继承抽象类
+
+每一个枚举值代表枚举类的一个实例对象。
+
+若枚举类只有一个枚举值，则可以当作单态设计模式使用。
+```
+
+```
+
+```
+
+
+
+# ---
+
+## 泛型
+
+```
+类 变量 方法 | ? extends
+
+```
+
+## 对象操作
+
+```
+    对象比较
+    对象拷贝 对象克隆
+    对象哈希值 哈希函数
+    字符串表示
+```
+
+## 多态
+
+```
+    方法多态性
+    继承多态 对象多态性
+```
+
+## 4种代码块
+
+```
+普通代码块 写在一个方法之中的语句块
+构造块 写在类中的一个语句块
+	优先于构造方法执行，执行多次
+静态块 写在类中使用static声明的语句块
+	优先于构造块与构造方法执行，用于初始化静态属性，只执行一次
+同步代码块 多线程
+```
+
+## 对象克隆
+
+```
+被克隆的类需实现Cloneable接口并覆盖Object的clone()方法
+```
+
+
+
+# 反射机制
+
+```
+Class 代表字节码
+
+AnnotatedElement
+    GenericDeclaration
+
+类 Class <-- Serializable GenericDeclaration Type AnnotatedElement
+
+AccessibleObject <-- AnnotatedElement
+    Executable <-- Member GenericDeclaration
+        构造方法 Constructor
+        方法 Method
+    属性 Field <-- Member
+
+Class
+    forName
+    loadClass
+    方法 getMethod
+    getDeclaredMethod
+    getMethods
+    getDeclaredMethods
+    属性 getField
+    getDeclaredField
+    getFields
+    getDeclaredFields
+    构造方法 getConstructor
+    注解 getAnnotation
+    getDeclaredAnnotation
+    getAnnotations
+    getDeclaredAnnotations
+    名称 getName
+    getSimpleName
+    getCanonicalName
+    是否枚举 isEnum
+    是否实例 isInstance
+    URL getResource
+    流 getResourceAsStream
+    getClassLoader
+    newInstance
+
+AccessibleObject
+    setAccessible
+
+Executable
+    getName
+
+Constructor
+
+Method
+    invoke
+    getReturnType
+    getParameterTypes
+无参、有参、多参(带数组和基本数据类型)、静态、私有
+类的 无参、有参、私有 构造函数
+
+Field
+    set
+私有变量、静态变量、公共变量
+
+Member
+    getName
+    getModifiers
+    isSynthetic
+    getType
+
+AnnotatedElement
+    getAnnotations
+
+Array
+    getLength
+    get
+    set
+```
+
+## 内省机制
+
+```
+内省 Introspector
+java.beans 操作Java属性的Api
+
+通过 PropertyDescriptor 类操作Bean的属性
+通过Introspector类获得Bean对象的 BeanInfo
+通过 BeanInfo 来获取属性的描述器（ PropertyDescriptor ）
+通过属性描述器就可以获取某个属性对应的 getter/setter 方法
+通过反射机制来调用这些方法
+
+PropertyDescriptor
+Introspector
+BeanInfo
+
+```
+
+## beanutils
+
+```
+beanutils工具包
+
+内省
+commons-beanutils.jar,commons-logging.jar
+BeanUtils
+	setProperty
+	getProperty
+```
+
+
+
+# 常用类
+
+## Object
+
+```
+
+```
+
+## 包装类
+
+```
+数字 Number		<-- Serializable
+    字节型 Byte	<-- Comparable
+    短整型 Short	<-- Comparable
+    整型 Integer	<-- Comparable
+    长整型 Long	<-- Comparable
+    单精度 Float	<-- Comparable
+    双精度 Double	<-- Comparable
+字符型 Character	<-- Comparable Serializable
+布尔型 Boolean		<-- Comparable Serializable
+
+自动装箱/拆箱
+```
+
+## 字符串
+
+```
+String
+StringBuilder
+StringBuffer
+
+StringTokenizer
+
+大小写转换
 ```
 
 ## System
@@ -1164,32 +1040,11 @@ runtime.totalMemory();
 runtime.exec("");
 ```
 
-
-
-## 对象克隆
+## Random
 
 ```
-被克隆的类需实现Cloneable接口并覆盖Object的clone()方法
+Random
 ```
-
-## 多媒体
-
-```
-ImageIO
-ImageReader
-ImageWriter
-
-ImageTranscoder
-    ImageWriter
-
-
-
-ImageIO
-    read
-    write
-```
-
-
 
 # 网络
 
@@ -1628,147 +1483,257 @@ https://square.github.io/okio/
 implementation 'com.squareup.okio:okio:2.1.0'
 ```
 
-# JNI
+# 
 
-
-
-```
-本地方法 native
-System
-    加载本地库 loadLibrary
-
-#include "jni.h"
-extern "C"
-JNIEXPORT jstring JNICALL
-(JNIEnv *env){
-	std::string cpp_str = "Hello from C++";
-	const char* c_str = cpp_str.c_str();
-	jstring j_str = env->NewStringUTF(c_str);
-	cpp_str = env->GetStringUTFChars(j_str, NULL);
-	std::string result = cpp_str + cpp_str ;
-	env->NewStringUTF(result.c_str());
-	env->ReleaseStringUTFChars(fullPath_, fullPath);
-	const char* cinfo = env->GetStringUTFChars(info,NULL);
-}
-```
+# 并发编程
 
 ```
-类型映射
-jbyte jbyteArray # byte 有符号 8位
-jshort jshortArray # short 有符号 16位
-jint jintArray # int 有符号 32位
-jlong jlongArray # long 有符号 64位
-jfloat jfloatArray # float 32位
-jdouble jdoubleArray # double 64位
-jchar jcharArray # char 无符号 16位
-jboolean jbooleanArray # boolean 无符号 8位
-jobject jobjectArray
-jclass # java.lang.Class
-jstring # java.lang.String
-jarray
-void # void
+synchronized # 线程同步 锁膨胀
+synchronized
+volatile # 共享变量内存可见性
+
+线程池
+锁
+
+J.C.U
+并发类
+安全容器
+
+Object
+    wait
+    notify
+    notifyAll
+
+Thread <-- Runnable
+ThreadGroup <-- Thread.UncaughtExceptionHandler
+StackTraceElement <-- Serializable
+
+Thread
+    getContextClassLoader
+
+StackTraceElement
+    getClassName
+    getMethodName
+    getLineNumber
+    getFileName
+
+Exchanger
+CyclicBarrier
+CountDownLatch
+    countDown
+    await
+    getCount
+Semaphore <-- Serializable
+Condition
+    await
+    signal
+
+
+AbstractQueue <-- Queue
+    ArrayBlockingQueue <-- BlockingQueue Serializable
+    LinkedBlockingDeque <-- BlockingDeque Serializable
+    LinkedBlockingQueue <-- BlockingQueue Serializable
+    LinkedTransferQueue <-- TransferQueue Serializable
+    PriorityBlockingQueue <-- BlockingQueue Serializable
+    SynchronousQueue <-- BlockingQueue Serializable
+
+Queue
+    BlockingQueue
+        TransferQueue
+        BlockingDeque
+Deque
+    BlockingDeque
+
+BlockingQueue
+    add
+    put
+    offer
+    remove
+    poll
+    take
+    peek
+
+
+
+AbstractQueue
+    ConcurrentLinkedQueue <-- Queue Serializable
+AbstractCollection
+    ConcurrentLinkedDeque <-- Deque Serializable
+AbstractSet
+    ConcurrentSkipListSet <-- NavigableSet Cloneable Serializable
+    CopyOnWriteArraySet <-- Serializable
+CopyOnWriteArrayList <-- List RandomAccess Cloneable Serializable
+
+List
+    iterator
+    subList
+
+CopyOnWriteArrayList
+    底层实现 Object[] array
+    迭代器 COWIterator
+    子列表 COWSubList
+
+CopyOnWriteArraySet
+    底层实现 CopyOnWriteArrayList al
+
+ArrayBlockingQueue
+    底层实现 Object[] items
+    迭代器 Itr
+
+ConcurrentLinkedQueue
+    底层实现 Node
+        值 item
+        下个节点 next
+    迭代器 Itr
+
+ConcurrentLinkedDeque
+    底层实现 Node
+        值 item
+        上个节点 prev
+        下个节点 next
+    迭代器 AbstractItr
+        Itr
+        DescendingItr
+
+AbstractMap
+    ConcurrentHashMap <-- ConcurrentMap Serializable
+    ConcurrentSkipListMap <-- ConcurrentNavigableMap Cloneable Serializable
+
+Map
+    ConcurrentMap
+        ConcurrentNavigableMap(NavigableMap)
+
+Map
+    keySet
+    entrySet
+
+ConcurrentHashMap
+    底层实现 Node[]
+        hash
+        key
+        val
+        next
+    key集合 KeySetView
+    entry 集合 EntrySetView
+    值集合 ValuesView
+
+线程控制
+	创建
+	休眠
+线程池
+线程交替执行
+	
+线程交换数据
+	
+线程串行执行
+
+线程通讯
+
+线程本地变量
+原子操作
+锁
+读写锁
+死锁
+
+线程同步
+共享数据
+
+```
+
+# Json
+
+## org.json
+
+```
+JSONObject
+JSONArray
+JSONTokener
+```
+
+## Gson
+
+```
+https://github.com/google/gson
+implementation 'com.google.code.gson:gson:2.8.9'
+
+Gson
+TypeToken
+@SerializedName
+```
+
+## Fastjson
+
+```
+https://github.com/alibaba/fastjson
+implementation 'com.alibaba:fastjson:1.2.12'
+
+JSON
+JSONObject
+JSONArray
+```
+
+# XML
+
+```
+JAXP Java API for XML Processing
+```
+
+## DOM
+
+```
+DocumentBuilderFactory
+DocumentBuilder
+NodeList
+
+TransformerFactory
+Transformer
+DOMSource <-- Source
+StreamResult <-- Result
+
+Node
+    Document
+    Element
+```
+
+## SAX
+
+```
+SAXParserFactory
+SAXParser
+
+DefaultHandler <-- EntityResolver DTDHandler ContentHandler ErrorHandler
+```
+
+## XmlPull
+
+```
+占用内存资源少
+
+XmlPullParserFactory
+XmlPullParser
+XmlSerializer
+```
+
+# SPI
+
+```
+ServiceLoader
+
+```
+
+## AutoService
+
+```
+auto-common auto-service
+```
+
+# 日志
+
 ```
 
 ```
-方法签名
-boolean   Z
-byte      B
-char      C
-short     S
-int       I
-long      J
-float     F
-double    D
-java.lang.Object  Ljava/lang/Object;
-type[]    [type
-method()  ()ret-type
-```
 
-## jni.h
-
-```
-GetEnv
-    GetVersion
-
-    DefineClass
-    FindClass
-
-    FromReflectedMethod
-    FromReflectedField
-    ToReflectedMethod
-
-    GetSuperclass
-    IsAssignableFrom
-
-    ToReflectedField
-
-    Throw ThrowNew
-    ExceptionOccurred ExceptionDescribe ExceptionClear FatalError
-    ExceptionCheck
-
-    PushLocalFrame PopLocalFrame
-
-    NewGlobalRef DeleteGlobalRef
-    NewLocalRef DeleteLocalRef
-    NewWeakGlobalRef DeleteWeakGlobalRef
-    IsSameObject
-    EnsureLocalCapacity
-
-    AllocObject
-    NewObject NewObjectV NewObjectA
-
-    GetObjectClass
-    IsInstanceOf
-
-    GetMethodID
-    CallObjectMethod CallObjectMethodV CallObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
-    CallNonvirtualObjectMethod CallNonvirtualObjectMethodV CallNonvirtualObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
-
-    GetFieldID
-    GetObjectField SetObjectField # Byte Short Int Long Float Double Char Boolean
-
-    GetStaticMethodID
-    CallStaticObjectMethod CallStaticObjectMethodV CallStaticObjectMethodA # Void Byte Short Int Long Float Double Char Boolean
-
-    GetStaticFieldID
-    GetStaticObjectField SetStaticObjectField # Byte Short Int Long Float Double Char Boolean
-
-    NewString NewStringUTF
-    GetStringLength GetStringUTFLength
-    GetStringChars GetStringUTFChars
-    GetStringRegion GetStringUTFRegion
-    ReleaseStringChars ReleaseStringUTFChars
-
-    GetArrayLength
-    NewObjectArray # Byte Short Int Long Float Double Char Boolean
-    GetObjectArrayElement
-    SetObjectArrayElement
-
-    GetIntArrayElements # Byte Short Int Long Float Double Char Boolean
-    ReleaseIntArrayElements # Byte Short Int Long Float Double Char Boolean
-    GetIntArrayRegion SetIntArrayRegion # Byte Short Int Long Float Double Char Boolean
-
-    RegisterNatives UnregisterNatives
-
-    MonitorEnter MonitorExit
-
-    GetStringCritical ReleaseStringCritical
-    GetPrimitiveArrayCritical ReleasePrimitiveArrayCritical
-
-    NewDirectByteBuffer
-    GetDirectBufferAddress
-    GetDirectBufferCapacity
-
-    GetObjectRefType
-    DestroyJavaVM GetJavaVM
-
-	AttachCurrentThread DetachCurrentThread
-    AttachCurrentThreadAsDaemon
-```
-
-
-
-# Java Web
+# Web
 
 ## 环境搭建
 
@@ -1780,6 +1745,41 @@ Java 容器
 
 Web 项目目录结构
 ```
+
+## web.xml
+
+```
+web.xml
+    web-app
+    servlet
+    welcome-file-list
+```
+
+## JSP
+
+```
+
+```
+
+## Servlet
+
+```
+
+```
+
+## EL
+
+```
+
+```
+
+## JSTL
+
+```
+
+```
+
+# JSP
 
 ## JSP 语法
 
@@ -1797,7 +1797,18 @@ page
 表达式 <%= %>
 ```
 
-## Servlet
+## JSP 内置对象
+
+```
+request
+    getContextPath()
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
+```
+
+## 
+
+# Servlet
 
 ```
 Servlet GenericServlet
@@ -1836,23 +1847,7 @@ javax.servlet.annotation
 @WebFilter
 ```
 
-## web.xml
-
-```
-web.xml
-    web-app
-    servlet
-    welcome-file-list
-```
-
-## JSP 内置对象
-
-```
-request
-    getContextPath()
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
-```
+# EL
 
 ## EL 语法
 
@@ -1866,23 +1861,75 @@ request
 
 ```
 
-## JSTL
+# JSTL
 
 ```
 
 ```
-
-```
-
-```
-
-```
-
-```
-
-
 
 # Kotlin
+
+## 环境搭建
+
+```
+
+```
+
+## 命令行
+
+```
+kotlinc
+```
+
+
+
+## 基础语法
+
+```
+
+```
+
+## 面向对象语法
+
+```
+
+```
+
+## 高阶函数
+
+```
+forEach
+forEachIndexed
+filter
+let
+para?.let{}
+```
+
+
+
+## 常用类
+
+```
+
+```
+
+## 集合框架
+
+```
+MutableList
+
+filter
+firstOrNull
+filterNotNull
+getOrNull
+f.isNotEmpty()
+
+rise.split("|").toList()
+```
+
+
+
+# 基础语法
 
 ## 变量定义
 
@@ -1909,25 +1956,7 @@ listOf
 fun
 ```
 
-## 命令行
-
-```
-kotlinc
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
+# 面向对象语法
 
 ## 类
 
@@ -1957,23 +1986,7 @@ annotation class <AnnotationName>
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
+# 常用类
 
 ## String
 
@@ -1981,35 +1994,47 @@ annotation class <AnnotationName>
 字串传模板： "${path}"
 ```
 
-## 集合框架
-
-```
-MutableList
-
-filter
-firstOrNull
-filterNotNull
-getOrNull
-f.isNotEmpty()
-
-rise.split("|").toList()
-```
-
-## 高阶函数
-
-```
-forEach
-forEachIndexed
-filter
-let
-para?.let{}
-```
-
-```
-
-```
-
 # Groovy
+
+## 环境搭建
+
+```
+
+```
+
+## 命令行
+
+```
+groovyc
+```
+
+## 基础语法
+
+```
+
+```
+
+## 面向对象语法
+
+```
+
+```
+
+## 常用类
+
+```
+
+```
+
+## IO
+
+```
+
+```
+
+
+
+# 基础语法
 
 ## 变量定义
 
@@ -2023,11 +2048,7 @@ def
 默认参数
 ```
 
-## 命令行
-
-```
-groovyc
-```
+# 面向对象语法
 
 ## 类
 
@@ -2048,19 +2069,7 @@ groovyc
 
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-
+# 常用类
 
 ## String
 
@@ -2076,6 +2085,8 @@ BigInteger = 30g
 BigDecimal = 3.5g
 ```
 
+# IO
+
 ## File
 
 ```
@@ -2083,15 +2094,33 @@ file.text
 file.write(fileText,"UTF-8")
 ```
 
-```
-
-```
-
-```
-
-```
-
 # Scala
+
+## 环境搭建
+
+```
+
+```
+
+## 命令行
+
+```
+
+```
+
+## 基础语法
+
+```
+
+```
+
+## 面向对象语法
+
+```
+
+```
+
+# 基础语法
 
 ## 变量定义
 
@@ -2099,9 +2128,80 @@ file.write(fileText,"UTF-8")
 val var
 ```
 
+# Struts
+
+```
+Action
+DispatchAction
+ActionMapping
+ActionForward
+ActionForm
+FormFile
+
+<struts-config>
+<form-beans>
+<form-bean>
+<action-mappings>
+<action>
+<forward>
 ```
 
 ```
+
+```
+
+# Struts 2
+
+```
+com.opensymphony.xwork2
+Action
+ActionSupport
+ActionContext
+ServletActionContext
+RequestAware
+SessionAware
+ApplicationAware
+
+<struts>
+<package>
+<action>
+<result>
+<constant>
+<include>
+```
+
+```
+
+```
+
+# Spring
+
+```
+@SpringBootApplication
+@Configuration
+@Bean
+
+SpringApplication
+
+<beans>
+<bean>
+<property>
+<value>
+<ref>
+
+ApplicationContext
+ClassPathXmlApplicationContext
+```
+
+```
+
+```
+
+```
+
+```
+
+
 
 # Hibernate
 
@@ -2282,6 +2382,10 @@ session.close(); // 关闭session session生命周期结束，一级缓存生命
 ```
 
 ```
+
+
+
+
 
 # 响应式编程
 
@@ -2478,79 +2582,6 @@ element = element.prependElement("tagName");
 
 elements = document.select("");//elements对象支持类似于CSS (或jquery)的选择器语法
 element = elements.first();
-```
-
-```
-
-```
-
-```
-
-```
-
-# Struts
-
-```
-Action
-DispatchAction
-ActionMapping
-ActionForward
-ActionForm
-FormFile
-
-<struts-config>
-<form-beans>
-<form-bean>
-<action-mappings>
-<action>
-<forward>
-```
-
-```
-
-```
-
-# Struts 2
-
-```
-com.opensymphony.xwork2
-Action
-ActionSupport
-ActionContext
-ServletActionContext
-RequestAware
-SessionAware
-ApplicationAware
-
-<struts>
-<package>
-<action>
-<result>
-<constant>
-<include>
-```
-
-```
-
-```
-
-# Spring
-
-```
-@SpringBootApplication
-@Configuration
-@Bean
-
-SpringApplication
-
-<beans>
-<bean>
-<property>
-<value>
-<ref>
-
-ApplicationContext
-ClassPathXmlApplicationContext
 ```
 
 ```

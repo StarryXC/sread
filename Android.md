@@ -192,6 +192,50 @@ Messenger
 Binder
 Handler
 Aidl
+
+管道 copy 2 次 一对一
+Socket 一对多 不安全 性能低
+共享内存 copy 0 n对n 不安全 不能控制访问
+File
+
+性能
+安全
+设计模式
+
+Binder copy 1 cs架构 1对多
+
+内核空间 用户空间
+物理地址 虚拟地址
+copy_from_user copy_to_user4
+程序地址是虚拟地址
+
+alloc_page
+MMU 内存管理单元 维护页表 虚拟地址 物理地址映射表
+活跃代码  不活跃代码
+
+zygote
+
+app_process
+app_main.cpp onZygoteInit
+ProcessState self() open_driver mmap 内存映射
+/dev/binder
+
+mmap sys/mman.h
+开辟物理内存空间
+关联文件 读磁盘 4k 8k
+在物理内存中对齐 4k整数倍
+返回物理地址 mmu转为虚拟地址
+activiy传参 mmap 开辟大小限制 1M - 8k
+
+llinux 进程隔离
+
+内核空间 虚拟地址
+bid隔离
+
+
+
+
+
 ```
 
 ## ClipboardManager
