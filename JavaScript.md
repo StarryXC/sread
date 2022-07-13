@@ -1,30 +1,28 @@
-# Web
-
-## SVG
+# SVG
 
 ```
 
 ```
 
-## ProtoBuf
+# ProtoBuf
 
 ```
 
 ```
 
-## Makdown
+# Makdown
 
 ```
 #n # 标题
 ```
 
-## YAML
+# YAML
 
 ```
 
 ```
 
-## JSON
+# JSON
 
 ```
 
@@ -90,8 +88,6 @@ chrome://version/
 chrome://settings/
 chrome://extensions/
 ```
-
-
 
 ## 标签类型
 
