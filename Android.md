@@ -756,38 +756,32 @@ public static String getPath(final Context context, final Uri uri) {
 # Android 系统服务
 
 ```
+ClipboardManager | 剪切板
+ClipData | Item
 
-```
+InputMethodManager | 输入法 INPUT_METHOD_SERVICE
+showSoftInput # 显示软键盘 InputMethodManager.SHOW_FORCED View.requestFocus
+hideSoftInputFromWindow # 隐藏键盘 (editText.getWindowToken(),0) InputMethodManager.HIDE_NOT_ALWAYS
+自定义键盘
 
-## ClipboardManager
-
-```
-剪切板
-ClipboardManager
-ClipData
-ClipData.Item
-```
-
-## InputMethodManager
-
-```
-输入法
-
-InputMethodManager
-InputMethodManager # Context.INPUT_METHOD_SERVICE
-	showSoftInput # 显示软键盘 InputMethodManager.SHOW_FORCED View.requestFocus
-	hideSoftInputFromWindow # 隐藏键盘 (editText.getWindowToken(),0) InputMethodManager.HIDE_NOT_ALWAYS
-
-```
-
-## PowerManager
-
-```
-电源管理
-
-PowerManager
+PowerManager | 电源管理
 WakeLock
+
+ConnectivityManager 连接管理 | NetworkCallback
+NetworkInfo | Type
+
+NetworkStatsManager | UsageCallback | NETWORK_STATS_SERVICE
+
+Vibrator 振荡器 | VIBRATOR_SERVICE | 震动模式
+android.permission.VIBRATE
+
+AccountManager | 账户管理
+Account
+
+AlarmManager 闹钟管理 | ALARM_SERVICE | set RTC_WAKEUP RTC
 ```
+
+
 
 ## 包管理
 
@@ -983,34 +977,6 @@ Manifest.permission
 
 ```
 
-## 连接管理
-
-```
-ConnectivityManager
-    getActiveNetworkInfo
-    getAllNetworkInfo
-    getActiveNetwork
-    getAllNetworks
-    registerDefaultNetworkCallback
-    registerNetworkCallback ConnectivityManager.NetworkCallback
-        onAvailable
-        onUnavailable
-        onLosing
-        onLost
-    unregisterNetworkCallback
-
-NetworkInfo
-    isAvailable
-    isConnected
-    isConnectedOrConnecting
-    getType
-        ConnectivityManager.TYPE_MOBILE
-    getTypeName
-    getSubtype
-    getSubtypeName
-
-```
-
 ## WiFi
 
 ```
@@ -1052,16 +1018,7 @@ while (en.hasMoreElements()) {
 
 ```
 
-## NetworkStatsManager
 
-```
-NetworkStatsManager
-NetworkStatsManager networkStatsManager = (NetworkStatsManager) getSystemService(Context.NETWORK_STATS_SERVICE);
-networkStatsManager.registerUsageCallback(0, "", 0L, new NetworkStatsManager.UsageCallback() {
-    @Override
-    public void onThresholdReached(int i, String s) { }
-});
-```
 
 ## 下载
 
@@ -1352,89 +1309,35 @@ notificationManager.notify(1, builder.build())
 
 ```
 
-## 振荡器
-
-```
-Vibrator
-Vibrator Context.VIBRATOR_SERVICE
-    震动 vibrator
-        震动模式
-
-Vibrator android.permission.VIBRATE
-
-Vibrator
-    vibrate
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        //震动模式隔1秒震动1.4秒
-        long[] pattern = { 1000, 1400 };
-        //震动重复，从数组的0开始（-1表示不重复）
-        vibrator.vibrate(pattern, 0);
-```
-
-## 账户
-
-```
-AccountManager
-Account
-```
-
-## 闹钟
-
-```
-AlarmManager
-Context.ALARM_SERVICE 闹钟
-
-	set # (AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent)
-		# RTC_WAKEUP RTC
-
-```
-
 
 
 # Android 常用类
 
-## SystemClock
-
-## Build
-
-## 倒计时
-
 ```
-倒计时 CountDownTimer
-    滴答 onTick
-    完成 onFinish
-    启动 start
-    取消 cancel
-```
-
-```
-Log
-    TextUtils
-    BuildConfig
-    Pair    
-    BaseBundle
-        Bundle
-    Build # VERSION_CODES VERSION RELEASE系统版本号 | BOARD厂商 MODEL型号 MANUFACTURER
-    Uri
-        FileProvider
-Uri.EMPTY
-int myPid = Process.myPid();
-int myUid = Process.myUid();
-int myTid = Process.myTid();
-Process.killProcess(Process.myPid());
+SystemClock
+Build
+CountDownTimer 倒计时 | start | cancel
+Log 日志 | StackTrace
+TextUtils
+BuildConfig
+Pair
+Bundle
+Build | VERSION | VERSION_CODES | BOARD厂商 MODEL型号 MANUFACTURER | RELEASE系统版本号
+Uri | EMPTY
+FileProvider
+Process | Pid | Uid | Tid | killProcess
 ```
 
 # Android 数据存储
 
 ```
-缓存设计
-
-SharedPreferences
+SharedPreferences | 
 
 SQLiteOpenHelper
+SQLiteDatabase | create
 Cursor
-SQLiteDatabase
-    create
+
+缓存设计
 
 LruCache
 
@@ -1475,7 +1378,6 @@ new LruCache<String, Bitmap>((int) (Runtime.getRuntime().() / 8)) {
 
 VERSION_CODES.N
 FileProvider.getUriForFile(context, context.getPackageName() + ".fileProvider", file);
-
 ```
 
 ## StorageManager
@@ -1570,9 +1472,13 @@ implementation 'com.tencent:mmkv-shared:1.2.11' // 动态链接
 异步处理/线程通信
 
 Handler
+
 AsyncTask
+
 HandlerThread
+
 IntentService
+
 JobService
 
 JobParameters
@@ -1612,10 +1518,9 @@ WorkManager
 # Android IPC
 
 ```
-Messenger
-Binder
-Handler
-Aidl
+Messenger Handler
+
+Binder | Aidl
 
 管道 copy 2 次 一对一
 Socket 一对多 不安全 性能低
@@ -1660,15 +1565,8 @@ bid隔离
 # Android 共享内存
 
 ```
-内存文件 MemoryFile
-    writeBytes
-    close
-
-共享内存 SharedMemory <-- Parcelable Closeable
-    mapReadWrite
-    mapReadOnly
-    unmap
-
+MemoryFile | 内存文件
+SharedMemory | 共享内存
 ```
 
 # Android 国际化
@@ -1693,22 +1591,8 @@ ClassLoader
 # Android 集合
 
 ```
-    Collection
-        ArraySet # 
-    Map
-        ArrayMap
-    SparseArray
-    SparseIntArray
-    SparseLongArray
-    SparseBooleanArray
-```
-
-# Android 日志
-
-```
-Log
-    d
-    getStackTraceString
+ArraySet | ArrayMap
+SparseArray | SparseIntArray | SparseLongArray | SparseBooleanArray
 ```
 
 # Android 注解
@@ -2027,14 +1911,6 @@ https://raw.githubusercontent.com/HyphenateInc/Hyphenate-SDK-Android/master/repo
 ```
 implementation 'cn.jiguang.sdk:jpush:3.3.2'
 implementation 'cn.jiguang.sdk:jcore:2.0.1'
-```
-
-```
-
-```
-
-```
-
 ```
 
 
@@ -2449,35 +2325,12 @@ public static final int *;
 -keepattributes SourceFile,LineNumberTable
 #@proguard_debug_end
 
-# --------------------------------------------------------------------------
-# Addidional for x5.sdk classes for apps
-
 -keep class com.tencent.smtt.export.external.**{
     *;
 }
 
 -keep class com.tencent.tbs.video.interfaces.IUserStateChangedListener {
 	*;
-}
-
--keep class com.tencent.smtt.sdk.CacheManager {
-	public *;
-}
-
--keep class com.tencent.smtt.sdk.CookieManager {
-	public *;
-}
-
--keep class com.tencent.smtt.sdk.WebHistoryItem {
-	public *;
-}
-
--keep class com.tencent.smtt.sdk.WebViewDatabase {
-	public *;
-}
-
--keep class com.tencent.smtt.sdk.WebBackForwardList {
-	public *;
 }
 
 -keep public class com.tencent.smtt.sdk.WebView {
@@ -2522,26 +2375,6 @@ public static final int *;
 	public <methods>;
 }
 
--keep public class com.tencent.smtt.sdk.WebViewClient {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.DownloadListener {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.WebChromeClient {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.WebChromeClient$FileChooserParams {
-	public <fields>;
-	public <methods>;
-}
-
 -keep class com.tencent.smtt.sdk.SystemWebChromeClient{
 	public *;
 }
@@ -2560,76 +2393,6 @@ public static final int *;
 }
 
 -keep public class com.tencent.smtt.sdk.WebStorage$QuotaUpdater {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.WebIconDatabase {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.WebStorage {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.DownloadListener {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.QbSdk {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.QbSdk$PreInitCallback {
-	public <fields>;
-	public <methods>;
-}
--keep public class com.tencent.smtt.sdk.CookieSyncManager {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.Tbs* {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.utils.LogFileUtils {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.utils.TbsLog {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.utils.TbsLogClient {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.CookieSyncManager {
-	public <fields>;
-	public <methods>;
-}
-
-# Added for game demos
--keep public class com.tencent.smtt.sdk.TBSGamePlayer {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.TBSGamePlayerClient* {
-	public <fields>;
-	public <methods>;
-}
-
--keep public class com.tencent.smtt.sdk.TBSGamePlayerClientExtension {
 	public <fields>;
 	public <methods>;
 }
@@ -2658,11 +2421,6 @@ public static final int *;
 	*;
 }
 
--keep class com.tencent.mtt.MttTraceEvent {
-	*;
-}
-
-# Game related
 -keep public class com.tencent.smtt.gamesdk.* {
 	public protected *;
 }
@@ -2676,32 +2434,16 @@ public static final int *;
 	public protected *;
 }
 
--keep public class com.tencent.smtt.sdk.TBSGameBaseActivityProxy {
-	public protected *;
-}
-
 -keep public class com.tencent.smtt.gamesdk.internal.TBSGameServiceClient {
 	public *;
 }
-#---------------------------------------------------------------------------
-
-
-#------------------  下方是android平台自带的排除项，这里不要动         ----------------
 
 -keep public class * extends android.app.Activity{
 	public <fields>;
 	public <methods>;
 }
--keep public class * extends android.app.Application
-{
-	public <fields>;
-	public <methods>;
-}
+
 -keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep public class * extends android.content.ContentProvider
--keep public class * extends android.app.backup.BackupAgentHelper
--keep public class * extends android.preference.Preference
 
 -keepclassmembers enum * {
     public static **[] values();
@@ -2710,10 +2452,6 @@ public static final int *;
 
 -keepclasseswithmembers class * {
 	public <init>(android.content.Context, android.util.AttributeSet);
-}
-
--keepclasseswithmembers class * {
-	public <init>(android.content.Context, android.util.AttributeSet, int);
 }
 
 -keepattributes *Annotation*
@@ -2740,10 +2478,6 @@ public static final int *;
 
 -keep class **JNI* {*;}
 
-
-
-
-
 -dontwarn **
 -optimizationpasses 5
 -dontusemixedcaseclassnames
@@ -2755,7 +2489,6 @@ public static final int *;
 -keep public class * extends android.app.Activity
 -keep public class com.android.vending.licensing.ILicensingService
 -keep class sun.misc.Unsafe { *; }
--keep class com.google.gson.stream.** { *; }
 -keep class **$$ViewBinder { *; }
 -dontwarn butterknife.internal.**
 -keepclasseswithmembernames class * {
@@ -2772,9 +2505,6 @@ public static final int *;
 -keepclasseswithmembernames class * {
     public <init>(android.content.Context, android.util.AttributeSet);
 }
--keepclasseswithmembernames class * {
-    public <init>(android.content.Context, android.util.AttributeSet, int);
-}
 -keepclassmembers enum * {
     public static **[] values();
     public static ** valueOf(java.lang.String);
@@ -2784,9 +2514,6 @@ public static final int *;
 	public void *(android.view.View);
 }
 
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-   public *;
-}
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
@@ -2799,37 +2526,21 @@ public static final int *;
 
 -keepattributes Signature
 
-
-# This is a configuration file for ProGuard.
-# http://proguard.sourceforge.net/index.html#manual/usage.html
-
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
 -verbose
 -dontwarn
 
-# Optimization is turned off by default. Dex does not like code run
-# through the ProGuard optimize and preverify steps (and performs some
-# of these optimizations on its own).
 -dontoptimize
 -dontpreverify
-# Note that if you want to enable optimization, you cannot just
-# include optimization flags in your own project configuration file;
-# instead you will need to point to the
-# "proguard-android-optimize.txt" file instead of this one from your
-# project.properties file.
 
 -keepattributes *Annotation*
 -keep public class com.google.vending.licensing.ILicensingService
--keep public class com.android.vending.licensing.ILicensingService
 
-# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
 -keepclasseswithmembernames class * {
     native <methods>;
 }
 
-# keep setters in Views so that animations can still work.
-# see http://proguard.sourceforge.net/manual/examples.html#beans
 -keepclassmembers public class * extends android.view.View {
    void set*(***);
    *** get*();
@@ -2854,37 +2565,19 @@ public static final int *;
     public static <fields>;
 }
 
--keep class android.support.v4.** {*;}
-
--keep class org.xmlpull.** {*;}
--keep class com.baidu.** {*;}
 -keep public class * extends com.umeng.**
--keep class com.umeng.** { *; }
--keep class com.squareup.picasso.* {*;}
 
 # bugly
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
 
 -keep class com.hyphenate.** {*;}
--keep class com.hyphenate.chat.** {*;}
--keep class org.jivesoftware.** {*;}
--keep class org.apache.** {*;}
 #另外，demo中发送表情的时候使用到反射，需要keep SmileUtils,注意前面的包名，
 #不要SmileUtils复制到自己的项目下keep的时候还是写的demo里的包名
 -keep class com.lattu.zhonghuei.im.utils.SmileUtils {*;}
 
 #2.0.9后加入语音通话功能，如需使用此功能的api，加入以下keep
 -keep class net.java.sip.** {*;}
--keep class org.webrtc.voiceengine.** {*;}
--keep class org.bitlet.** {*;}
--keep class org.slf4j.** {*;}
--keep class ch.imvs.** {*;}
-
-
-
-
-
 ```
 
 
@@ -3318,7 +3011,6 @@ Glide.with(this).load(Consts.IMAGEURI_1).into(new GlideDrawableImageViewTarget(i
                 log();
             }
         });
-
 ```
 
 ## Picasso
@@ -3807,25 +3499,7 @@ viewPager.addOnAdapterChangeListener(new ViewPager.OnAdapterChangeListener() {
 implementation 'androidx.drawerlayout:drawerlayout:'
 implementation 'com.android.support:drawerlayout:'
 
-
-ViewGroup
-    DrawerLayout
-
-DrawerLayout.SimpleDrawerListener <-- DrawerLayout.DrawerListener
-
-DrawerLayout
-    addDrawerListener DrawerLayout.DrawerListener
-        onDrawerSlide
-        onDrawerOpened
-        onDrawerClosed
-        onDrawerStateChanged
-    removeDrawerListener
-    closeDrawer
-        GravityCompat.START
-    closeDrawers
-
-
-
+DrawerLayout | DrawerListener | SimpleDrawerListener | closeDrawer GravityCompat.START
 ```
 
 
@@ -3963,8 +3637,6 @@ Browser.BookmarkColumns.URL
 ```
 implementation 'androidx.recyclerview:recyclerview:1.1.0'
 implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
-implementation 'com.android.support:recyclerview-v7:'
-implementation 'com.android.support:recyclerview-selection:'
 
 ViewGroup
     RecyclerView <-- ScrollingView NestedScrollingChild2 NestedScrollingChild3
@@ -4226,7 +3898,7 @@ SwipeRefreshLayout
 	canChildScrollUp
 ```
 
-## ConstraintLayout
+# ConstraintLayout
 
 ```
 implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -4807,87 +4479,20 @@ https://github.com/JakeWharton/NineOldAndroids
 # Android 事件处理
 
 ```
-MotionEvent
-KeyEvent
+Activity
+View
+ViewGroup | requestDisallowInterceptTouchEvent
 
-class AskBrainActivity extends Activity {
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) { return super.dispatchTouchEvent(event); }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) { return super.onTouchEvent(event); }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) { return super.onKeyDown(keyCode, event); }
-}
-class AskBrainView extends View {
-    public AskBrainView(Context context) { super(context); }
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) { return super.dispatchTouchEvent(event); }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) { return super.onTouchEvent(event); }
-}
-class AskBrainView extends ViewGroup {
-    public AskBrainView(Context context) { super(context); }
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) { }
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) { return super.dispatchTouchEvent(ev); }
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) { return super.onInterceptTouchEvent(ev); }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        requestDisallowInterceptTouchEvent(true);
-        return super.onTouchEvent(event);
-    }
-}
-
-switch (motionEvent.getAction()) {
-    case MotionEvent.ACTION_DOWN:
-    case MotionEvent.ACTION_UP:
-    case MotionEvent.ACTION_CANCEL:
-}
-motionEvent.getX();
-motionEvent.getY();
-motionEvent.getRawX();
-motionEvent.getRawY();
-
-MotionEvent
-	<coords>
-	<action> <pointer> <point: id count coords>
-
-boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
-    switch (keyCode) {
-        case KeyEvent.KEYCODE_BACK:
-        case KeyEvent.KEYCODE_ENTER:
-    }
-    switch (keyEvent.getAction()) {
-        case KeyEvent.ACTION_DOWN:
-    }
-    return super.onKeyDown(keyCode, keyEvent);
-}
-
-
-
-
-
-
+MotionEvent | ACTION
+KeyEvent | ACTION | KEYCODE
 ```
 
 # Android 手势
 
 ```
-GestureDetector
-GestureDetector.SimpleOnGestureListener <-- OnGestureListener OnDoubleTapListener OnContextClickListener
+GestureDetector | OnGestureListener | OnDoubleTapListener | OnContextClickListener | SimpleOnGestureListener
 
-GestureDetector.OnGestureListener
-    onLongPress
-
-GestureDetector.OnDoubleTapListener
-
-GestureDetector.OnContextClickListener
-
-ScaleGestureDetector
-ScaleGestureDetector.SimpleOnScaleGestureListener <-- OnScaleGestureListener
-
+ScaleGestureDetector | OnScaleGestureListener | SimpleOnScaleGestureListener
 ```
 
 ## AppWidget
@@ -5016,11 +4621,6 @@ NestedScrollingParentHelper
 	onNestedPreScroll # consumed[1] = dy;
 	onNestedFling onNestedPreFling # 
 	getNestedScrollAxes
-
-
-
-
-
 ```
 
 
@@ -5135,6 +4735,15 @@ https://github.com/limccn/Android-Charts
 ## 绘图
 
 ```
+Canvas | draw | 
+
+
+
+
+
+
+
+
 Canvas
     getWidth
     getHeight
@@ -5316,31 +4925,9 @@ Icon <-- Parcelable
     createWithResource
 
 Gravity
-    NO_GRAVITY
-    CENTER
-    FILL
-    CLIP
-    RELATIVE
-    LEFT
-    RIGHT
-    TOP
-    BOTTOM
-    START
-    END
 
 Point
-    set
-    offset
-
 Rect
-    width
-    height
-    centerX
-    centerY
-    flattenToString
-    offset
-    offsetTo
-
 RectF
 
 区域 Region
