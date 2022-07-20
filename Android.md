@@ -119,6 +119,93 @@ HAL Hardware Abstract Layer 硬件抽象层
 
 ## Android 系统启动过程
 
+```
+BootLoader
+内核空间 idle kthreadd
+用户空间 进程 init
+
+java 进程 zygote 孵化器 受精卵  fork 进程
+ app_main.cpp main()  初始化 AndroidRuntime 环境 AppRuntime start
+  AndroidTuntime.cpp start
+    startVm 启动虚拟机
+    注册jni
+    jni调用 zygoteinit main
+ zygoteInit 创建虚拟机 main方法 进入java的入口函数
+ 	preload 预加载信息 一部分framework资源 和 常用 java类  加快应用进程的启动
+ 	ZygoteServer 创建zygoteserver服务 Socket 进程通讯机制  binder 还没有初始化完成
+ 	forkSystemServer创建  反射启动system_server进程 执行main方法
+ 	  RuntimeInit .applicationInit
+ 	zygoterunselectloop zygote进入无线循环 ams发消息创建进程
+ 	
+fork 写时拷贝 思索 binder多进程 容易死锁
+
+SystemServer 系统服务 ams wms pkms
+ lemanager 生命周期管理类
+publishBinderService ServiceManager.addService 添加到ServiceManager
+ams
+初始化 clientlifecyclemanager
+创建activity task 管理类
+
+setSystemProvices 
+meminfo 
+dumpsys meminfo
+gfxinfo binder
+dbinfo
+cpuinfo
+permissinfo
+processinfo
+cacheinfo
+dumpsys activity
+
+
+ sublimetext
+
+Activty
+9。0 ams startactivyt
+atm startactivity
+servicemanager getService 代理模式
+
+进程存在 realstartactivityLocked
+进程不存在 service.startProcessAsync socket 通知 syogate fork 进程
+如果创建应用进程 发射执行 Activity Thread main
+
+ams  如何管理信的进程生命周期
+句柄 activitry给 ams
+attachapplication applicationthread
+
+启动不用注册的Activitu 插件化 保管里 资源加载 类加载
+
+
+
+
+binder 内存拷贝
+
+
+
+
+
+Apps.loop
+
+xygote fork 原因
+ps 命令查看
+init 
+虚拟机再gogate 创建
+systemserver 创建系统服务 所有应用进程共用服务 进程间通讯
+
+
+
+进程 虚拟机
+一个进程一个虚拟机
+一个虚拟机一个进程
+隔离 
+进程 操作系统分配资源的最小单位 内存私有 进程隔离
+虚拟机管理内存 符合沙河机制 进程挂点不会影响其他进程
+线程 cpu执行调度的最小单位
+
+```
+
+
+
 # Android 框架搭建
 
 ## MVX

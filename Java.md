@@ -258,7 +258,7 @@ public static boolean doCheck(String content, String sign, String publicKeyStrin
     signature.update(content.getBytes());
     return signature.verify(Base64.decode(sign, 0));
 }
-
+beisaierquxian
 
 Base64
     encodeToString
@@ -277,6 +277,9 @@ Base64
 # Java 反射机制
 
 ```
+双亲委派机制
+
+
 Class 代表字节码
 
 AnnotatedElement

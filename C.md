@@ -620,6 +620,165 @@ include
     libswresample
     libswscale
 examples
+
+
+ffmpeg 命令
+音频 pcm aac 文件提取
+视频 yuv h264 文件提取
+复用 解复用
+音视频录制
+视频裁剪 合并
+图片 视频 转换
+直播推流和啦流
+水印 画中画 九宫格滤镜
+
+sdk 跨平台多媒体开发库
+sdl 环境搭建
+sdl 事件处理
+sdl 线程处理
+视频 yuv画面渲染
+音频 pcm 声音输出
+
+ffmpeg 框架
+ffmpeg 内存引用计数模型
+解复用 AVFormat
+编解码 AVCodec
+压缩数据 AVPacket
+未压缩数据 AVFrame
+Packet/Frame 数据零拷贝
+
+
+解复用流程
+音视频解码流程
+flv封装格式分析
+mp4封装格式分析
+flv不能用于直播
+mp4不能用于直播
+mp4 能否点播
+aac adts分析
+h264 nalu分支
+avio内存输入模式
+音视频重采样
+   数据播放时长
+   Pts表示
+视频解码Yuv内存对齐
+音频解码Pcm排列格式
+硬件解码 dxva2 nvdec cuvid qsv
+硬件gpu数据转移至cpu
+h265解码
+
+aac音频编码
+h264视频编码
+pcm yuv 复用合成 mp4 flv
+h264 编码原理
+idr帧 i帧
+动态修改编码码率
+gop间隔参考值
+编码 复用 timebase问题
+mp4合成ios不能播放问题
+h264 h265 编码转换
+
+音频过滤器
+视频过滤器
+
+qmplay2
+
+rtmp推列 拉流
+wireshark 抓包
+hls拉流
+
+数据采集 编码 推流 拉流 解码 播放
+
+rtsp协议
+
+rtsp拉流
+rtsp交互过程
+
+sps pps 发送
+sdp封装音视频信息
+
+obs录屏
+
+srs3.0
+收屏秒开技术
+
+nginx-rtmp 默认延迟比srs大
+
+ffmmpeg 拉流测试
+-flag nobuffer
+不使用ffplay vlc测延迟
+
+srs realtime。conf配置
+
+zlmediakit
+
+
+
+
+
+
+
+
+
+flv容器格式
+hls协议
+webrtc
+mpeg-dash技术
+rtmp协议
+http-flv协议
+cmaf低延迟协议
+ll-hls递延池协议
+
+音频帧 编码 音频包
+视频帧 编码 视频包 复用封装
+
+复用 解复用
+
+ffmpeg编译
+
+meidainfo 分析视频文件
+vlc 播放器
+easyice 分析ts流
+flvAnalyser 分析flv
+mp4box 分析mp4
+audacity 分析音频pcm
+elecard streamEye 分析h264
+
+
+进程保活
+白名单 微信
+
+low memory killer 进程内存回收
+前台进程
+可见进程值
+服务进程
+后台进程
+contenntcat /proc/pid/oom_adjprovider
+空进程
+
+内存阀值 00m_adj值
+su root
+cat /sys/module/lowmemorykiller/parameters/minfree
+cat /proc/pid/oom_adj
+adj级别
+0 前台 1可见 2 可感知 3 备份
+
+android 10 拉活
+1像素 activy
+关闭时 打开 开平时 关闭
+
+无声音乐保活
+
+双进程守护
+
+
+
+
+
+
+
+
+
 ```
 
 # OpenCV
